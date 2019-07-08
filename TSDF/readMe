@@ -1,0 +1,5 @@
+convert_scannet.py: preprocess 2d groundtruth semantics, depths, and camera poses for tsdf_fusion for all frames in a scene
+convert_scannet_test_scenes: preprocess 2d predicted segmentations, depths, and camera poses for all frames in test scene (since test scene does not have groundtruth 2d semantics)
+convert_scannet_train_scenes: preprocess 2d predicted segmentations, depths, and camera poses for every 50 frames in a scene
+
+tsdf_fusion and tsdf_volume are for datacost fusion
