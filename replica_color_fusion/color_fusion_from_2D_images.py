@@ -61,6 +61,7 @@ def main():
         camera = np.load(camera_path)
         proj_matrix = camera['projection_matrix']
         cam_matrix = camera['cam_matrix']
+	transform_matrix =  np.matmul(proj_matrix, cam_matrix)
 
         depth_map = Image.open(depth_map_path)
         depth_map = np.ascontiguousarray(depth_map, dtype=np.float32)
@@ -71,7 +72,7 @@ def main():
         color_image = color_image[:,:,:-1]
 
         
-        color_sdf_volume.fuse(proj_matrix, cam_matrix,
+        color_sdf_volume.fuse(transform_matrix,
                             depth_map, color_image)
 
 

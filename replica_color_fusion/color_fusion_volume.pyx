@@ -38,14 +38,11 @@ cdef class ColorSDFVolume:
         return np.array(self.volume)
 
     def fuse(self,
-             np.float32_t[:, ::1] proj_matrix,
-             np.float32_t[:, ::1] cam_matrix,
+             np.float32_t[:, ::1] transform_matrix,
              np.float32_t[:, ::1] depth_map,
              np.float32_t[:, :, ::1] color_map):
 
         assert color_map.shape[2] == self.volume.shape[3]
-
-        transform_matrix =  np.matmul(proj_matrix, cam_matrix)
 
         cdef int i, j, k
         cdef float x, y, z
@@ -103,8 +100,8 @@ cdef class ColorSDFVolume:
                     y_ndc = y_clip/w_clip
 
                     ## compute viewport transform (assume the position of viewport is (0,0))
-                    x_screen = <int>round((width * x_ndc + width)/2)
-                    y_screen = <int>round((height * y_ndc + height)/2)
+                    x_screen = <int>round((self.viewport_width * x_ndc + self.viewport_width)/2)
+                    y_screen = <int>round((self.viewport_height * y_ndc + self.viewport_height)/2)
 
 
                     # Extract depth of visible surface
