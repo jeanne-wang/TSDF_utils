@@ -54,7 +54,8 @@ cdef class ColorSDFVolume:
         cdef int x_screen, y_screen
 
     
-        cdef float depth
+        cdef float depth ## measured depth in depth map
+        cdef float signed_distance
         cdef float prior_color_weight, new_color_weight
         
 
@@ -102,13 +103,14 @@ cdef class ColorSDFVolume:
                     y_ndc = y_clip/w_clip
 
                     ## compute viewport transform (assume the position of viewport is (0,0))
-                    x_screen = <int>round((width*x_ndc + width)/2)
+                    x_screen = <int>round((width * x_ndc + width)/2)
                     y_screen = <int>round((height * y_ndc + height)/2)
 
 
                     # Extract depth of visible surface
                     depth = depth_map[y_screen, x_screen]
 
+                    # w_clip = -z_e, w_clip is the distance between the point to the camera in the camera coords space
                     signed_distance = depth-w_clip
 
                     # color fusion
@@ -119,7 +121,7 @@ cdef class ColorSDFVolume:
                     new_color_weight = prior_color_weight+1.0
 
                     for ch in range(color_map.shape[2]):
-                        self.volume[i, j, k, ch] = min((prior_color_weight * self.volume[i,j,k,ch] + 1.0 *  color_map[color_image_proj_y, color_image_proj_x, ch])/new_color_weight, 255.0)
+                        self.volume[i, j, k, ch] = min((prior_color_weight * self.volume[i,j,k,ch] + 1.0 *  color_map[y_screen, x_screen, ch])/new_color_weight, 255.0)
 
                     self.color_weight_data[i,j,k] = new_color_weight
 

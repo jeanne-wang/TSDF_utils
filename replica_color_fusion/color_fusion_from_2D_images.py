@@ -63,11 +63,12 @@ def main():
         cam_matrix = camera['cam_matrix']
 
         depth_map = Image.open(depth_map_path)
-        depth_map = np.asarray(depth_map, dtype=np.float32)
+        depth_map = np.ascontiguousarray(depth_map, dtype=np.float32)
         depth_map = depth_map*10/255 ## here depth map stores unprojected depth value
 
         color_image = Image.open(color_map_path)
-        color_image = np.asarray(color, dtype=np.float32)
+        color_image = np.ascontiguousarray(color, dtype=np.float32)
+        color_image = color_image[:,:,:-1]
 
         
         color_sdf_volume.fuse(proj_matrix, cam_matrix,
