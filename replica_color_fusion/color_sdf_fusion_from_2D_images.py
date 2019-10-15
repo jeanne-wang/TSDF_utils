@@ -76,7 +76,7 @@ def main():
                             depth_map, color_image)
 
 
-    np.savez(args.output_path + ".npz",
+    np.savez(args.output_path + "color_sdf.npz",
              volume=color_sdf_volume.get_volume(),
              resolution=args.resolution)
 

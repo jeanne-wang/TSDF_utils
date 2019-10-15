@@ -36,6 +36,7 @@ cdef class ColorSDFVolume:
 
         # the last channel is for fused sdf, and we initialize it to truncated_distance, i.e., self.max_distance
         self.volume[:,:,:,-1] = self.max_distance 
+        self.sdf_weight_data = np.zeros(volume_shape, dtype=np.float32)
         self.color_weight_data = np.zeros(volume_shape, dtype=np.float32)
 
     def get_volume(self):
