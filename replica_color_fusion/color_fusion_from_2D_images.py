@@ -3,7 +3,7 @@ import glob
 import argparse
 import numpy as np
 from PIL import Image
-from color_fusion_volume import ColorFusionVolume
+from color_sdf_fusion_volume import ColorSDFVolume
 
 
 def parse_args():
@@ -40,7 +40,7 @@ def main():
 
     bbox = np.loadtxt(os.path.join(args.input_path, "bbox.txt"))
 
-    color_sdf_volume = ColorFusionVolume(bbox, args.viewport_height, args.viewport_width, args.resolution, args.resolution_factor)
+    color_sdf_volume = ColorSDFVolume(bbox, args.viewport_height, args.viewport_width, args.resolution, args.resolution_factor)
 
     camera_paths = sorted(glob.glob(os.path.join(args.input_path,
                                                 "frames/frame*.npz")))

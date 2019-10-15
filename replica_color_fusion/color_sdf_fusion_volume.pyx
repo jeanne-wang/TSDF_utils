@@ -7,7 +7,7 @@ cimport numpy as np
 from libc.math cimport round
 
 
-cdef class ColorFusionVolume:
+cdef class ColorSDFVolume:
 
     cdef float[:, ::1] bbox
     cdef float resolution
@@ -15,6 +15,7 @@ cdef class ColorFusionVolume:
     cdef int viewport_width
     cdef int viewport_height
     cdef float[:, :, :, ::1] volume
+    cdef float[:, :, ::1] sdf_weight_data
     cdef float[:, :, ::1] color_weight_data
 
     def __init__(self, bbox, viewport_height, viewport_width, resolution, resolution_factor):
@@ -30,8 +31,11 @@ cdef class ColorFusionVolume:
         volume_size = np.diff(bbox, axis=1)
         volume_shape = volume_size.ravel() / self.resolution
         volume_shape = np.ceil(volume_shape).astype(np.int32).tolist()
-        self.volume = np.zeros(volume_shape + [3],
+        self.volume = np.zeros(volume_shape + [4],
                                dtype=np.float32)
+
+        # the last channel is for fused sdf, and we initialize it to truncated_distance, i.e., self.max_distance
+        self.volume[:,:,:,-1] = self.max_distance 
         self.color_weight_data = np.zeros(volume_shape, dtype=np.float32)
 
     def get_volume(self):
@@ -42,7 +46,7 @@ cdef class ColorFusionVolume:
              np.float32_t[:, ::1] depth_map,
              np.float32_t[:, :, ::1] color_map):
 
-        assert color_map.shape[2] == self.volume.shape[3]
+        assert color_map.shape[2] == self.volume.shape[3]-1
 
         cdef int i, j, k
         cdef float x, y, z
@@ -53,7 +57,7 @@ cdef class ColorFusionVolume:
     
         cdef float depth ## measured depth in depth map
         cdef float signed_distance
-        cdef float prior_color_weight, new_color_weight
+        cdef float prior_sdf_weight, prior_color_weight,new_sdf_weight, new_color_weight
         
 
         for i in range(self.volume.shape[0]):
@@ -109,6 +113,20 @@ cdef class ColorFusionVolume:
 
                     # w_clip = -z_e, w_clip is the distance between the point to the camera in the camera coords space
                     signed_distance = depth-w_clip
+
+                    ## sdf fusion
+                    if signed_distance >= -self.max_distance:
+
+                        if signed_distance > 0:
+                            truncated_distance = min(signed_distance, self.max_distance)
+                        else:
+                            truncated_distance = signed_distance
+                        
+                        prior_sdf_weight = self.sdf_weight_data[i, j, k]
+                        new_sdf_weight = prior_sdf_weight+1.0
+                        self.volume[i,j,k,-1] = (prior_sdf_weight * self.volume[i,j,k,-1] + 1.0  * truncated_distance)/new_sdf_weight
+                        self.sdf_weight_data[i, j, k] = new_sdf_weight
+
 
                     # color fusion
                     if abs(signed_distance) > self.max_distance:
