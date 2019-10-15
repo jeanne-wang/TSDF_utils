@@ -33,10 +33,31 @@ def main():
     maxy = groundtruth.points.y.max()
     maxz = groundtruth.points.z.max()
 
-    # Extend the bounding box by a stretching factor.
     diffx = maxx - minx
     diffy = maxy - miny
     diffz = maxz - minz
+
+
+    #### rotate the bounding box to have z-gravity ##########
+    # x direction does not change
+    minx = minx
+    maxx = maxx
+
+    # y direction
+    maxy = miny
+    miny = maxy-diffz
+
+    # z direction
+    maxz = maxz
+    minz = maxz-diffy
+
+    # new size
+    diffx = maxx - minx
+    diffy = maxy - miny
+    diffz = maxz - minz
+
+    # Extend the bounding box by a stretching factor.
+    
     minx -= 0.05 * diffx
     maxx += 0.05 * diffx
     miny -= 0.05 * diffy
@@ -44,7 +65,7 @@ def main():
     minz -= 0.05 * diffz
     maxz += 0.05 * diffz
 
-    # Write the bounding box.
+    # Write the bounding box. 
     bbox = np.array(((minx, maxx), (miny, maxy), (minz, maxz)),
                     dtype=np.float32)
     np.savetxt(os.path.join(args.output_path, "bbox.txt"), bbox)
