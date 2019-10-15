@@ -60,7 +60,13 @@ cdef class ColorSDFVolume:
         cdef float depth ## measured depth in depth map
         cdef float signed_distance
         cdef float prior_sdf_weight, prior_color_weight,new_sdf_weight, new_color_weight
-        
+
+        printf("Transform matrix: \n")
+        printf("%f, %f, %f, %f\n", transform_matrix[0, 0], transform_matrix[0,1], transform_matrix[0,2], transform_matrix[0,3])
+        printf("%f, %f, %f, %f\n", transform_matrix[1, 0], transform_matrix[1,1], transform_matrix[1,2], transform_matrix[1,3])
+        printf("%f, %f, %f, %f\n", transform_matrix[2, 0], transform_matrix[2,1], transform_matrix[2,2], transform_matrix[2,3])
+        printf("%f, %f, %f, %f\n", transform_matrix[3, 0], transform_matrix[3,1], transform_matrix[3,2], transform_matrix[3,3])
+
 
         for i in range(self.volume.shape[0]):
             x = self.bbox[0, 0] + i * self.resolution
@@ -91,6 +97,7 @@ cdef class ColorSDFVolume:
                                    transform_matrix[3, 2] * z + \
                                    transform_matrix[3, 3]
 
+                    
                     # ignore invisible point which has positive z value
                     if w_clip <= 0:
                         continue
@@ -115,10 +122,8 @@ cdef class ColorSDFVolume:
 
                     # w_clip = -z_e, w_clip is the distance between the point to the camera in the camera coords space
                     signed_distance = depth-w_clip
-                    printf("depth: ")
-                    printf("%f\n", depth)
-                    printf("w_clip: ")
-                    printf("%f\n", w_clip)
+                    #printf("depth: %f\n", depth)
+                    #printf("w_clip: %f\n", w_clip)
 
                     ## sdf fusion
                     if signed_distance >= -self.max_distance:
