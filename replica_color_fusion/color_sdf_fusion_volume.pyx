@@ -5,6 +5,7 @@
 import numpy as np
 cimport numpy as np
 from libc.math cimport round
+from libc.stdio cimport printf
 
 
 cdef class ColorSDFVolume:
@@ -114,6 +115,10 @@ cdef class ColorSDFVolume:
 
                     # w_clip = -z_e, w_clip is the distance between the point to the camera in the camera coords space
                     signed_distance = depth-w_clip
+                    printf("depth: ")
+                    printf("%f\n", depth)
+                    printf("w_clip: ")
+                    printf("%f\n", w_clip)
 
                     ## sdf fusion
                     if signed_distance >= -self.max_distance:
