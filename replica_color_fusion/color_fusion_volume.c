@@ -1142,7 +1142,7 @@ static CYTHON_INLINE __pyx_t_double_complex __pyx_t_double_complex_from_parts(do
 
 
 /*--- Type declarations ---*/
-struct __pyx_obj_19color_fusion_volume_ColorSDFVolume;
+struct __pyx_obj_19color_fusion_volume_ColorFusionVolume;
 struct __pyx_array_obj;
 struct __pyx_MemviewEnum_obj;
 struct __pyx_memoryview_obj;
@@ -1187,11 +1187,11 @@ typedef npy_cdouble __pyx_t_5numpy_complex_t;
 /* "color_fusion_volume.pyx":10
  * 
  * 
- * cdef class ColorSDFVolume:             # <<<<<<<<<<<<<<
+ * cdef class ColorFusionVolume:             # <<<<<<<<<<<<<<
  * 
  *     cdef float[:, ::1] bbox
  */
-struct __pyx_obj_19color_fusion_volume_ColorSDFVolume {
+struct __pyx_obj_19color_fusion_volume_ColorFusionVolume {
   PyObject_HEAD
   __Pyx_memviewslice bbox;
   float resolution;
@@ -2058,7 +2058,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *, cha
 /* Module declarations from 'libc.math' */
 
 /* Module declarations from 'color_fusion_volume' */
-static PyTypeObject *__pyx_ptype_19color_fusion_volume_ColorSDFVolume = 0;
+static PyTypeObject *__pyx_ptype_19color_fusion_volume_ColorFusionVolume = 0;
 static PyTypeObject *__pyx_array_type = 0;
 static PyTypeObject *__pyx_MemviewEnum_type = 0;
 static PyTypeObject *__pyx_memoryview_type = 0;
@@ -2070,7 +2070,7 @@ static PyObject *contiguous = 0;
 static PyObject *indirect_contiguous = 0;
 static int __pyx_memoryview_thread_locks_used;
 static PyThread_type_lock __pyx_memoryview_thread_locks[8];
-static PyObject *__pyx_f_19color_fusion_volume___pyx_unpickle_ColorSDFVolume__set_state(struct __pyx_obj_19color_fusion_volume_ColorSDFVolume *, PyObject *); /*proto*/
+static PyObject *__pyx_f_19color_fusion_volume___pyx_unpickle_ColorFusionVolume__set_state(struct __pyx_obj_19color_fusion_volume_ColorFusionVolume *, PyObject *); /*proto*/
 static struct __pyx_array_obj *__pyx_array_new(PyObject *, Py_ssize_t, char *, char *, char *); /*proto*/
 static void *__pyx_align_pointer(void *, size_t); /*proto*/
 static PyObject *__pyx_memoryview_new(PyObject *, int, int, __Pyx_TypeInfo *); /*proto*/
@@ -2215,8 +2215,8 @@ static const char __pyx_k_Cannot_index_with_type_s[] = "Cannot index with type '
 static const char __pyx_k_Invalid_shape_in_axis_d_d[] = "Invalid shape in axis %d: %d.";
 static const char __pyx_k_itemsize_0_for_cython_array[] = "itemsize <= 0 for cython.array";
 static const char __pyx_k_ndarray_is_not_C_contiguous[] = "ndarray is not C contiguous";
-static const char __pyx_k_pyx_unpickle_ColorSDFVolume[] = "__pyx_unpickle_ColorSDFVolume";
 static const char __pyx_k_unable_to_allocate_array_data[] = "unable to allocate array data.";
+static const char __pyx_k_pyx_unpickle_ColorFusionVolume[] = "__pyx_unpickle_ColorFusionVolume";
 static const char __pyx_k_strided_and_direct_or_indirect[] = "<strided and direct or indirect>";
 static const char __pyx_k_numpy_core_multiarray_failed_to[] = "numpy.core.multiarray failed to import";
 static const char __pyx_k_unknown_dtype_code_in_numpy_pxd[] = "unknown dtype code in numpy.pxd (%d)";
@@ -2326,7 +2326,7 @@ static PyObject *__pyx_n_s_pyx_getbuffer;
 static PyObject *__pyx_n_s_pyx_result;
 static PyObject *__pyx_n_s_pyx_state;
 static PyObject *__pyx_n_s_pyx_type;
-static PyObject *__pyx_n_s_pyx_unpickle_ColorSDFVolume;
+static PyObject *__pyx_n_s_pyx_unpickle_ColorFusionVolume;
 static PyObject *__pyx_n_s_pyx_unpickle_Enum;
 static PyObject *__pyx_n_s_pyx_vtable;
 static PyObject *__pyx_n_s_range;
@@ -2359,12 +2359,12 @@ static PyObject *__pyx_n_s_update;
 static PyObject *__pyx_n_s_viewport_height;
 static PyObject *__pyx_n_s_viewport_width;
 static PyObject *__pyx_n_s_zeros;
-static int __pyx_pf_19color_fusion_volume_14ColorSDFVolume___init__(struct __pyx_obj_19color_fusion_volume_ColorSDFVolume *__pyx_v_self, PyObject *__pyx_v_bbox, PyObject *__pyx_v_viewport_height, PyObject *__pyx_v_viewport_width, PyObject *__pyx_v_resolution, PyObject *__pyx_v_resolution_factor); /* proto */
-static PyObject *__pyx_pf_19color_fusion_volume_14ColorSDFVolume_2get_volume(struct __pyx_obj_19color_fusion_volume_ColorSDFVolume *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_19color_fusion_volume_14ColorSDFVolume_4fuse(struct __pyx_obj_19color_fusion_volume_ColorSDFVolume *__pyx_v_self, __Pyx_memviewslice __pyx_v_transform_matrix, __Pyx_memviewslice __pyx_v_depth_map, __Pyx_memviewslice __pyx_v_color_map); /* proto */
-static PyObject *__pyx_pf_19color_fusion_volume_14ColorSDFVolume_6__reduce_cython__(struct __pyx_obj_19color_fusion_volume_ColorSDFVolume *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_19color_fusion_volume_14ColorSDFVolume_8__setstate_cython__(struct __pyx_obj_19color_fusion_volume_ColorSDFVolume *__pyx_v_self, PyObject *__pyx_v___pyx_state); /* proto */
-static PyObject *__pyx_pf_19color_fusion_volume___pyx_unpickle_ColorSDFVolume(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
+static int __pyx_pf_19color_fusion_volume_17ColorFusionVolume___init__(struct __pyx_obj_19color_fusion_volume_ColorFusionVolume *__pyx_v_self, PyObject *__pyx_v_bbox, PyObject *__pyx_v_viewport_height, PyObject *__pyx_v_viewport_width, PyObject *__pyx_v_resolution, PyObject *__pyx_v_resolution_factor); /* proto */
+static PyObject *__pyx_pf_19color_fusion_volume_17ColorFusionVolume_2get_volume(struct __pyx_obj_19color_fusion_volume_ColorFusionVolume *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_19color_fusion_volume_17ColorFusionVolume_4fuse(struct __pyx_obj_19color_fusion_volume_ColorFusionVolume *__pyx_v_self, __Pyx_memviewslice __pyx_v_transform_matrix, __Pyx_memviewslice __pyx_v_depth_map, __Pyx_memviewslice __pyx_v_color_map); /* proto */
+static PyObject *__pyx_pf_19color_fusion_volume_17ColorFusionVolume_6__reduce_cython__(struct __pyx_obj_19color_fusion_volume_ColorFusionVolume *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_19color_fusion_volume_17ColorFusionVolume_8__setstate_cython__(struct __pyx_obj_19color_fusion_volume_ColorFusionVolume *__pyx_v_self, PyObject *__pyx_v___pyx_state); /* proto */
+static PyObject *__pyx_pf_19color_fusion_volume___pyx_unpickle_ColorFusionVolume(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
 static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info, int __pyx_v_flags); /* proto */
 static void __pyx_pf_5numpy_7ndarray_2__releasebuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info); /* proto */
 static int __pyx_array___pyx_pf_15View_dot_MemoryView_5array___cinit__(struct __pyx_array_obj *__pyx_v_self, PyObject *__pyx_v_shape, Py_ssize_t __pyx_v_itemsize, PyObject *__pyx_v_format, PyObject *__pyx_v_mode, int __pyx_v_allocate_buffer); /* proto */
@@ -2409,7 +2409,7 @@ static PyObject *__pyx_pf_15View_dot_MemoryView_16_memoryviewslice_4base___get__
 static PyObject *__pyx_pf___pyx_memoryviewslice___reduce_cython__(CYTHON_UNUSED struct __pyx_memoryviewslice_obj *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf___pyx_memoryviewslice_2__setstate_cython__(CYTHON_UNUSED struct __pyx_memoryviewslice_obj *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
 static PyObject *__pyx_pf_15View_dot_MemoryView___pyx_unpickle_Enum(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
-static PyObject *__pyx_tp_new_19color_fusion_volume_ColorSDFVolume(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_19color_fusion_volume_ColorFusionVolume(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_array(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_Enum(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_memoryview(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
@@ -2470,8 +2470,8 @@ static PyObject *__pyx_codeobj__39;
  */
 
 /* Python wrapper */
-static int __pyx_pw_19color_fusion_volume_14ColorSDFVolume_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static int __pyx_pw_19color_fusion_volume_14ColorSDFVolume_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static int __pyx_pw_19color_fusion_volume_17ColorFusionVolume_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_pw_19color_fusion_volume_17ColorFusionVolume_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_bbox = 0;
   PyObject *__pyx_v_viewport_height = 0;
   PyObject *__pyx_v_viewport_width = 0;
@@ -2552,18 +2552,18 @@ static int __pyx_pw_19color_fusion_volume_14ColorSDFVolume_1__init__(PyObject *_
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("__init__", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 20, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("color_fusion_volume.ColorSDFVolume.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("color_fusion_volume.ColorFusionVolume.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_19color_fusion_volume_14ColorSDFVolume___init__(((struct __pyx_obj_19color_fusion_volume_ColorSDFVolume *)__pyx_v_self), __pyx_v_bbox, __pyx_v_viewport_height, __pyx_v_viewport_width, __pyx_v_resolution, __pyx_v_resolution_factor);
+  __pyx_r = __pyx_pf_19color_fusion_volume_17ColorFusionVolume___init__(((struct __pyx_obj_19color_fusion_volume_ColorFusionVolume *)__pyx_v_self), __pyx_v_bbox, __pyx_v_viewport_height, __pyx_v_viewport_width, __pyx_v_resolution, __pyx_v_resolution_factor);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_19color_fusion_volume_14ColorSDFVolume___init__(struct __pyx_obj_19color_fusion_volume_ColorSDFVolume *__pyx_v_self, PyObject *__pyx_v_bbox, PyObject *__pyx_v_viewport_height, PyObject *__pyx_v_viewport_width, PyObject *__pyx_v_resolution, PyObject *__pyx_v_resolution_factor) {
+static int __pyx_pf_19color_fusion_volume_17ColorFusionVolume___init__(struct __pyx_obj_19color_fusion_volume_ColorFusionVolume *__pyx_v_self, PyObject *__pyx_v_bbox, PyObject *__pyx_v_viewport_height, PyObject *__pyx_v_viewport_width, PyObject *__pyx_v_resolution, PyObject *__pyx_v_resolution_factor) {
   PyObject *__pyx_v_volume_size = NULL;
   PyObject *__pyx_v_volume_shape = NULL;
   int __pyx_r;
@@ -3048,7 +3048,7 @@ static int __pyx_pf_19color_fusion_volume_14ColorSDFVolume___init__(struct __pyx
   __Pyx_XDECREF(__pyx_t_10);
   __PYX_XDEC_MEMVIEW(&__pyx_t_11, 1);
   __PYX_XDEC_MEMVIEW(&__pyx_t_12, 1);
-  __Pyx_AddTraceback("color_fusion_volume.ColorSDFVolume.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("color_fusion_volume.ColorFusionVolume.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_volume_size);
@@ -3066,19 +3066,19 @@ static int __pyx_pf_19color_fusion_volume_14ColorSDFVolume___init__(struct __pyx
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_19color_fusion_volume_14ColorSDFVolume_3get_volume(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_19color_fusion_volume_14ColorSDFVolume_3get_volume(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_19color_fusion_volume_17ColorFusionVolume_3get_volume(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_19color_fusion_volume_17ColorFusionVolume_3get_volume(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("get_volume (wrapper)", 0);
-  __pyx_r = __pyx_pf_19color_fusion_volume_14ColorSDFVolume_2get_volume(((struct __pyx_obj_19color_fusion_volume_ColorSDFVolume *)__pyx_v_self));
+  __pyx_r = __pyx_pf_19color_fusion_volume_17ColorFusionVolume_2get_volume(((struct __pyx_obj_19color_fusion_volume_ColorFusionVolume *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_19color_fusion_volume_14ColorSDFVolume_2get_volume(struct __pyx_obj_19color_fusion_volume_ColorSDFVolume *__pyx_v_self) {
+static PyObject *__pyx_pf_19color_fusion_volume_17ColorFusionVolume_2get_volume(struct __pyx_obj_19color_fusion_volume_ColorFusionVolume *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -3168,7 +3168,7 @@ static PyObject *__pyx_pf_19color_fusion_volume_14ColorSDFVolume_2get_volume(str
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("color_fusion_volume.ColorSDFVolume.get_volume", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("color_fusion_volume.ColorFusionVolume.get_volume", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -3185,8 +3185,8 @@ static PyObject *__pyx_pf_19color_fusion_volume_14ColorSDFVolume_2get_volume(str
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_19color_fusion_volume_14ColorSDFVolume_5fuse(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyObject *__pyx_pw_19color_fusion_volume_14ColorSDFVolume_5fuse(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_19color_fusion_volume_17ColorFusionVolume_5fuse(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_19color_fusion_volume_17ColorFusionVolume_5fuse(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_transform_matrix = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_depth_map = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_color_map = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -3245,18 +3245,18 @@ static PyObject *__pyx_pw_19color_fusion_volume_14ColorSDFVolume_5fuse(PyObject 
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("fuse", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 40, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("color_fusion_volume.ColorSDFVolume.fuse", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("color_fusion_volume.ColorFusionVolume.fuse", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_19color_fusion_volume_14ColorSDFVolume_4fuse(((struct __pyx_obj_19color_fusion_volume_ColorSDFVolume *)__pyx_v_self), __pyx_v_transform_matrix, __pyx_v_depth_map, __pyx_v_color_map);
+  __pyx_r = __pyx_pf_19color_fusion_volume_17ColorFusionVolume_4fuse(((struct __pyx_obj_19color_fusion_volume_ColorFusionVolume *)__pyx_v_self), __pyx_v_transform_matrix, __pyx_v_depth_map, __pyx_v_color_map);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_19color_fusion_volume_14ColorSDFVolume_4fuse(struct __pyx_obj_19color_fusion_volume_ColorSDFVolume *__pyx_v_self, __Pyx_memviewslice __pyx_v_transform_matrix, __Pyx_memviewslice __pyx_v_depth_map, __Pyx_memviewslice __pyx_v_color_map) {
+static PyObject *__pyx_pf_19color_fusion_volume_17ColorFusionVolume_4fuse(struct __pyx_obj_19color_fusion_volume_ColorFusionVolume *__pyx_v_self, __Pyx_memviewslice __pyx_v_transform_matrix, __Pyx_memviewslice __pyx_v_depth_map, __Pyx_memviewslice __pyx_v_color_map) {
   int __pyx_v_i;
   int __pyx_v_j;
   int __pyx_v_k;
@@ -3968,7 +3968,7 @@ static PyObject *__pyx_pf_19color_fusion_volume_14ColorSDFVolume_4fuse(struct __
   __pyx_r = Py_None; __Pyx_INCREF(Py_None);
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_AddTraceback("color_fusion_volume.ColorSDFVolume.fuse", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("color_fusion_volume.ColorFusionVolume.fuse", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_transform_matrix, 1);
@@ -3986,19 +3986,19 @@ static PyObject *__pyx_pf_19color_fusion_volume_14ColorSDFVolume_4fuse(struct __
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_19color_fusion_volume_14ColorSDFVolume_7__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_19color_fusion_volume_14ColorSDFVolume_7__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_19color_fusion_volume_17ColorFusionVolume_7__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_19color_fusion_volume_17ColorFusionVolume_7__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__reduce_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_19color_fusion_volume_14ColorSDFVolume_6__reduce_cython__(((struct __pyx_obj_19color_fusion_volume_ColorSDFVolume *)__pyx_v_self));
+  __pyx_r = __pyx_pf_19color_fusion_volume_17ColorFusionVolume_6__reduce_cython__(((struct __pyx_obj_19color_fusion_volume_ColorFusionVolume *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_19color_fusion_volume_14ColorSDFVolume_6__reduce_cython__(struct __pyx_obj_19color_fusion_volume_ColorSDFVolume *__pyx_v_self) {
+static PyObject *__pyx_pf_19color_fusion_volume_17ColorFusionVolume_6__reduce_cython__(struct __pyx_obj_19color_fusion_volume_ColorFusionVolume *__pyx_v_self) {
   int __pyx_v_use_setstate;
   PyObject *__pyx_v_state = NULL;
   PyObject *__pyx_v__dict = NULL;
@@ -4128,7 +4128,7 @@ static PyObject *__pyx_pf_19color_fusion_volume_14ColorSDFVolume_6__reduce_cytho
  *     else:
  *         use_setstate = False             # <<<<<<<<<<<<<<
  *     if use_setstate:
- *         return __pyx_unpickle_ColorSDFVolume, (type(self), 0x9db965b, None), state
+ *         return __pyx_unpickle_ColorFusionVolume, (type(self), 0x9db965b, None), state
  */
   /*else*/ {
     __pyx_v_use_setstate = 0;
@@ -4139,7 +4139,7 @@ static PyObject *__pyx_pf_19color_fusion_volume_14ColorSDFVolume_6__reduce_cytho
  *     else:
  *         use_setstate = False
  *     if use_setstate:             # <<<<<<<<<<<<<<
- *         return __pyx_unpickle_ColorSDFVolume, (type(self), 0x9db965b, None), state
+ *         return __pyx_unpickle_ColorFusionVolume, (type(self), 0x9db965b, None), state
  *     else:
  */
   __pyx_t_10 = (__pyx_v_use_setstate != 0);
@@ -4148,12 +4148,12 @@ static PyObject *__pyx_pf_19color_fusion_volume_14ColorSDFVolume_6__reduce_cytho
     /* "(tree fragment)":11
  *         use_setstate = False
  *     if use_setstate:
- *         return __pyx_unpickle_ColorSDFVolume, (type(self), 0x9db965b, None), state             # <<<<<<<<<<<<<<
+ *         return __pyx_unpickle_ColorFusionVolume, (type(self), 0x9db965b, None), state             # <<<<<<<<<<<<<<
  *     else:
- *         return __pyx_unpickle_ColorSDFVolume, (type(self), 0x9db965b, state)
+ *         return __pyx_unpickle_ColorFusionVolume, (type(self), 0x9db965b, state)
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_7 = __Pyx_GetModuleGlobalName(__pyx_n_s_pyx_unpickle_ColorSDFVolume); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 11, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_GetModuleGlobalName(__pyx_n_s_pyx_unpickle_ColorFusionVolume); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 11, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __pyx_t_8 = PyTuple_New(3); if (unlikely(!__pyx_t_8)) __PYX_ERR(1, 11, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
@@ -4185,21 +4185,21 @@ static PyObject *__pyx_pf_19color_fusion_volume_14ColorSDFVolume_6__reduce_cytho
  *     else:
  *         use_setstate = False
  *     if use_setstate:             # <<<<<<<<<<<<<<
- *         return __pyx_unpickle_ColorSDFVolume, (type(self), 0x9db965b, None), state
+ *         return __pyx_unpickle_ColorFusionVolume, (type(self), 0x9db965b, None), state
  *     else:
  */
   }
 
   /* "(tree fragment)":13
- *         return __pyx_unpickle_ColorSDFVolume, (type(self), 0x9db965b, None), state
+ *         return __pyx_unpickle_ColorFusionVolume, (type(self), 0x9db965b, None), state
  *     else:
- *         return __pyx_unpickle_ColorSDFVolume, (type(self), 0x9db965b, state)             # <<<<<<<<<<<<<<
+ *         return __pyx_unpickle_ColorFusionVolume, (type(self), 0x9db965b, state)             # <<<<<<<<<<<<<<
  * def __setstate_cython__(self, __pyx_state):
- *     __pyx_unpickle_ColorSDFVolume__set_state(self, __pyx_state)
+ *     __pyx_unpickle_ColorFusionVolume__set_state(self, __pyx_state)
  */
   /*else*/ {
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_6 = __Pyx_GetModuleGlobalName(__pyx_n_s_pyx_unpickle_ColorSDFVolume); if (unlikely(!__pyx_t_6)) __PYX_ERR(1, 13, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_GetModuleGlobalName(__pyx_n_s_pyx_unpickle_ColorFusionVolume); if (unlikely(!__pyx_t_6)) __PYX_ERR(1, 13, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_t_8 = PyTuple_New(3); if (unlikely(!__pyx_t_8)) __PYX_ERR(1, 13, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
@@ -4241,7 +4241,7 @@ static PyObject *__pyx_pf_19color_fusion_volume_14ColorSDFVolume_6__reduce_cytho
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_8);
-  __Pyx_AddTraceback("color_fusion_volume.ColorSDFVolume.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("color_fusion_volume.ColorFusionVolume.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_state);
@@ -4253,45 +4253,45 @@ static PyObject *__pyx_pf_19color_fusion_volume_14ColorSDFVolume_6__reduce_cytho
 
 /* "(tree fragment)":14
  *     else:
- *         return __pyx_unpickle_ColorSDFVolume, (type(self), 0x9db965b, state)
+ *         return __pyx_unpickle_ColorFusionVolume, (type(self), 0x9db965b, state)
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
- *     __pyx_unpickle_ColorSDFVolume__set_state(self, __pyx_state)
+ *     __pyx_unpickle_ColorFusionVolume__set_state(self, __pyx_state)
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_19color_fusion_volume_14ColorSDFVolume_9__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
-static PyObject *__pyx_pw_19color_fusion_volume_14ColorSDFVolume_9__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pw_19color_fusion_volume_17ColorFusionVolume_9__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
+static PyObject *__pyx_pw_19color_fusion_volume_17ColorFusionVolume_9__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__setstate_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_19color_fusion_volume_14ColorSDFVolume_8__setstate_cython__(((struct __pyx_obj_19color_fusion_volume_ColorSDFVolume *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
+  __pyx_r = __pyx_pf_19color_fusion_volume_17ColorFusionVolume_8__setstate_cython__(((struct __pyx_obj_19color_fusion_volume_ColorFusionVolume *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_19color_fusion_volume_14ColorSDFVolume_8__setstate_cython__(struct __pyx_obj_19color_fusion_volume_ColorSDFVolume *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_19color_fusion_volume_17ColorFusionVolume_8__setstate_cython__(struct __pyx_obj_19color_fusion_volume_ColorFusionVolume *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__setstate_cython__", 0);
 
   /* "(tree fragment)":15
- *         return __pyx_unpickle_ColorSDFVolume, (type(self), 0x9db965b, state)
+ *         return __pyx_unpickle_ColorFusionVolume, (type(self), 0x9db965b, state)
  * def __setstate_cython__(self, __pyx_state):
- *     __pyx_unpickle_ColorSDFVolume__set_state(self, __pyx_state)             # <<<<<<<<<<<<<<
+ *     __pyx_unpickle_ColorFusionVolume__set_state(self, __pyx_state)             # <<<<<<<<<<<<<<
  */
   if (!(likely(PyTuple_CheckExact(__pyx_v___pyx_state))||((__pyx_v___pyx_state) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "tuple", Py_TYPE(__pyx_v___pyx_state)->tp_name), 0))) __PYX_ERR(1, 15, __pyx_L1_error)
-  __pyx_t_1 = __pyx_f_19color_fusion_volume___pyx_unpickle_ColorSDFVolume__set_state(__pyx_v_self, ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 15, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_19color_fusion_volume___pyx_unpickle_ColorFusionVolume__set_state(__pyx_v_self, ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "(tree fragment)":14
  *     else:
- *         return __pyx_unpickle_ColorSDFVolume, (type(self), 0x9db965b, state)
+ *         return __pyx_unpickle_ColorFusionVolume, (type(self), 0x9db965b, state)
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
- *     __pyx_unpickle_ColorSDFVolume__set_state(self, __pyx_state)
+ *     __pyx_unpickle_ColorFusionVolume__set_state(self, __pyx_state)
  */
 
   /* function exit code */
@@ -4299,7 +4299,7 @@ static PyObject *__pyx_pf_19color_fusion_volume_14ColorSDFVolume_8__setstate_cyt
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("color_fusion_volume.ColorSDFVolume.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("color_fusion_volume.ColorFusionVolume.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -4308,21 +4308,21 @@ static PyObject *__pyx_pf_19color_fusion_volume_14ColorSDFVolume_8__setstate_cyt
 }
 
 /* "(tree fragment)":1
- * def __pyx_unpickle_ColorSDFVolume(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
+ * def __pyx_unpickle_ColorFusionVolume(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     if __pyx_checksum != 0x9db965b:
  *         from pickle import PickleError as __pyx_PickleError
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_19color_fusion_volume_1__pyx_unpickle_ColorSDFVolume(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_19color_fusion_volume_1__pyx_unpickle_ColorSDFVolume = {"__pyx_unpickle_ColorSDFVolume", (PyCFunction)__pyx_pw_19color_fusion_volume_1__pyx_unpickle_ColorSDFVolume, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_19color_fusion_volume_1__pyx_unpickle_ColorSDFVolume(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_19color_fusion_volume_1__pyx_unpickle_ColorFusionVolume(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_19color_fusion_volume_1__pyx_unpickle_ColorFusionVolume = {"__pyx_unpickle_ColorFusionVolume", (PyCFunction)__pyx_pw_19color_fusion_volume_1__pyx_unpickle_ColorFusionVolume, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_19color_fusion_volume_1__pyx_unpickle_ColorFusionVolume(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v___pyx_type = 0;
   long __pyx_v___pyx_checksum;
   PyObject *__pyx_v___pyx_state = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("__pyx_unpickle_ColorSDFVolume (wrapper)", 0);
+  __Pyx_RefNannySetupContext("__pyx_unpickle_ColorFusionVolume (wrapper)", 0);
   {
     static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_pyx_type,&__pyx_n_s_pyx_checksum,&__pyx_n_s_pyx_state,0};
     PyObject* values[3] = {0,0,0};
@@ -4348,17 +4348,17 @@ static PyObject *__pyx_pw_19color_fusion_volume_1__pyx_unpickle_ColorSDFVolume(P
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_pyx_checksum)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__pyx_unpickle_ColorSDFVolume", 1, 3, 3, 1); __PYX_ERR(1, 1, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__pyx_unpickle_ColorFusionVolume", 1, 3, 3, 1); __PYX_ERR(1, 1, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_pyx_state)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__pyx_unpickle_ColorSDFVolume", 1, 3, 3, 2); __PYX_ERR(1, 1, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__pyx_unpickle_ColorFusionVolume", 1, 3, 3, 2); __PYX_ERR(1, 1, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__pyx_unpickle_ColorSDFVolume") < 0)) __PYX_ERR(1, 1, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__pyx_unpickle_ColorFusionVolume") < 0)) __PYX_ERR(1, 1, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -4373,20 +4373,20 @@ static PyObject *__pyx_pw_19color_fusion_volume_1__pyx_unpickle_ColorSDFVolume(P
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__pyx_unpickle_ColorSDFVolume", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 1, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__pyx_unpickle_ColorFusionVolume", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 1, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("color_fusion_volume.__pyx_unpickle_ColorSDFVolume", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("color_fusion_volume.__pyx_unpickle_ColorFusionVolume", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_19color_fusion_volume___pyx_unpickle_ColorSDFVolume(__pyx_self, __pyx_v___pyx_type, __pyx_v___pyx_checksum, __pyx_v___pyx_state);
+  __pyx_r = __pyx_pf_19color_fusion_volume___pyx_unpickle_ColorFusionVolume(__pyx_self, __pyx_v___pyx_type, __pyx_v___pyx_checksum, __pyx_v___pyx_state);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_19color_fusion_volume___pyx_unpickle_ColorSDFVolume(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_19color_fusion_volume___pyx_unpickle_ColorFusionVolume(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_v___pyx_PickleError = NULL;
   PyObject *__pyx_v___pyx_result = NULL;
   PyObject *__pyx_r = NULL;
@@ -4398,10 +4398,10 @@ static PyObject *__pyx_pf_19color_fusion_volume___pyx_unpickle_ColorSDFVolume(CY
   PyObject *__pyx_t_5 = NULL;
   PyObject *__pyx_t_6 = NULL;
   int __pyx_t_7;
-  __Pyx_RefNannySetupContext("__pyx_unpickle_ColorSDFVolume", 0);
+  __Pyx_RefNannySetupContext("__pyx_unpickle_ColorFusionVolume", 0);
 
   /* "(tree fragment)":2
- * def __pyx_unpickle_ColorSDFVolume(__pyx_type, long __pyx_checksum, __pyx_state):
+ * def __pyx_unpickle_ColorFusionVolume(__pyx_type, long __pyx_checksum, __pyx_state):
  *     if __pyx_checksum != 0x9db965b:             # <<<<<<<<<<<<<<
  *         from pickle import PickleError as __pyx_PickleError
  *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x9db965b = (bbox, color_weight_data, max_distance, resolution, viewport_height, viewport_width, volume))" % __pyx_checksum)
@@ -4410,11 +4410,11 @@ static PyObject *__pyx_pf_19color_fusion_volume___pyx_unpickle_ColorSDFVolume(CY
   if (__pyx_t_1) {
 
     /* "(tree fragment)":3
- * def __pyx_unpickle_ColorSDFVolume(__pyx_type, long __pyx_checksum, __pyx_state):
+ * def __pyx_unpickle_ColorFusionVolume(__pyx_type, long __pyx_checksum, __pyx_state):
  *     if __pyx_checksum != 0x9db965b:
  *         from pickle import PickleError as __pyx_PickleError             # <<<<<<<<<<<<<<
  *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x9db965b = (bbox, color_weight_data, max_distance, resolution, viewport_height, viewport_width, volume))" % __pyx_checksum)
- *     __pyx_result = ColorSDFVolume.__new__(__pyx_type)
+ *     __pyx_result = ColorFusionVolume.__new__(__pyx_type)
  */
     __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 3, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
@@ -4435,7 +4435,7 @@ static PyObject *__pyx_pf_19color_fusion_volume___pyx_unpickle_ColorSDFVolume(CY
  *     if __pyx_checksum != 0x9db965b:
  *         from pickle import PickleError as __pyx_PickleError
  *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x9db965b = (bbox, color_weight_data, max_distance, resolution, viewport_height, viewport_width, volume))" % __pyx_checksum)             # <<<<<<<<<<<<<<
- *     __pyx_result = ColorSDFVolume.__new__(__pyx_type)
+ *     __pyx_result = ColorFusionVolume.__new__(__pyx_type)
  *     if __pyx_state is not None:
  */
     __pyx_t_2 = __Pyx_PyInt_From_long(__pyx_v___pyx_checksum); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 4, __pyx_L1_error)
@@ -4495,7 +4495,7 @@ static PyObject *__pyx_pf_19color_fusion_volume___pyx_unpickle_ColorSDFVolume(CY
     __PYX_ERR(1, 4, __pyx_L1_error)
 
     /* "(tree fragment)":2
- * def __pyx_unpickle_ColorSDFVolume(__pyx_type, long __pyx_checksum, __pyx_state):
+ * def __pyx_unpickle_ColorFusionVolume(__pyx_type, long __pyx_checksum, __pyx_state):
  *     if __pyx_checksum != 0x9db965b:             # <<<<<<<<<<<<<<
  *         from pickle import PickleError as __pyx_PickleError
  *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x9db965b = (bbox, color_weight_data, max_distance, resolution, viewport_height, viewport_width, volume))" % __pyx_checksum)
@@ -4505,11 +4505,11 @@ static PyObject *__pyx_pf_19color_fusion_volume___pyx_unpickle_ColorSDFVolume(CY
   /* "(tree fragment)":5
  *         from pickle import PickleError as __pyx_PickleError
  *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x9db965b = (bbox, color_weight_data, max_distance, resolution, viewport_height, viewport_width, volume))" % __pyx_checksum)
- *     __pyx_result = ColorSDFVolume.__new__(__pyx_type)             # <<<<<<<<<<<<<<
+ *     __pyx_result = ColorFusionVolume.__new__(__pyx_type)             # <<<<<<<<<<<<<<
  *     if __pyx_state is not None:
- *         __pyx_unpickle_ColorSDFVolume__set_state(<ColorSDFVolume> __pyx_result, __pyx_state)
+ *         __pyx_unpickle_ColorFusionVolume__set_state(<ColorFusionVolume> __pyx_result, __pyx_state)
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_19color_fusion_volume_ColorSDFVolume), __pyx_n_s_new); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 5, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_19color_fusion_volume_ColorFusionVolume), __pyx_n_s_new); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 5, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_6 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -4559,9 +4559,9 @@ static PyObject *__pyx_pf_19color_fusion_volume___pyx_unpickle_ColorSDFVolume(CY
 
   /* "(tree fragment)":6
  *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x9db965b = (bbox, color_weight_data, max_distance, resolution, viewport_height, viewport_width, volume))" % __pyx_checksum)
- *     __pyx_result = ColorSDFVolume.__new__(__pyx_type)
+ *     __pyx_result = ColorFusionVolume.__new__(__pyx_type)
  *     if __pyx_state is not None:             # <<<<<<<<<<<<<<
- *         __pyx_unpickle_ColorSDFVolume__set_state(<ColorSDFVolume> __pyx_result, __pyx_state)
+ *         __pyx_unpickle_ColorFusionVolume__set_state(<ColorFusionVolume> __pyx_result, __pyx_state)
  *     return __pyx_result
  */
   __pyx_t_1 = (__pyx_v___pyx_state != Py_None);
@@ -4569,31 +4569,31 @@ static PyObject *__pyx_pf_19color_fusion_volume___pyx_unpickle_ColorSDFVolume(CY
   if (__pyx_t_7) {
 
     /* "(tree fragment)":7
- *     __pyx_result = ColorSDFVolume.__new__(__pyx_type)
+ *     __pyx_result = ColorFusionVolume.__new__(__pyx_type)
  *     if __pyx_state is not None:
- *         __pyx_unpickle_ColorSDFVolume__set_state(<ColorSDFVolume> __pyx_result, __pyx_state)             # <<<<<<<<<<<<<<
+ *         __pyx_unpickle_ColorFusionVolume__set_state(<ColorFusionVolume> __pyx_result, __pyx_state)             # <<<<<<<<<<<<<<
  *     return __pyx_result
- * cdef __pyx_unpickle_ColorSDFVolume__set_state(ColorSDFVolume __pyx_result, tuple __pyx_state):
+ * cdef __pyx_unpickle_ColorFusionVolume__set_state(ColorFusionVolume __pyx_result, tuple __pyx_state):
  */
     if (!(likely(PyTuple_CheckExact(__pyx_v___pyx_state))||((__pyx_v___pyx_state) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "tuple", Py_TYPE(__pyx_v___pyx_state)->tp_name), 0))) __PYX_ERR(1, 7, __pyx_L1_error)
-    __pyx_t_3 = __pyx_f_19color_fusion_volume___pyx_unpickle_ColorSDFVolume__set_state(((struct __pyx_obj_19color_fusion_volume_ColorSDFVolume *)__pyx_v___pyx_result), ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 7, __pyx_L1_error)
+    __pyx_t_3 = __pyx_f_19color_fusion_volume___pyx_unpickle_ColorFusionVolume__set_state(((struct __pyx_obj_19color_fusion_volume_ColorFusionVolume *)__pyx_v___pyx_result), ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 7, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
     /* "(tree fragment)":6
  *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x9db965b = (bbox, color_weight_data, max_distance, resolution, viewport_height, viewport_width, volume))" % __pyx_checksum)
- *     __pyx_result = ColorSDFVolume.__new__(__pyx_type)
+ *     __pyx_result = ColorFusionVolume.__new__(__pyx_type)
  *     if __pyx_state is not None:             # <<<<<<<<<<<<<<
- *         __pyx_unpickle_ColorSDFVolume__set_state(<ColorSDFVolume> __pyx_result, __pyx_state)
+ *         __pyx_unpickle_ColorFusionVolume__set_state(<ColorFusionVolume> __pyx_result, __pyx_state)
  *     return __pyx_result
  */
   }
 
   /* "(tree fragment)":8
  *     if __pyx_state is not None:
- *         __pyx_unpickle_ColorSDFVolume__set_state(<ColorSDFVolume> __pyx_result, __pyx_state)
+ *         __pyx_unpickle_ColorFusionVolume__set_state(<ColorFusionVolume> __pyx_result, __pyx_state)
  *     return __pyx_result             # <<<<<<<<<<<<<<
- * cdef __pyx_unpickle_ColorSDFVolume__set_state(ColorSDFVolume __pyx_result, tuple __pyx_state):
+ * cdef __pyx_unpickle_ColorFusionVolume__set_state(ColorFusionVolume __pyx_result, tuple __pyx_state):
  *     __pyx_result.bbox = __pyx_state[0]; __pyx_result.color_weight_data = __pyx_state[1]; __pyx_result.max_distance = __pyx_state[2]; __pyx_result.resolution = __pyx_state[3]; __pyx_result.viewport_height = __pyx_state[4]; __pyx_result.viewport_width = __pyx_state[5]; __pyx_result.volume = __pyx_state[6]
  */
   __Pyx_XDECREF(__pyx_r);
@@ -4602,7 +4602,7 @@ static PyObject *__pyx_pf_19color_fusion_volume___pyx_unpickle_ColorSDFVolume(CY
   goto __pyx_L0;
 
   /* "(tree fragment)":1
- * def __pyx_unpickle_ColorSDFVolume(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
+ * def __pyx_unpickle_ColorFusionVolume(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     if __pyx_checksum != 0x9db965b:
  *         from pickle import PickleError as __pyx_PickleError
  */
@@ -4614,7 +4614,7 @@ static PyObject *__pyx_pf_19color_fusion_volume___pyx_unpickle_ColorSDFVolume(CY
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_AddTraceback("color_fusion_volume.__pyx_unpickle_ColorSDFVolume", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("color_fusion_volume.__pyx_unpickle_ColorFusionVolume", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v___pyx_PickleError);
@@ -4625,14 +4625,14 @@ static PyObject *__pyx_pf_19color_fusion_volume___pyx_unpickle_ColorSDFVolume(CY
 }
 
 /* "(tree fragment)":9
- *         __pyx_unpickle_ColorSDFVolume__set_state(<ColorSDFVolume> __pyx_result, __pyx_state)
+ *         __pyx_unpickle_ColorFusionVolume__set_state(<ColorFusionVolume> __pyx_result, __pyx_state)
  *     return __pyx_result
- * cdef __pyx_unpickle_ColorSDFVolume__set_state(ColorSDFVolume __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
+ * cdef __pyx_unpickle_ColorFusionVolume__set_state(ColorFusionVolume __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_result.bbox = __pyx_state[0]; __pyx_result.color_weight_data = __pyx_state[1]; __pyx_result.max_distance = __pyx_state[2]; __pyx_result.resolution = __pyx_state[3]; __pyx_result.viewport_height = __pyx_state[4]; __pyx_result.viewport_width = __pyx_state[5]; __pyx_result.volume = __pyx_state[6]
  *     if len(__pyx_state) > 7 and hasattr(__pyx_result, '__dict__'):
  */
 
-static PyObject *__pyx_f_19color_fusion_volume___pyx_unpickle_ColorSDFVolume__set_state(struct __pyx_obj_19color_fusion_volume_ColorSDFVolume *__pyx_v___pyx_result, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_f_19color_fusion_volume___pyx_unpickle_ColorFusionVolume__set_state(struct __pyx_obj_19color_fusion_volume_ColorFusionVolume *__pyx_v___pyx_result, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_memviewslice __pyx_t_1 = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -4648,11 +4648,11 @@ static PyObject *__pyx_f_19color_fusion_volume___pyx_unpickle_ColorSDFVolume__se
   PyObject *__pyx_t_11 = NULL;
   PyObject *__pyx_t_12 = NULL;
   PyObject *__pyx_t_13 = NULL;
-  __Pyx_RefNannySetupContext("__pyx_unpickle_ColorSDFVolume__set_state", 0);
+  __Pyx_RefNannySetupContext("__pyx_unpickle_ColorFusionVolume__set_state", 0);
 
   /* "(tree fragment)":10
  *     return __pyx_result
- * cdef __pyx_unpickle_ColorSDFVolume__set_state(ColorSDFVolume __pyx_result, tuple __pyx_state):
+ * cdef __pyx_unpickle_ColorFusionVolume__set_state(ColorFusionVolume __pyx_result, tuple __pyx_state):
  *     __pyx_result.bbox = __pyx_state[0]; __pyx_result.color_weight_data = __pyx_state[1]; __pyx_result.max_distance = __pyx_state[2]; __pyx_result.resolution = __pyx_state[3]; __pyx_result.viewport_height = __pyx_state[4]; __pyx_result.viewport_width = __pyx_state[5]; __pyx_result.volume = __pyx_state[6]             # <<<<<<<<<<<<<<
  *     if len(__pyx_state) > 7 and hasattr(__pyx_result, '__dict__'):
  *         __pyx_result.__dict__.update(__pyx_state[7])
@@ -4710,7 +4710,7 @@ static PyObject *__pyx_f_19color_fusion_volume___pyx_unpickle_ColorSDFVolume__se
   __pyx_t_5.data = NULL;
 
   /* "(tree fragment)":11
- * cdef __pyx_unpickle_ColorSDFVolume__set_state(ColorSDFVolume __pyx_result, tuple __pyx_state):
+ * cdef __pyx_unpickle_ColorFusionVolume__set_state(ColorFusionVolume __pyx_result, tuple __pyx_state):
  *     __pyx_result.bbox = __pyx_state[0]; __pyx_result.color_weight_data = __pyx_state[1]; __pyx_result.max_distance = __pyx_state[2]; __pyx_result.resolution = __pyx_state[3]; __pyx_result.viewport_height = __pyx_state[4]; __pyx_result.viewport_width = __pyx_state[5]; __pyx_result.volume = __pyx_state[6]
  *     if len(__pyx_state) > 7 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
  *         __pyx_result.__dict__.update(__pyx_state[7])
@@ -4792,7 +4792,7 @@ static PyObject *__pyx_f_19color_fusion_volume___pyx_unpickle_ColorSDFVolume__se
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
     /* "(tree fragment)":11
- * cdef __pyx_unpickle_ColorSDFVolume__set_state(ColorSDFVolume __pyx_result, tuple __pyx_state):
+ * cdef __pyx_unpickle_ColorFusionVolume__set_state(ColorFusionVolume __pyx_result, tuple __pyx_state):
  *     __pyx_result.bbox = __pyx_state[0]; __pyx_result.color_weight_data = __pyx_state[1]; __pyx_result.max_distance = __pyx_state[2]; __pyx_result.resolution = __pyx_state[3]; __pyx_result.viewport_height = __pyx_state[4]; __pyx_result.viewport_width = __pyx_state[5]; __pyx_result.volume = __pyx_state[6]
  *     if len(__pyx_state) > 7 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
  *         __pyx_result.__dict__.update(__pyx_state[7])
@@ -4800,9 +4800,9 @@ static PyObject *__pyx_f_19color_fusion_volume___pyx_unpickle_ColorSDFVolume__se
   }
 
   /* "(tree fragment)":9
- *         __pyx_unpickle_ColorSDFVolume__set_state(<ColorSDFVolume> __pyx_result, __pyx_state)
+ *         __pyx_unpickle_ColorFusionVolume__set_state(<ColorFusionVolume> __pyx_result, __pyx_state)
  *     return __pyx_result
- * cdef __pyx_unpickle_ColorSDFVolume__set_state(ColorSDFVolume __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
+ * cdef __pyx_unpickle_ColorFusionVolume__set_state(ColorFusionVolume __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_result.bbox = __pyx_state[0]; __pyx_result.color_weight_data = __pyx_state[1]; __pyx_result.max_distance = __pyx_state[2]; __pyx_result.resolution = __pyx_state[3]; __pyx_result.viewport_height = __pyx_state[4]; __pyx_result.viewport_width = __pyx_state[5]; __pyx_result.volume = __pyx_state[6]
  *     if len(__pyx_state) > 7 and hasattr(__pyx_result, '__dict__'):
  */
@@ -4818,7 +4818,7 @@ static PyObject *__pyx_f_19color_fusion_volume___pyx_unpickle_ColorSDFVolume__se
   __Pyx_XDECREF(__pyx_t_11);
   __Pyx_XDECREF(__pyx_t_12);
   __Pyx_XDECREF(__pyx_t_13);
-  __Pyx_AddTraceback("color_fusion_volume.__pyx_unpickle_ColorSDFVolume__set_state", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("color_fusion_volume.__pyx_unpickle_ColorFusionVolume__set_state", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -20204,8 +20204,8 @@ static PyObject *__pyx_unpickle_Enum__set_state(struct __pyx_MemviewEnum_obj *__
   return __pyx_r;
 }
 
-static PyObject *__pyx_tp_new_19color_fusion_volume_ColorSDFVolume(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
-  struct __pyx_obj_19color_fusion_volume_ColorSDFVolume *p;
+static PyObject *__pyx_tp_new_19color_fusion_volume_ColorFusionVolume(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  struct __pyx_obj_19color_fusion_volume_ColorFusionVolume *p;
   PyObject *o;
   if (likely((t->tp_flags & Py_TPFLAGS_IS_ABSTRACT) == 0)) {
     o = (*t->tp_alloc)(t, 0);
@@ -20213,7 +20213,7 @@ static PyObject *__pyx_tp_new_19color_fusion_volume_ColorSDFVolume(PyTypeObject 
     o = (PyObject *) PyBaseObject_Type.tp_new(t, __pyx_empty_tuple, 0);
   }
   if (unlikely(!o)) return 0;
-  p = ((struct __pyx_obj_19color_fusion_volume_ColorSDFVolume *)o);
+  p = ((struct __pyx_obj_19color_fusion_volume_ColorFusionVolume *)o);
   p->bbox.data = NULL;
   p->bbox.memview = NULL;
   p->volume.data = NULL;
@@ -20223,8 +20223,8 @@ static PyObject *__pyx_tp_new_19color_fusion_volume_ColorSDFVolume(PyTypeObject 
   return o;
 }
 
-static void __pyx_tp_dealloc_19color_fusion_volume_ColorSDFVolume(PyObject *o) {
-  struct __pyx_obj_19color_fusion_volume_ColorSDFVolume *p = (struct __pyx_obj_19color_fusion_volume_ColorSDFVolume *)o;
+static void __pyx_tp_dealloc_19color_fusion_volume_ColorFusionVolume(PyObject *o) {
+  struct __pyx_obj_19color_fusion_volume_ColorFusionVolume *p = (struct __pyx_obj_19color_fusion_volume_ColorFusionVolume *)o;
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely(PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE) && Py_TYPE(o)->tp_finalize) && (!PyType_IS_GC(Py_TYPE(o)) || !_PyGC_FINALIZED(o))) {
     if (PyObject_CallFinalizerFromDealloc(o)) return;
@@ -20236,20 +20236,20 @@ static void __pyx_tp_dealloc_19color_fusion_volume_ColorSDFVolume(PyObject *o) {
   (*Py_TYPE(o)->tp_free)(o);
 }
 
-static PyMethodDef __pyx_methods_19color_fusion_volume_ColorSDFVolume[] = {
-  {"get_volume", (PyCFunction)__pyx_pw_19color_fusion_volume_14ColorSDFVolume_3get_volume, METH_NOARGS, 0},
-  {"fuse", (PyCFunction)__pyx_pw_19color_fusion_volume_14ColorSDFVolume_5fuse, METH_VARARGS|METH_KEYWORDS, 0},
-  {"__reduce_cython__", (PyCFunction)__pyx_pw_19color_fusion_volume_14ColorSDFVolume_7__reduce_cython__, METH_NOARGS, 0},
-  {"__setstate_cython__", (PyCFunction)__pyx_pw_19color_fusion_volume_14ColorSDFVolume_9__setstate_cython__, METH_O, 0},
+static PyMethodDef __pyx_methods_19color_fusion_volume_ColorFusionVolume[] = {
+  {"get_volume", (PyCFunction)__pyx_pw_19color_fusion_volume_17ColorFusionVolume_3get_volume, METH_NOARGS, 0},
+  {"fuse", (PyCFunction)__pyx_pw_19color_fusion_volume_17ColorFusionVolume_5fuse, METH_VARARGS|METH_KEYWORDS, 0},
+  {"__reduce_cython__", (PyCFunction)__pyx_pw_19color_fusion_volume_17ColorFusionVolume_7__reduce_cython__, METH_NOARGS, 0},
+  {"__setstate_cython__", (PyCFunction)__pyx_pw_19color_fusion_volume_17ColorFusionVolume_9__setstate_cython__, METH_O, 0},
   {0, 0, 0, 0}
 };
 
-static PyTypeObject __pyx_type_19color_fusion_volume_ColorSDFVolume = {
+static PyTypeObject __pyx_type_19color_fusion_volume_ColorFusionVolume = {
   PyVarObject_HEAD_INIT(0, 0)
-  "color_fusion_volume.ColorSDFVolume", /*tp_name*/
-  sizeof(struct __pyx_obj_19color_fusion_volume_ColorSDFVolume), /*tp_basicsize*/
+  "color_fusion_volume.ColorFusionVolume", /*tp_name*/
+  sizeof(struct __pyx_obj_19color_fusion_volume_ColorFusionVolume), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_19color_fusion_volume_ColorSDFVolume, /*tp_dealloc*/
+  __pyx_tp_dealloc_19color_fusion_volume_ColorFusionVolume, /*tp_dealloc*/
   0, /*tp_print*/
   0, /*tp_getattr*/
   0, /*tp_setattr*/
@@ -20277,7 +20277,7 @@ static PyTypeObject __pyx_type_19color_fusion_volume_ColorSDFVolume = {
   0, /*tp_weaklistoffset*/
   0, /*tp_iter*/
   0, /*tp_iternext*/
-  __pyx_methods_19color_fusion_volume_ColorSDFVolume, /*tp_methods*/
+  __pyx_methods_19color_fusion_volume_ColorFusionVolume, /*tp_methods*/
   0, /*tp_members*/
   0, /*tp_getset*/
   0, /*tp_base*/
@@ -20285,9 +20285,9 @@ static PyTypeObject __pyx_type_19color_fusion_volume_ColorSDFVolume = {
   0, /*tp_descr_get*/
   0, /*tp_descr_set*/
   0, /*tp_dictoffset*/
-  __pyx_pw_19color_fusion_volume_14ColorSDFVolume_1__init__, /*tp_init*/
+  __pyx_pw_19color_fusion_volume_17ColorFusionVolume_1__init__, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_19color_fusion_volume_ColorSDFVolume, /*tp_new*/
+  __pyx_tp_new_19color_fusion_volume_ColorFusionVolume, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -21097,7 +21097,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_pyx_result, __pyx_k_pyx_result, sizeof(__pyx_k_pyx_result), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_state, __pyx_k_pyx_state, sizeof(__pyx_k_pyx_state), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_type, __pyx_k_pyx_type, sizeof(__pyx_k_pyx_type), 0, 0, 1, 1},
-  {&__pyx_n_s_pyx_unpickle_ColorSDFVolume, __pyx_k_pyx_unpickle_ColorSDFVolume, sizeof(__pyx_k_pyx_unpickle_ColorSDFVolume), 0, 0, 1, 1},
+  {&__pyx_n_s_pyx_unpickle_ColorFusionVolume, __pyx_k_pyx_unpickle_ColorFusionVolume, sizeof(__pyx_k_pyx_unpickle_ColorFusionVolume), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_unpickle_Enum, __pyx_k_pyx_unpickle_Enum, sizeof(__pyx_k_pyx_unpickle_Enum), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_vtable, __pyx_k_pyx_vtable, sizeof(__pyx_k_pyx_vtable), 0, 0, 1, 1},
   {&__pyx_n_s_range, __pyx_k_range, sizeof(__pyx_k_range), 0, 0, 1, 1},
@@ -21475,14 +21475,14 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__30);
 
   /* "(tree fragment)":1
- * def __pyx_unpickle_ColorSDFVolume(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
+ * def __pyx_unpickle_ColorFusionVolume(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     if __pyx_checksum != 0x9db965b:
  *         from pickle import PickleError as __pyx_PickleError
  */
   __pyx_tuple__31 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__31)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__31);
   __Pyx_GIVEREF(__pyx_tuple__31);
-  __pyx_codeobj__32 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__31, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_ColorSDFVolume, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__32)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_codeobj__32 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__31, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_ColorFusionVolume, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__32)) __PYX_ERR(1, 1, __pyx_L1_error)
 
   /* "View.MemoryView":285
  *         return self.name
@@ -21609,14 +21609,14 @@ static int __Pyx_modinit_type_init_code(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_init_code", 0);
   /*--- Type init code ---*/
-  if (PyType_Ready(&__pyx_type_19color_fusion_volume_ColorSDFVolume) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
-  __pyx_type_19color_fusion_volume_ColorSDFVolume.tp_print = 0;
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_19color_fusion_volume_ColorSDFVolume.tp_dictoffset && __pyx_type_19color_fusion_volume_ColorSDFVolume.tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_type_19color_fusion_volume_ColorSDFVolume.tp_getattro = __Pyx_PyObject_GenericGetAttr;
+  if (PyType_Ready(&__pyx_type_19color_fusion_volume_ColorFusionVolume) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
+  __pyx_type_19color_fusion_volume_ColorFusionVolume.tp_print = 0;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_19color_fusion_volume_ColorFusionVolume.tp_dictoffset && __pyx_type_19color_fusion_volume_ColorFusionVolume.tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_type_19color_fusion_volume_ColorFusionVolume.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (PyObject_SetAttrString(__pyx_m, "ColorSDFVolume", (PyObject *)&__pyx_type_19color_fusion_volume_ColorSDFVolume) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_19color_fusion_volume_ColorSDFVolume) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
-  __pyx_ptype_19color_fusion_volume_ColorSDFVolume = &__pyx_type_19color_fusion_volume_ColorSDFVolume;
+  if (PyObject_SetAttrString(__pyx_m, "ColorFusionVolume", (PyObject *)&__pyx_type_19color_fusion_volume_ColorFusionVolume) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_19color_fusion_volume_ColorFusionVolume) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
+  __pyx_ptype_19color_fusion_volume_ColorFusionVolume = &__pyx_type_19color_fusion_volume_ColorFusionVolume;
   __pyx_vtabptr_array = &__pyx_vtable_array;
   __pyx_vtable_array.get_memview = (PyObject *(*)(struct __pyx_array_obj *))__pyx_array_get_memview;
   if (PyType_Ready(&__pyx_type___pyx_array) < 0) __PYX_ERR(1, 104, __pyx_L1_error)
@@ -21893,13 +21893,13 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "(tree fragment)":1
- * def __pyx_unpickle_ColorSDFVolume(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
+ * def __pyx_unpickle_ColorFusionVolume(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     if __pyx_checksum != 0x9db965b:
  *         from pickle import PickleError as __pyx_PickleError
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_19color_fusion_volume_1__pyx_unpickle_ColorSDFVolume, NULL, __pyx_n_s_color_fusion_volume); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_19color_fusion_volume_1__pyx_unpickle_ColorFusionVolume, NULL, __pyx_n_s_color_fusion_volume); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_ColorSDFVolume, __pyx_t_1) < 0) __PYX_ERR(1, 1, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_ColorFusionVolume, __pyx_t_1) < 0) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "color_fusion_volume.pyx":1

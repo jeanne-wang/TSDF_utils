@@ -3,7 +3,7 @@ import glob
 import argparse
 import numpy as np
 from PIL import Image
-from color_sdf_volume import ColorSDFVolume
+from color_fusion_volume import ColorFusionVolume
 
 
 def parse_args():
@@ -40,7 +40,7 @@ def main():
 
     bbox = np.loadtxt(os.path.join(args.input_path, "bbox.txt"))
 
-    color_sdf_volume = ColorSDFVolume(bbox, args.viewport_height, args.viewport_width, args.resolution, args.resolution_factor)
+    color_sdf_volume = ColorFusionVolume(bbox, args.viewport_height, args.viewport_width, args.resolution, args.resolution_factor)
 
     camera_paths = sorted(glob.glob(os.path.join(args.input_path,
                                                 "frames/frame*.npz")))
@@ -55,12 +55,12 @@ def main():
         depth_map_path = os.path.join(args.input_path,
                                    "frames/frame-{:05d}.depth.png".format(frame_id))
 
-        color_path = os.path.join(args.input_path,
+        color_map_path = os.path.join(args.input_path,
                                    "frames/frame-{:05d}.rgba.png".format(frame_id))
         
         camera = np.load(camera_path)
         proj_matrix = camera['projection_matrix']
-        cam_matrix = camera['cam_matrix']
+        cam_matrix = camera['camera_matrix']
         transform_matrix =  np.matmul(proj_matrix, cam_matrix)
 
         depth_map = Image.open(depth_map_path)
@@ -68,8 +68,8 @@ def main():
         depth_map = depth_map*10/255 ## here depth map stores unprojected depth value
 
         color_image = Image.open(color_map_path)
-        color_image = np.ascontiguousarray(color, dtype=np.float32)
-        color_image = color_image[:,:,:-1]
+        color_image = np.ascontiguousarray(color_image, dtype=np.float32)
+        color_image = color_image[:,:,:-1].copy(order='C')
 
         
         color_sdf_volume.fuse(transform_matrix,

@@ -7,7 +7,7 @@ cimport numpy as np
 from libc.math cimport round
 
 
-cdef class ColorSDFVolume:
+cdef class ColorFusionVolume:
 
     cdef float[:, ::1] bbox
     cdef float resolution
