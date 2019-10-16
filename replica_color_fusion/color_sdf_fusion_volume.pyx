@@ -58,7 +58,7 @@ cdef class ColorSDFVolume:
 
     
         cdef float depth ## measured depth in depth map
-        cdef float signed_distance
+        cdef float signed_distance, truncated_signed_distance
         cdef float prior_sdf_weight, prior_color_weight,new_sdf_weight, new_color_weight
 
         for i in range(self.volume.shape[0]):
@@ -106,8 +106,9 @@ cdef class ColorSDFVolume:
                     y_ndc = y_clip/w_clip
 
                     ## compute viewport transform (assume the position of viewport is (0,0))
-                    x_screen = <int>round((self.viewport_width * x_ndc + self.viewport_width)/2)
-                    y_screen = <int>round((self.viewport_height * y_ndc + self.viewport_height)/2)
+                    x_screen = <int>round((self.viewport_width * x_ndc + self.viewport_width)*0.5)
+                    y_screen = <int>round((self.viewport_height * y_ndc + self.viewport_height)*0.5)
+                    printf("x_screen: %d, y_screen: %d\n", x_screen, y_screen)
 
 
                     # Extract depth of visible surface
