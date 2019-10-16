@@ -61,13 +61,6 @@ cdef class ColorSDFVolume:
         cdef float signed_distance
         cdef float prior_sdf_weight, prior_color_weight,new_sdf_weight, new_color_weight
 
-        printf("Transform matrix: \n")
-        printf("%f, %f, %f, %f\n", transform_matrix[0, 0], transform_matrix[0,1], transform_matrix[0,2], transform_matrix[0,3])
-        printf("%f, %f, %f, %f\n", transform_matrix[1, 0], transform_matrix[1,1], transform_matrix[1,2], transform_matrix[1,3])
-        printf("%f, %f, %f, %f\n", transform_matrix[2, 0], transform_matrix[2,1], transform_matrix[2,2], transform_matrix[2,3])
-        printf("%f, %f, %f, %f\n", transform_matrix[3, 0], transform_matrix[3,1], transform_matrix[3,2], transform_matrix[3,3])
-
-
         for i in range(self.volume.shape[0]):
             x = self.bbox[0, 0] + i * self.resolution
             for j in range(self.volume.shape[1]):
