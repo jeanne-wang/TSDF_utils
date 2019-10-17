@@ -108,16 +108,13 @@ cdef class ColorSDFVolume:
                     ## compute viewport transform (assume the position of viewport is (0,0))
                     x_screen = <int>round((self.viewport_width * x_ndc + self.viewport_width)*0.5)
                     y_screen = <int>round((self.viewport_height * y_ndc + self.viewport_height)*0.5)
-                    printf("x_screen: %d, y_screen: %d\n", x_screen, y_screen)
 
 
                     # Extract depth of visible surface
-                    depth = depth_map[y_screen, x_screen]
+                    depth = depth_map[self.viewport_height-y_screen, x_screen] ## the index of y need to be flipped
 
                     # w_clip = -z_e, w_clip is the distance between the point to the camera in the camera coords space
                     signed_distance = depth-w_clip
-                    #printf("depth: %f\n", depth)
-                    #printf("w_clip: %f\n", w_clip)
 
                     ## sdf fusion
                     if signed_distance >= -self.max_distance:
@@ -141,7 +138,7 @@ cdef class ColorSDFVolume:
                     new_color_weight = prior_color_weight+1.0
 
                     for ch in range(color_map.shape[2]):
-                        self.volume[i, j, k, ch] = min((prior_color_weight * self.volume[i,j,k,ch] + 1.0 *  color_map[y_screen, x_screen, ch])/new_color_weight, 255.0)
+                        self.volume[i, j, k, ch] = min((prior_color_weight * self.volume[i,j,k,ch] + 1.0 *  color_map[self.viewport_height-y_screen, x_screen, ch])/new_color_weight, 255.0)
 
                     self.color_weight_data[i,j,k] = new_color_weight
 

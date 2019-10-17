@@ -2415,7 +2415,6 @@ static PyObject *__pyx_tp_new_array(PyTypeObject *t, PyObject *a, PyObject *k); 
 static PyObject *__pyx_tp_new_Enum(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_memoryview(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new__memoryviewslice(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_float_1_0;
 static PyObject *__pyx_int_0;
 static PyObject *__pyx_int_1;
 static PyObject *__pyx_int_4;
@@ -3389,23 +3388,23 @@ static PyObject *__pyx_pf_23color_sdf_fusion_volume_14ColorSDFVolume_4fuse(struc
   float __pyx_v_prior_color_weight;
   float __pyx_v_new_sdf_weight;
   float __pyx_v_new_color_weight;
-  PyObject *__pyx_v_truncated_distance = NULL;
+  double __pyx_v_truncated_distance;
   Py_ssize_t __pyx_v_ch;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   Py_ssize_t __pyx_t_1;
   Py_ssize_t __pyx_t_2;
-  Py_ssize_t __pyx_t_3;
+  int __pyx_t_3;
   Py_ssize_t __pyx_t_4;
   Py_ssize_t __pyx_t_5;
   Py_ssize_t __pyx_t_6;
   Py_ssize_t __pyx_t_7;
-  Py_ssize_t __pyx_t_8;
+  int __pyx_t_8;
   Py_ssize_t __pyx_t_9;
   Py_ssize_t __pyx_t_10;
   Py_ssize_t __pyx_t_11;
   Py_ssize_t __pyx_t_12;
-  Py_ssize_t __pyx_t_13;
+  int __pyx_t_13;
   Py_ssize_t __pyx_t_14;
   Py_ssize_t __pyx_t_15;
   Py_ssize_t __pyx_t_16;
@@ -3427,26 +3426,26 @@ static PyObject *__pyx_pf_23color_sdf_fusion_volume_14ColorSDFVolume_4fuse(struc
   Py_ssize_t __pyx_t_32;
   Py_ssize_t __pyx_t_33;
   Py_ssize_t __pyx_t_34;
-  int __pyx_t_35;
+  Py_ssize_t __pyx_t_35;
   Py_ssize_t __pyx_t_36;
   Py_ssize_t __pyx_t_37;
   Py_ssize_t __pyx_t_38;
   Py_ssize_t __pyx_t_39;
-  int __pyx_t_40;
+  Py_ssize_t __pyx_t_40;
   Py_ssize_t __pyx_t_41;
   Py_ssize_t __pyx_t_42;
   Py_ssize_t __pyx_t_43;
   Py_ssize_t __pyx_t_44;
-  int __pyx_t_45;
+  Py_ssize_t __pyx_t_45;
   Py_ssize_t __pyx_t_46;
   Py_ssize_t __pyx_t_47;
-  Py_ssize_t __pyx_t_48;
-  Py_ssize_t __pyx_t_49;
+  int __pyx_t_48;
+  int __pyx_t_49;
   Py_ssize_t __pyx_t_50;
   Py_ssize_t __pyx_t_51;
-  Py_ssize_t __pyx_t_52;
-  Py_ssize_t __pyx_t_53;
-  Py_ssize_t __pyx_t_54;
+  float __pyx_t_52;
+  float __pyx_t_53;
+  float __pyx_t_54;
   Py_ssize_t __pyx_t_55;
   Py_ssize_t __pyx_t_56;
   Py_ssize_t __pyx_t_57;
@@ -3467,58 +3466,23 @@ static PyObject *__pyx_pf_23color_sdf_fusion_volume_14ColorSDFVolume_4fuse(struc
   Py_ssize_t __pyx_t_72;
   Py_ssize_t __pyx_t_73;
   Py_ssize_t __pyx_t_74;
-  Py_ssize_t __pyx_t_75;
+  double __pyx_t_75;
   Py_ssize_t __pyx_t_76;
   Py_ssize_t __pyx_t_77;
   Py_ssize_t __pyx_t_78;
   Py_ssize_t __pyx_t_79;
-  int __pyx_t_80;
-  int __pyx_t_81;
+  Py_ssize_t __pyx_t_80;
+  Py_ssize_t __pyx_t_81;
   Py_ssize_t __pyx_t_82;
-  Py_ssize_t __pyx_t_83;
-  float __pyx_t_84;
-  float __pyx_t_85;
-  float __pyx_t_86;
-  PyObject *__pyx_t_87 = NULL;
+  double __pyx_t_83;
+  double __pyx_t_84;
+  Py_ssize_t __pyx_t_85;
+  Py_ssize_t __pyx_t_86;
+  Py_ssize_t __pyx_t_87;
   Py_ssize_t __pyx_t_88;
   Py_ssize_t __pyx_t_89;
   Py_ssize_t __pyx_t_90;
   Py_ssize_t __pyx_t_91;
-  Py_ssize_t __pyx_t_92;
-  Py_ssize_t __pyx_t_93;
-  Py_ssize_t __pyx_t_94;
-  PyObject *__pyx_t_95 = NULL;
-  PyObject *__pyx_t_96 = NULL;
-  Py_ssize_t __pyx_t_97;
-  Py_ssize_t __pyx_t_98;
-  Py_ssize_t __pyx_t_99;
-  Py_ssize_t __pyx_t_100;
-  Py_ssize_t __pyx_t_101;
-  Py_ssize_t __pyx_t_102;
-  Py_ssize_t __pyx_t_103;
-  Py_ssize_t __pyx_t_104;
-  Py_ssize_t __pyx_t_105;
-  Py_ssize_t __pyx_t_106;
-  Py_ssize_t __pyx_t_107;
-  Py_ssize_t __pyx_t_108;
-  Py_ssize_t __pyx_t_109;
-  double __pyx_t_110;
-  Py_ssize_t __pyx_t_111;
-  Py_ssize_t __pyx_t_112;
-  Py_ssize_t __pyx_t_113;
-  Py_ssize_t __pyx_t_114;
-  Py_ssize_t __pyx_t_115;
-  Py_ssize_t __pyx_t_116;
-  Py_ssize_t __pyx_t_117;
-  double __pyx_t_118;
-  double __pyx_t_119;
-  Py_ssize_t __pyx_t_120;
-  Py_ssize_t __pyx_t_121;
-  Py_ssize_t __pyx_t_122;
-  Py_ssize_t __pyx_t_123;
-  Py_ssize_t __pyx_t_124;
-  Py_ssize_t __pyx_t_125;
-  Py_ssize_t __pyx_t_126;
   __Pyx_RefNannySetupContext("fuse", 0);
 
   /* "color_sdf_fusion_volume.pyx":51
@@ -3540,426 +3504,317 @@ static PyObject *__pyx_pf_23color_sdf_fusion_volume_14ColorSDFVolume_4fuse(struc
   /* "color_sdf_fusion_volume.pyx":64
  *         cdef float prior_sdf_weight, prior_color_weight,new_sdf_weight, new_color_weight
  * 
- *         printf("Transform matrix: \n")             # <<<<<<<<<<<<<<
- *         printf("%f, %f, %f, %f\n", transform_matrix[0, 0], transform_matrix[0,1], transform_matrix[0,2], transform_matrix[0,3])
- *         printf("%f, %f, %f, %f\n", transform_matrix[1, 0], transform_matrix[1,1], transform_matrix[1,2], transform_matrix[1,3])
- */
-  (void)(printf(((char const *)"Transform matrix: \n")));
-
-  /* "color_sdf_fusion_volume.pyx":65
- * 
- *         printf("Transform matrix: \n")
- *         printf("%f, %f, %f, %f\n", transform_matrix[0, 0], transform_matrix[0,1], transform_matrix[0,2], transform_matrix[0,3])             # <<<<<<<<<<<<<<
- *         printf("%f, %f, %f, %f\n", transform_matrix[1, 0], transform_matrix[1,1], transform_matrix[1,2], transform_matrix[1,3])
- *         printf("%f, %f, %f, %f\n", transform_matrix[2, 0], transform_matrix[2,1], transform_matrix[2,2], transform_matrix[2,3])
- */
-  __pyx_t_1 = 0;
-  __pyx_t_2 = 0;
-  if (__pyx_t_1 < 0) __pyx_t_1 += __pyx_v_transform_matrix.shape[0];
-  if (__pyx_t_2 < 0) __pyx_t_2 += __pyx_v_transform_matrix.shape[1];
-  __pyx_t_3 = 0;
-  __pyx_t_4 = 1;
-  if (__pyx_t_3 < 0) __pyx_t_3 += __pyx_v_transform_matrix.shape[0];
-  if (__pyx_t_4 < 0) __pyx_t_4 += __pyx_v_transform_matrix.shape[1];
-  __pyx_t_5 = 0;
-  __pyx_t_6 = 2;
-  if (__pyx_t_5 < 0) __pyx_t_5 += __pyx_v_transform_matrix.shape[0];
-  if (__pyx_t_6 < 0) __pyx_t_6 += __pyx_v_transform_matrix.shape[1];
-  __pyx_t_7 = 0;
-  __pyx_t_8 = 3;
-  if (__pyx_t_7 < 0) __pyx_t_7 += __pyx_v_transform_matrix.shape[0];
-  if (__pyx_t_8 < 0) __pyx_t_8 += __pyx_v_transform_matrix.shape[1];
-  (void)(printf(((char const *)"%f, %f, %f, %f\n"), (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_1 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_2)) ))), (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_3 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_4)) ))), (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_5 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_6)) ))), (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_7 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_8)) )))));
-
-  /* "color_sdf_fusion_volume.pyx":66
- *         printf("Transform matrix: \n")
- *         printf("%f, %f, %f, %f\n", transform_matrix[0, 0], transform_matrix[0,1], transform_matrix[0,2], transform_matrix[0,3])
- *         printf("%f, %f, %f, %f\n", transform_matrix[1, 0], transform_matrix[1,1], transform_matrix[1,2], transform_matrix[1,3])             # <<<<<<<<<<<<<<
- *         printf("%f, %f, %f, %f\n", transform_matrix[2, 0], transform_matrix[2,1], transform_matrix[2,2], transform_matrix[2,3])
- *         printf("%f, %f, %f, %f\n", transform_matrix[3, 0], transform_matrix[3,1], transform_matrix[3,2], transform_matrix[3,3])
- */
-  __pyx_t_9 = 1;
-  __pyx_t_10 = 0;
-  if (__pyx_t_9 < 0) __pyx_t_9 += __pyx_v_transform_matrix.shape[0];
-  if (__pyx_t_10 < 0) __pyx_t_10 += __pyx_v_transform_matrix.shape[1];
-  __pyx_t_11 = 1;
-  __pyx_t_12 = 1;
-  if (__pyx_t_11 < 0) __pyx_t_11 += __pyx_v_transform_matrix.shape[0];
-  if (__pyx_t_12 < 0) __pyx_t_12 += __pyx_v_transform_matrix.shape[1];
-  __pyx_t_13 = 1;
-  __pyx_t_14 = 2;
-  if (__pyx_t_13 < 0) __pyx_t_13 += __pyx_v_transform_matrix.shape[0];
-  if (__pyx_t_14 < 0) __pyx_t_14 += __pyx_v_transform_matrix.shape[1];
-  __pyx_t_15 = 1;
-  __pyx_t_16 = 3;
-  if (__pyx_t_15 < 0) __pyx_t_15 += __pyx_v_transform_matrix.shape[0];
-  if (__pyx_t_16 < 0) __pyx_t_16 += __pyx_v_transform_matrix.shape[1];
-  (void)(printf(((char const *)"%f, %f, %f, %f\n"), (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_9 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_10)) ))), (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_11 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_12)) ))), (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_13 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_14)) ))), (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_15 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_16)) )))));
-
-  /* "color_sdf_fusion_volume.pyx":67
- *         printf("%f, %f, %f, %f\n", transform_matrix[0, 0], transform_matrix[0,1], transform_matrix[0,2], transform_matrix[0,3])
- *         printf("%f, %f, %f, %f\n", transform_matrix[1, 0], transform_matrix[1,1], transform_matrix[1,2], transform_matrix[1,3])
- *         printf("%f, %f, %f, %f\n", transform_matrix[2, 0], transform_matrix[2,1], transform_matrix[2,2], transform_matrix[2,3])             # <<<<<<<<<<<<<<
- *         printf("%f, %f, %f, %f\n", transform_matrix[3, 0], transform_matrix[3,1], transform_matrix[3,2], transform_matrix[3,3])
- * 
- */
-  __pyx_t_17 = 2;
-  __pyx_t_18 = 0;
-  if (__pyx_t_17 < 0) __pyx_t_17 += __pyx_v_transform_matrix.shape[0];
-  if (__pyx_t_18 < 0) __pyx_t_18 += __pyx_v_transform_matrix.shape[1];
-  __pyx_t_19 = 2;
-  __pyx_t_20 = 1;
-  if (__pyx_t_19 < 0) __pyx_t_19 += __pyx_v_transform_matrix.shape[0];
-  if (__pyx_t_20 < 0) __pyx_t_20 += __pyx_v_transform_matrix.shape[1];
-  __pyx_t_21 = 2;
-  __pyx_t_22 = 2;
-  if (__pyx_t_21 < 0) __pyx_t_21 += __pyx_v_transform_matrix.shape[0];
-  if (__pyx_t_22 < 0) __pyx_t_22 += __pyx_v_transform_matrix.shape[1];
-  __pyx_t_23 = 2;
-  __pyx_t_24 = 3;
-  if (__pyx_t_23 < 0) __pyx_t_23 += __pyx_v_transform_matrix.shape[0];
-  if (__pyx_t_24 < 0) __pyx_t_24 += __pyx_v_transform_matrix.shape[1];
-  (void)(printf(((char const *)"%f, %f, %f, %f\n"), (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_17 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_18)) ))), (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_19 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_20)) ))), (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_21 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_22)) ))), (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_23 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_24)) )))));
-
-  /* "color_sdf_fusion_volume.pyx":68
- *         printf("%f, %f, %f, %f\n", transform_matrix[1, 0], transform_matrix[1,1], transform_matrix[1,2], transform_matrix[1,3])
- *         printf("%f, %f, %f, %f\n", transform_matrix[2, 0], transform_matrix[2,1], transform_matrix[2,2], transform_matrix[2,3])
- *         printf("%f, %f, %f, %f\n", transform_matrix[3, 0], transform_matrix[3,1], transform_matrix[3,2], transform_matrix[3,3])             # <<<<<<<<<<<<<<
- * 
- * 
- */
-  __pyx_t_25 = 3;
-  __pyx_t_26 = 0;
-  if (__pyx_t_25 < 0) __pyx_t_25 += __pyx_v_transform_matrix.shape[0];
-  if (__pyx_t_26 < 0) __pyx_t_26 += __pyx_v_transform_matrix.shape[1];
-  __pyx_t_27 = 3;
-  __pyx_t_28 = 1;
-  if (__pyx_t_27 < 0) __pyx_t_27 += __pyx_v_transform_matrix.shape[0];
-  if (__pyx_t_28 < 0) __pyx_t_28 += __pyx_v_transform_matrix.shape[1];
-  __pyx_t_29 = 3;
-  __pyx_t_30 = 2;
-  if (__pyx_t_29 < 0) __pyx_t_29 += __pyx_v_transform_matrix.shape[0];
-  if (__pyx_t_30 < 0) __pyx_t_30 += __pyx_v_transform_matrix.shape[1];
-  __pyx_t_31 = 3;
-  __pyx_t_32 = 3;
-  if (__pyx_t_31 < 0) __pyx_t_31 += __pyx_v_transform_matrix.shape[0];
-  if (__pyx_t_32 < 0) __pyx_t_32 += __pyx_v_transform_matrix.shape[1];
-  (void)(printf(((char const *)"%f, %f, %f, %f\n"), (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_25 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_26)) ))), (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_27 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_28)) ))), (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_29 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_30)) ))), (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_31 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_32)) )))));
-
-  /* "color_sdf_fusion_volume.pyx":71
- * 
- * 
  *         for i in range(self.volume.shape[0]):             # <<<<<<<<<<<<<<
  *             x = self.bbox[0, 0] + i * self.resolution
  *             for j in range(self.volume.shape[1]):
  */
-  __pyx_t_33 = (__pyx_v_self->volume.shape[0]);
-  __pyx_t_34 = __pyx_t_33;
-  for (__pyx_t_35 = 0; __pyx_t_35 < __pyx_t_34; __pyx_t_35+=1) {
-    __pyx_v_i = __pyx_t_35;
+  __pyx_t_1 = (__pyx_v_self->volume.shape[0]);
+  __pyx_t_2 = __pyx_t_1;
+  for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
+    __pyx_v_i = __pyx_t_3;
 
-    /* "color_sdf_fusion_volume.pyx":72
+    /* "color_sdf_fusion_volume.pyx":65
  * 
  *         for i in range(self.volume.shape[0]):
  *             x = self.bbox[0, 0] + i * self.resolution             # <<<<<<<<<<<<<<
  *             for j in range(self.volume.shape[1]):
  *                 y = self.bbox[1, 0] + j * self.resolution
  */
-    __pyx_t_36 = 0;
-    __pyx_t_37 = 0;
-    if (__pyx_t_36 < 0) __pyx_t_36 += __pyx_v_self->bbox.shape[0];
-    if (__pyx_t_37 < 0) __pyx_t_37 += __pyx_v_self->bbox.shape[1];
-    __pyx_v_x = ((*((float *) ( /* dim=1 */ ((char *) (((float *) ( /* dim=0 */ (__pyx_v_self->bbox.data + __pyx_t_36 * __pyx_v_self->bbox.strides[0]) )) + __pyx_t_37)) ))) + (__pyx_v_i * __pyx_v_self->resolution));
+    __pyx_t_4 = 0;
+    __pyx_t_5 = 0;
+    if (__pyx_t_4 < 0) __pyx_t_4 += __pyx_v_self->bbox.shape[0];
+    if (__pyx_t_5 < 0) __pyx_t_5 += __pyx_v_self->bbox.shape[1];
+    __pyx_v_x = ((*((float *) ( /* dim=1 */ ((char *) (((float *) ( /* dim=0 */ (__pyx_v_self->bbox.data + __pyx_t_4 * __pyx_v_self->bbox.strides[0]) )) + __pyx_t_5)) ))) + (__pyx_v_i * __pyx_v_self->resolution));
 
-    /* "color_sdf_fusion_volume.pyx":73
+    /* "color_sdf_fusion_volume.pyx":66
  *         for i in range(self.volume.shape[0]):
  *             x = self.bbox[0, 0] + i * self.resolution
  *             for j in range(self.volume.shape[1]):             # <<<<<<<<<<<<<<
  *                 y = self.bbox[1, 0] + j * self.resolution
  *                 for k in range(self.volume.shape[2]):
  */
-    __pyx_t_38 = (__pyx_v_self->volume.shape[1]);
-    __pyx_t_39 = __pyx_t_38;
-    for (__pyx_t_40 = 0; __pyx_t_40 < __pyx_t_39; __pyx_t_40+=1) {
-      __pyx_v_j = __pyx_t_40;
+    __pyx_t_6 = (__pyx_v_self->volume.shape[1]);
+    __pyx_t_7 = __pyx_t_6;
+    for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
+      __pyx_v_j = __pyx_t_8;
 
-      /* "color_sdf_fusion_volume.pyx":74
+      /* "color_sdf_fusion_volume.pyx":67
  *             x = self.bbox[0, 0] + i * self.resolution
  *             for j in range(self.volume.shape[1]):
  *                 y = self.bbox[1, 0] + j * self.resolution             # <<<<<<<<<<<<<<
  *                 for k in range(self.volume.shape[2]):
  *                     z = self.bbox[2, 0] + k * self.resolution
  */
-      __pyx_t_41 = 1;
-      __pyx_t_42 = 0;
-      if (__pyx_t_41 < 0) __pyx_t_41 += __pyx_v_self->bbox.shape[0];
-      if (__pyx_t_42 < 0) __pyx_t_42 += __pyx_v_self->bbox.shape[1];
-      __pyx_v_y = ((*((float *) ( /* dim=1 */ ((char *) (((float *) ( /* dim=0 */ (__pyx_v_self->bbox.data + __pyx_t_41 * __pyx_v_self->bbox.strides[0]) )) + __pyx_t_42)) ))) + (__pyx_v_j * __pyx_v_self->resolution));
+      __pyx_t_9 = 1;
+      __pyx_t_10 = 0;
+      if (__pyx_t_9 < 0) __pyx_t_9 += __pyx_v_self->bbox.shape[0];
+      if (__pyx_t_10 < 0) __pyx_t_10 += __pyx_v_self->bbox.shape[1];
+      __pyx_v_y = ((*((float *) ( /* dim=1 */ ((char *) (((float *) ( /* dim=0 */ (__pyx_v_self->bbox.data + __pyx_t_9 * __pyx_v_self->bbox.strides[0]) )) + __pyx_t_10)) ))) + (__pyx_v_j * __pyx_v_self->resolution));
 
-      /* "color_sdf_fusion_volume.pyx":75
+      /* "color_sdf_fusion_volume.pyx":68
  *             for j in range(self.volume.shape[1]):
  *                 y = self.bbox[1, 0] + j * self.resolution
  *                 for k in range(self.volume.shape[2]):             # <<<<<<<<<<<<<<
  *                     z = self.bbox[2, 0] + k * self.resolution
  * 
  */
-      __pyx_t_43 = (__pyx_v_self->volume.shape[2]);
-      __pyx_t_44 = __pyx_t_43;
-      for (__pyx_t_45 = 0; __pyx_t_45 < __pyx_t_44; __pyx_t_45+=1) {
-        __pyx_v_k = __pyx_t_45;
+      __pyx_t_11 = (__pyx_v_self->volume.shape[2]);
+      __pyx_t_12 = __pyx_t_11;
+      for (__pyx_t_13 = 0; __pyx_t_13 < __pyx_t_12; __pyx_t_13+=1) {
+        __pyx_v_k = __pyx_t_13;
 
-        /* "color_sdf_fusion_volume.pyx":76
+        /* "color_sdf_fusion_volume.pyx":69
  *                 y = self.bbox[1, 0] + j * self.resolution
  *                 for k in range(self.volume.shape[2]):
  *                     z = self.bbox[2, 0] + k * self.resolution             # <<<<<<<<<<<<<<
  * 
  * 
  */
-        __pyx_t_46 = 2;
-        __pyx_t_47 = 0;
-        if (__pyx_t_46 < 0) __pyx_t_46 += __pyx_v_self->bbox.shape[0];
-        if (__pyx_t_47 < 0) __pyx_t_47 += __pyx_v_self->bbox.shape[1];
-        __pyx_v_z = ((*((float *) ( /* dim=1 */ ((char *) (((float *) ( /* dim=0 */ (__pyx_v_self->bbox.data + __pyx_t_46 * __pyx_v_self->bbox.strides[0]) )) + __pyx_t_47)) ))) + (__pyx_v_k * __pyx_v_self->resolution));
+        __pyx_t_14 = 2;
+        __pyx_t_15 = 0;
+        if (__pyx_t_14 < 0) __pyx_t_14 += __pyx_v_self->bbox.shape[0];
+        if (__pyx_t_15 < 0) __pyx_t_15 += __pyx_v_self->bbox.shape[1];
+        __pyx_v_z = ((*((float *) ( /* dim=1 */ ((char *) (((float *) ( /* dim=0 */ (__pyx_v_self->bbox.data + __pyx_t_14 * __pyx_v_self->bbox.strides[0]) )) + __pyx_t_15)) ))) + (__pyx_v_k * __pyx_v_self->resolution));
 
-        /* "color_sdf_fusion_volume.pyx":80
+        /* "color_sdf_fusion_volume.pyx":73
  * 
  *                     # compute the coords in the clip volume
  *                     x_clip = transform_matrix[0, 0] * x + \             # <<<<<<<<<<<<<<
  *                                    transform_matrix[0, 1] * y + \
  *                                    transform_matrix[0, 2] * z + \
  */
-        __pyx_t_48 = 0;
-        __pyx_t_49 = 0;
-        if (__pyx_t_48 < 0) __pyx_t_48 += __pyx_v_transform_matrix.shape[0];
-        if (__pyx_t_49 < 0) __pyx_t_49 += __pyx_v_transform_matrix.shape[1];
+        __pyx_t_16 = 0;
+        __pyx_t_17 = 0;
+        if (__pyx_t_16 < 0) __pyx_t_16 += __pyx_v_transform_matrix.shape[0];
+        if (__pyx_t_17 < 0) __pyx_t_17 += __pyx_v_transform_matrix.shape[1];
 
-        /* "color_sdf_fusion_volume.pyx":81
+        /* "color_sdf_fusion_volume.pyx":74
  *                     # compute the coords in the clip volume
  *                     x_clip = transform_matrix[0, 0] * x + \
  *                                    transform_matrix[0, 1] * y + \             # <<<<<<<<<<<<<<
  *                                    transform_matrix[0, 2] * z + \
  *                                    transform_matrix[0, 3]
  */
-        __pyx_t_50 = 0;
-        __pyx_t_51 = 1;
-        if (__pyx_t_50 < 0) __pyx_t_50 += __pyx_v_transform_matrix.shape[0];
-        if (__pyx_t_51 < 0) __pyx_t_51 += __pyx_v_transform_matrix.shape[1];
+        __pyx_t_18 = 0;
+        __pyx_t_19 = 1;
+        if (__pyx_t_18 < 0) __pyx_t_18 += __pyx_v_transform_matrix.shape[0];
+        if (__pyx_t_19 < 0) __pyx_t_19 += __pyx_v_transform_matrix.shape[1];
 
-        /* "color_sdf_fusion_volume.pyx":82
+        /* "color_sdf_fusion_volume.pyx":75
  *                     x_clip = transform_matrix[0, 0] * x + \
  *                                    transform_matrix[0, 1] * y + \
  *                                    transform_matrix[0, 2] * z + \             # <<<<<<<<<<<<<<
  *                                    transform_matrix[0, 3]
  * 
  */
-        __pyx_t_52 = 0;
-        __pyx_t_53 = 2;
-        if (__pyx_t_52 < 0) __pyx_t_52 += __pyx_v_transform_matrix.shape[0];
-        if (__pyx_t_53 < 0) __pyx_t_53 += __pyx_v_transform_matrix.shape[1];
+        __pyx_t_20 = 0;
+        __pyx_t_21 = 2;
+        if (__pyx_t_20 < 0) __pyx_t_20 += __pyx_v_transform_matrix.shape[0];
+        if (__pyx_t_21 < 0) __pyx_t_21 += __pyx_v_transform_matrix.shape[1];
 
-        /* "color_sdf_fusion_volume.pyx":83
+        /* "color_sdf_fusion_volume.pyx":76
  *                                    transform_matrix[0, 1] * y + \
  *                                    transform_matrix[0, 2] * z + \
  *                                    transform_matrix[0, 3]             # <<<<<<<<<<<<<<
  * 
  *                     y_clip = transform_matrix[1, 0] * x + \
  */
-        __pyx_t_54 = 0;
-        __pyx_t_55 = 3;
-        if (__pyx_t_54 < 0) __pyx_t_54 += __pyx_v_transform_matrix.shape[0];
-        if (__pyx_t_55 < 0) __pyx_t_55 += __pyx_v_transform_matrix.shape[1];
+        __pyx_t_22 = 0;
+        __pyx_t_23 = 3;
+        if (__pyx_t_22 < 0) __pyx_t_22 += __pyx_v_transform_matrix.shape[0];
+        if (__pyx_t_23 < 0) __pyx_t_23 += __pyx_v_transform_matrix.shape[1];
 
-        /* "color_sdf_fusion_volume.pyx":82
+        /* "color_sdf_fusion_volume.pyx":75
  *                     x_clip = transform_matrix[0, 0] * x + \
  *                                    transform_matrix[0, 1] * y + \
  *                                    transform_matrix[0, 2] * z + \             # <<<<<<<<<<<<<<
  *                                    transform_matrix[0, 3]
  * 
  */
-        __pyx_v_x_clip = (((((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_48 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_49)) ))) * __pyx_v_x) + ((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_50 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_51)) ))) * __pyx_v_y)) + ((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_52 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_53)) ))) * __pyx_v_z)) + (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_54 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_55)) ))));
+        __pyx_v_x_clip = (((((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_16 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_17)) ))) * __pyx_v_x) + ((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_18 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_19)) ))) * __pyx_v_y)) + ((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_20 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_21)) ))) * __pyx_v_z)) + (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_22 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_23)) ))));
 
-        /* "color_sdf_fusion_volume.pyx":85
+        /* "color_sdf_fusion_volume.pyx":78
  *                                    transform_matrix[0, 3]
  * 
  *                     y_clip = transform_matrix[1, 0] * x + \             # <<<<<<<<<<<<<<
  *                                    transform_matrix[1, 1] * y + \
  *                                    transform_matrix[1, 2] * z + \
  */
-        __pyx_t_56 = 1;
-        __pyx_t_57 = 0;
-        if (__pyx_t_56 < 0) __pyx_t_56 += __pyx_v_transform_matrix.shape[0];
-        if (__pyx_t_57 < 0) __pyx_t_57 += __pyx_v_transform_matrix.shape[1];
+        __pyx_t_24 = 1;
+        __pyx_t_25 = 0;
+        if (__pyx_t_24 < 0) __pyx_t_24 += __pyx_v_transform_matrix.shape[0];
+        if (__pyx_t_25 < 0) __pyx_t_25 += __pyx_v_transform_matrix.shape[1];
 
-        /* "color_sdf_fusion_volume.pyx":86
+        /* "color_sdf_fusion_volume.pyx":79
  * 
  *                     y_clip = transform_matrix[1, 0] * x + \
  *                                    transform_matrix[1, 1] * y + \             # <<<<<<<<<<<<<<
  *                                    transform_matrix[1, 2] * z + \
  *                                    transform_matrix[1, 3]
  */
-        __pyx_t_58 = 1;
-        __pyx_t_59 = 1;
-        if (__pyx_t_58 < 0) __pyx_t_58 += __pyx_v_transform_matrix.shape[0];
-        if (__pyx_t_59 < 0) __pyx_t_59 += __pyx_v_transform_matrix.shape[1];
+        __pyx_t_26 = 1;
+        __pyx_t_27 = 1;
+        if (__pyx_t_26 < 0) __pyx_t_26 += __pyx_v_transform_matrix.shape[0];
+        if (__pyx_t_27 < 0) __pyx_t_27 += __pyx_v_transform_matrix.shape[1];
 
-        /* "color_sdf_fusion_volume.pyx":87
+        /* "color_sdf_fusion_volume.pyx":80
  *                     y_clip = transform_matrix[1, 0] * x + \
  *                                    transform_matrix[1, 1] * y + \
  *                                    transform_matrix[1, 2] * z + \             # <<<<<<<<<<<<<<
  *                                    transform_matrix[1, 3]
  * 
  */
-        __pyx_t_60 = 1;
-        __pyx_t_61 = 2;
-        if (__pyx_t_60 < 0) __pyx_t_60 += __pyx_v_transform_matrix.shape[0];
-        if (__pyx_t_61 < 0) __pyx_t_61 += __pyx_v_transform_matrix.shape[1];
+        __pyx_t_28 = 1;
+        __pyx_t_29 = 2;
+        if (__pyx_t_28 < 0) __pyx_t_28 += __pyx_v_transform_matrix.shape[0];
+        if (__pyx_t_29 < 0) __pyx_t_29 += __pyx_v_transform_matrix.shape[1];
 
-        /* "color_sdf_fusion_volume.pyx":88
+        /* "color_sdf_fusion_volume.pyx":81
  *                                    transform_matrix[1, 1] * y + \
  *                                    transform_matrix[1, 2] * z + \
  *                                    transform_matrix[1, 3]             # <<<<<<<<<<<<<<
  * 
  *                     z_clip = transform_matrix[2, 0] * x + \
  */
-        __pyx_t_62 = 1;
-        __pyx_t_63 = 3;
-        if (__pyx_t_62 < 0) __pyx_t_62 += __pyx_v_transform_matrix.shape[0];
-        if (__pyx_t_63 < 0) __pyx_t_63 += __pyx_v_transform_matrix.shape[1];
+        __pyx_t_30 = 1;
+        __pyx_t_31 = 3;
+        if (__pyx_t_30 < 0) __pyx_t_30 += __pyx_v_transform_matrix.shape[0];
+        if (__pyx_t_31 < 0) __pyx_t_31 += __pyx_v_transform_matrix.shape[1];
 
-        /* "color_sdf_fusion_volume.pyx":87
+        /* "color_sdf_fusion_volume.pyx":80
  *                     y_clip = transform_matrix[1, 0] * x + \
  *                                    transform_matrix[1, 1] * y + \
  *                                    transform_matrix[1, 2] * z + \             # <<<<<<<<<<<<<<
  *                                    transform_matrix[1, 3]
  * 
  */
-        __pyx_v_y_clip = (((((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_56 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_57)) ))) * __pyx_v_x) + ((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_58 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_59)) ))) * __pyx_v_y)) + ((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_60 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_61)) ))) * __pyx_v_z)) + (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_62 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_63)) ))));
+        __pyx_v_y_clip = (((((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_24 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_25)) ))) * __pyx_v_x) + ((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_26 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_27)) ))) * __pyx_v_y)) + ((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_28 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_29)) ))) * __pyx_v_z)) + (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_30 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_31)) ))));
 
-        /* "color_sdf_fusion_volume.pyx":90
+        /* "color_sdf_fusion_volume.pyx":83
  *                                    transform_matrix[1, 3]
  * 
  *                     z_clip = transform_matrix[2, 0] * x + \             # <<<<<<<<<<<<<<
  *                                    transform_matrix[2, 1] * y + \
  *                                    transform_matrix[2, 2] * z + \
  */
-        __pyx_t_64 = 2;
-        __pyx_t_65 = 0;
-        if (__pyx_t_64 < 0) __pyx_t_64 += __pyx_v_transform_matrix.shape[0];
-        if (__pyx_t_65 < 0) __pyx_t_65 += __pyx_v_transform_matrix.shape[1];
+        __pyx_t_32 = 2;
+        __pyx_t_33 = 0;
+        if (__pyx_t_32 < 0) __pyx_t_32 += __pyx_v_transform_matrix.shape[0];
+        if (__pyx_t_33 < 0) __pyx_t_33 += __pyx_v_transform_matrix.shape[1];
 
-        /* "color_sdf_fusion_volume.pyx":91
+        /* "color_sdf_fusion_volume.pyx":84
  * 
  *                     z_clip = transform_matrix[2, 0] * x + \
  *                                    transform_matrix[2, 1] * y + \             # <<<<<<<<<<<<<<
  *                                    transform_matrix[2, 2] * z + \
  *                                    transform_matrix[2, 3]
  */
-        __pyx_t_66 = 2;
-        __pyx_t_67 = 1;
-        if (__pyx_t_66 < 0) __pyx_t_66 += __pyx_v_transform_matrix.shape[0];
-        if (__pyx_t_67 < 0) __pyx_t_67 += __pyx_v_transform_matrix.shape[1];
+        __pyx_t_34 = 2;
+        __pyx_t_35 = 1;
+        if (__pyx_t_34 < 0) __pyx_t_34 += __pyx_v_transform_matrix.shape[0];
+        if (__pyx_t_35 < 0) __pyx_t_35 += __pyx_v_transform_matrix.shape[1];
 
-        /* "color_sdf_fusion_volume.pyx":92
+        /* "color_sdf_fusion_volume.pyx":85
  *                     z_clip = transform_matrix[2, 0] * x + \
  *                                    transform_matrix[2, 1] * y + \
  *                                    transform_matrix[2, 2] * z + \             # <<<<<<<<<<<<<<
  *                                    transform_matrix[2, 3]
  * 
  */
-        __pyx_t_68 = 2;
-        __pyx_t_69 = 2;
-        if (__pyx_t_68 < 0) __pyx_t_68 += __pyx_v_transform_matrix.shape[0];
-        if (__pyx_t_69 < 0) __pyx_t_69 += __pyx_v_transform_matrix.shape[1];
+        __pyx_t_36 = 2;
+        __pyx_t_37 = 2;
+        if (__pyx_t_36 < 0) __pyx_t_36 += __pyx_v_transform_matrix.shape[0];
+        if (__pyx_t_37 < 0) __pyx_t_37 += __pyx_v_transform_matrix.shape[1];
 
-        /* "color_sdf_fusion_volume.pyx":93
+        /* "color_sdf_fusion_volume.pyx":86
  *                                    transform_matrix[2, 1] * y + \
  *                                    transform_matrix[2, 2] * z + \
  *                                    transform_matrix[2, 3]             # <<<<<<<<<<<<<<
  * 
  *                     w_clip = transform_matrix[3, 0] * x + \
  */
-        __pyx_t_70 = 2;
-        __pyx_t_71 = 3;
-        if (__pyx_t_70 < 0) __pyx_t_70 += __pyx_v_transform_matrix.shape[0];
-        if (__pyx_t_71 < 0) __pyx_t_71 += __pyx_v_transform_matrix.shape[1];
+        __pyx_t_38 = 2;
+        __pyx_t_39 = 3;
+        if (__pyx_t_38 < 0) __pyx_t_38 += __pyx_v_transform_matrix.shape[0];
+        if (__pyx_t_39 < 0) __pyx_t_39 += __pyx_v_transform_matrix.shape[1];
 
-        /* "color_sdf_fusion_volume.pyx":92
+        /* "color_sdf_fusion_volume.pyx":85
  *                     z_clip = transform_matrix[2, 0] * x + \
  *                                    transform_matrix[2, 1] * y + \
  *                                    transform_matrix[2, 2] * z + \             # <<<<<<<<<<<<<<
  *                                    transform_matrix[2, 3]
  * 
  */
-        __pyx_v_z_clip = (((((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_64 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_65)) ))) * __pyx_v_x) + ((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_66 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_67)) ))) * __pyx_v_y)) + ((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_68 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_69)) ))) * __pyx_v_z)) + (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_70 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_71)) ))));
+        __pyx_v_z_clip = (((((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_32 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_33)) ))) * __pyx_v_x) + ((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_34 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_35)) ))) * __pyx_v_y)) + ((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_36 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_37)) ))) * __pyx_v_z)) + (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_38 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_39)) ))));
 
-        /* "color_sdf_fusion_volume.pyx":95
+        /* "color_sdf_fusion_volume.pyx":88
  *                                    transform_matrix[2, 3]
  * 
  *                     w_clip = transform_matrix[3, 0] * x + \             # <<<<<<<<<<<<<<
  *                                    transform_matrix[3, 1] * y + \
  *                                    transform_matrix[3, 2] * z + \
  */
-        __pyx_t_72 = 3;
-        __pyx_t_73 = 0;
-        if (__pyx_t_72 < 0) __pyx_t_72 += __pyx_v_transform_matrix.shape[0];
-        if (__pyx_t_73 < 0) __pyx_t_73 += __pyx_v_transform_matrix.shape[1];
+        __pyx_t_40 = 3;
+        __pyx_t_41 = 0;
+        if (__pyx_t_40 < 0) __pyx_t_40 += __pyx_v_transform_matrix.shape[0];
+        if (__pyx_t_41 < 0) __pyx_t_41 += __pyx_v_transform_matrix.shape[1];
 
-        /* "color_sdf_fusion_volume.pyx":96
+        /* "color_sdf_fusion_volume.pyx":89
  * 
  *                     w_clip = transform_matrix[3, 0] * x + \
  *                                    transform_matrix[3, 1] * y + \             # <<<<<<<<<<<<<<
  *                                    transform_matrix[3, 2] * z + \
  *                                    transform_matrix[3, 3]
  */
-        __pyx_t_74 = 3;
-        __pyx_t_75 = 1;
-        if (__pyx_t_74 < 0) __pyx_t_74 += __pyx_v_transform_matrix.shape[0];
-        if (__pyx_t_75 < 0) __pyx_t_75 += __pyx_v_transform_matrix.shape[1];
+        __pyx_t_42 = 3;
+        __pyx_t_43 = 1;
+        if (__pyx_t_42 < 0) __pyx_t_42 += __pyx_v_transform_matrix.shape[0];
+        if (__pyx_t_43 < 0) __pyx_t_43 += __pyx_v_transform_matrix.shape[1];
 
-        /* "color_sdf_fusion_volume.pyx":97
+        /* "color_sdf_fusion_volume.pyx":90
  *                     w_clip = transform_matrix[3, 0] * x + \
  *                                    transform_matrix[3, 1] * y + \
  *                                    transform_matrix[3, 2] * z + \             # <<<<<<<<<<<<<<
  *                                    transform_matrix[3, 3]
  * 
  */
-        __pyx_t_76 = 3;
-        __pyx_t_77 = 2;
-        if (__pyx_t_76 < 0) __pyx_t_76 += __pyx_v_transform_matrix.shape[0];
-        if (__pyx_t_77 < 0) __pyx_t_77 += __pyx_v_transform_matrix.shape[1];
+        __pyx_t_44 = 3;
+        __pyx_t_45 = 2;
+        if (__pyx_t_44 < 0) __pyx_t_44 += __pyx_v_transform_matrix.shape[0];
+        if (__pyx_t_45 < 0) __pyx_t_45 += __pyx_v_transform_matrix.shape[1];
 
-        /* "color_sdf_fusion_volume.pyx":98
+        /* "color_sdf_fusion_volume.pyx":91
  *                                    transform_matrix[3, 1] * y + \
  *                                    transform_matrix[3, 2] * z + \
  *                                    transform_matrix[3, 3]             # <<<<<<<<<<<<<<
  * 
  * 
  */
-        __pyx_t_78 = 3;
-        __pyx_t_79 = 3;
-        if (__pyx_t_78 < 0) __pyx_t_78 += __pyx_v_transform_matrix.shape[0];
-        if (__pyx_t_79 < 0) __pyx_t_79 += __pyx_v_transform_matrix.shape[1];
+        __pyx_t_46 = 3;
+        __pyx_t_47 = 3;
+        if (__pyx_t_46 < 0) __pyx_t_46 += __pyx_v_transform_matrix.shape[0];
+        if (__pyx_t_47 < 0) __pyx_t_47 += __pyx_v_transform_matrix.shape[1];
 
-        /* "color_sdf_fusion_volume.pyx":97
+        /* "color_sdf_fusion_volume.pyx":90
  *                     w_clip = transform_matrix[3, 0] * x + \
  *                                    transform_matrix[3, 1] * y + \
  *                                    transform_matrix[3, 2] * z + \             # <<<<<<<<<<<<<<
  *                                    transform_matrix[3, 3]
  * 
  */
-        __pyx_v_w_clip = (((((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_72 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_73)) ))) * __pyx_v_x) + ((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_74 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_75)) ))) * __pyx_v_y)) + ((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_76 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_77)) ))) * __pyx_v_z)) + (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_78 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_79)) ))));
+        __pyx_v_w_clip = (((((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_40 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_41)) ))) * __pyx_v_x) + ((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_42 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_43)) ))) * __pyx_v_y)) + ((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_44 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_45)) ))) * __pyx_v_z)) + (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_transform_matrix.data + __pyx_t_46 * __pyx_v_transform_matrix.strides[0]) )) + __pyx_t_47)) ))));
 
-        /* "color_sdf_fusion_volume.pyx":102
+        /* "color_sdf_fusion_volume.pyx":95
  * 
  *                     # ignore invisible point which has positive z value
  *                     if w_clip <= 0:             # <<<<<<<<<<<<<<
  *                         continue
  * 
  */
-        __pyx_t_80 = ((__pyx_v_w_clip <= 0.0) != 0);
-        if (__pyx_t_80) {
+        __pyx_t_48 = ((__pyx_v_w_clip <= 0.0) != 0);
+        if (__pyx_t_48) {
 
-          /* "color_sdf_fusion_volume.pyx":103
+          /* "color_sdf_fusion_volume.pyx":96
  *                     # ignore invisible point which has positive z value
  *                     if w_clip <= 0:
  *                         continue             # <<<<<<<<<<<<<<
@@ -3968,7 +3823,7 @@ static PyObject *__pyx_pf_23color_sdf_fusion_volume_14ColorSDFVolume_4fuse(struc
  */
           goto __pyx_L7_continue;
 
-          /* "color_sdf_fusion_volume.pyx":102
+          /* "color_sdf_fusion_volume.pyx":95
  * 
  *                     # ignore invisible point which has positive z value
  *                     if w_clip <= 0:             # <<<<<<<<<<<<<<
@@ -3977,65 +3832,65 @@ static PyObject *__pyx_pf_23color_sdf_fusion_volume_14ColorSDFVolume_4fuse(struc
  */
         }
 
-        /* "color_sdf_fusion_volume.pyx":106
+        /* "color_sdf_fusion_volume.pyx":99
  * 
  *                     # clip points outside of view frustum
  *                     if (x_clip < -w_clip or x_clip > w_clip or y_clip < -w_clip or             # <<<<<<<<<<<<<<
  *                         y_clip > w_clip or z_clip < -w_clip or z_clip > w_clip):
  *                         continue
  */
-        __pyx_t_81 = ((__pyx_v_x_clip < (-__pyx_v_w_clip)) != 0);
-        if (!__pyx_t_81) {
+        __pyx_t_49 = ((__pyx_v_x_clip < (-__pyx_v_w_clip)) != 0);
+        if (!__pyx_t_49) {
         } else {
-          __pyx_t_80 = __pyx_t_81;
+          __pyx_t_48 = __pyx_t_49;
           goto __pyx_L11_bool_binop_done;
         }
-        __pyx_t_81 = ((__pyx_v_x_clip > __pyx_v_w_clip) != 0);
-        if (!__pyx_t_81) {
+        __pyx_t_49 = ((__pyx_v_x_clip > __pyx_v_w_clip) != 0);
+        if (!__pyx_t_49) {
         } else {
-          __pyx_t_80 = __pyx_t_81;
+          __pyx_t_48 = __pyx_t_49;
           goto __pyx_L11_bool_binop_done;
         }
-        __pyx_t_81 = ((__pyx_v_y_clip < (-__pyx_v_w_clip)) != 0);
-        if (!__pyx_t_81) {
+        __pyx_t_49 = ((__pyx_v_y_clip < (-__pyx_v_w_clip)) != 0);
+        if (!__pyx_t_49) {
         } else {
-          __pyx_t_80 = __pyx_t_81;
+          __pyx_t_48 = __pyx_t_49;
           goto __pyx_L11_bool_binop_done;
         }
 
-        /* "color_sdf_fusion_volume.pyx":107
+        /* "color_sdf_fusion_volume.pyx":100
  *                     # clip points outside of view frustum
  *                     if (x_clip < -w_clip or x_clip > w_clip or y_clip < -w_clip or
  *                         y_clip > w_clip or z_clip < -w_clip or z_clip > w_clip):             # <<<<<<<<<<<<<<
  *                         continue
  * 
  */
-        __pyx_t_81 = ((__pyx_v_y_clip > __pyx_v_w_clip) != 0);
-        if (!__pyx_t_81) {
+        __pyx_t_49 = ((__pyx_v_y_clip > __pyx_v_w_clip) != 0);
+        if (!__pyx_t_49) {
         } else {
-          __pyx_t_80 = __pyx_t_81;
+          __pyx_t_48 = __pyx_t_49;
           goto __pyx_L11_bool_binop_done;
         }
-        __pyx_t_81 = ((__pyx_v_z_clip < (-__pyx_v_w_clip)) != 0);
-        if (!__pyx_t_81) {
+        __pyx_t_49 = ((__pyx_v_z_clip < (-__pyx_v_w_clip)) != 0);
+        if (!__pyx_t_49) {
         } else {
-          __pyx_t_80 = __pyx_t_81;
+          __pyx_t_48 = __pyx_t_49;
           goto __pyx_L11_bool_binop_done;
         }
-        __pyx_t_81 = ((__pyx_v_z_clip > __pyx_v_w_clip) != 0);
-        __pyx_t_80 = __pyx_t_81;
+        __pyx_t_49 = ((__pyx_v_z_clip > __pyx_v_w_clip) != 0);
+        __pyx_t_48 = __pyx_t_49;
         __pyx_L11_bool_binop_done:;
 
-        /* "color_sdf_fusion_volume.pyx":106
+        /* "color_sdf_fusion_volume.pyx":99
  * 
  *                     # clip points outside of view frustum
  *                     if (x_clip < -w_clip or x_clip > w_clip or y_clip < -w_clip or             # <<<<<<<<<<<<<<
  *                         y_clip > w_clip or z_clip < -w_clip or z_clip > w_clip):
  *                         continue
  */
-        if (__pyx_t_80) {
+        if (__pyx_t_48) {
 
-          /* "color_sdf_fusion_volume.pyx":108
+          /* "color_sdf_fusion_volume.pyx":101
  *                     if (x_clip < -w_clip or x_clip > w_clip or y_clip < -w_clip or
  *                         y_clip > w_clip or z_clip < -w_clip or z_clip > w_clip):
  *                         continue             # <<<<<<<<<<<<<<
@@ -4044,7 +3899,7 @@ static PyObject *__pyx_pf_23color_sdf_fusion_volume_14ColorSDFVolume_4fuse(struc
  */
           goto __pyx_L7_continue;
 
-          /* "color_sdf_fusion_volume.pyx":106
+          /* "color_sdf_fusion_volume.pyx":99
  * 
  *                     # clip points outside of view frustum
  *                     if (x_clip < -w_clip or x_clip > w_clip or y_clip < -w_clip or             # <<<<<<<<<<<<<<
@@ -4053,7 +3908,7 @@ static PyObject *__pyx_pf_23color_sdf_fusion_volume_14ColorSDFVolume_4fuse(struc
  */
         }
 
-        /* "color_sdf_fusion_volume.pyx":112
+        /* "color_sdf_fusion_volume.pyx":105
  * 
  *                     # compute ndc coords
  *                     x_ndc = x_clip/w_clip             # <<<<<<<<<<<<<<
@@ -4062,7 +3917,7 @@ static PyObject *__pyx_pf_23color_sdf_fusion_volume_14ColorSDFVolume_4fuse(struc
  */
         __pyx_v_x_ndc = (__pyx_v_x_clip / __pyx_v_w_clip);
 
-        /* "color_sdf_fusion_volume.pyx":113
+        /* "color_sdf_fusion_volume.pyx":106
  *                     # compute ndc coords
  *                     x_ndc = x_clip/w_clip
  *                     y_ndc = y_clip/w_clip             # <<<<<<<<<<<<<<
@@ -4071,86 +3926,83 @@ static PyObject *__pyx_pf_23color_sdf_fusion_volume_14ColorSDFVolume_4fuse(struc
  */
         __pyx_v_y_ndc = (__pyx_v_y_clip / __pyx_v_w_clip);
 
-        /* "color_sdf_fusion_volume.pyx":116
+        /* "color_sdf_fusion_volume.pyx":109
  * 
  *                     ## compute viewport transform (assume the position of viewport is (0,0))
- *                     x_screen = <int>round((self.viewport_width * x_ndc + self.viewport_width)/2)             # <<<<<<<<<<<<<<
- *                     y_screen = <int>round((self.viewport_height * y_ndc + self.viewport_height)/2)
+ *                     x_screen = <int>round((self.viewport_width * x_ndc + self.viewport_width)*0.5)             # <<<<<<<<<<<<<<
+ *                     y_screen = <int>round((self.viewport_height * y_ndc + self.viewport_height)*0.5)
  * 
  */
-        __pyx_v_x_screen = ((int)round((((__pyx_v_self->viewport_width * __pyx_v_x_ndc) + __pyx_v_self->viewport_width) / 2.0)));
+        __pyx_v_x_screen = ((int)round((((__pyx_v_self->viewport_width * __pyx_v_x_ndc) + __pyx_v_self->viewport_width) * 0.5)));
 
-        /* "color_sdf_fusion_volume.pyx":117
+        /* "color_sdf_fusion_volume.pyx":110
  *                     ## compute viewport transform (assume the position of viewport is (0,0))
- *                     x_screen = <int>round((self.viewport_width * x_ndc + self.viewport_width)/2)
- *                     y_screen = <int>round((self.viewport_height * y_ndc + self.viewport_height)/2)             # <<<<<<<<<<<<<<
+ *                     x_screen = <int>round((self.viewport_width * x_ndc + self.viewport_width)*0.5)
+ *                     y_screen = <int>round((self.viewport_height * y_ndc + self.viewport_height)*0.5)             # <<<<<<<<<<<<<<
  * 
  * 
  */
-        __pyx_v_y_screen = ((int)round((((__pyx_v_self->viewport_height * __pyx_v_y_ndc) + __pyx_v_self->viewport_height) / 2.0)));
+        __pyx_v_y_screen = ((int)round((((__pyx_v_self->viewport_height * __pyx_v_y_ndc) + __pyx_v_self->viewport_height) * 0.5)));
 
-        /* "color_sdf_fusion_volume.pyx":121
+        /* "color_sdf_fusion_volume.pyx":114
  * 
  *                     # Extract depth of visible surface
- *                     depth = depth_map[y_screen, x_screen]             # <<<<<<<<<<<<<<
+ *                     depth = depth_map[self.viewport_height-y_screen, x_screen] ## the index of y need to be flipped             # <<<<<<<<<<<<<<
  * 
  *                     # w_clip = -z_e, w_clip is the distance between the point to the camera in the camera coords space
  */
-        __pyx_t_82 = __pyx_v_y_screen;
-        __pyx_t_83 = __pyx_v_x_screen;
-        if (__pyx_t_82 < 0) __pyx_t_82 += __pyx_v_depth_map.shape[0];
-        if (__pyx_t_83 < 0) __pyx_t_83 += __pyx_v_depth_map.shape[1];
-        __pyx_v_depth = (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_map.data + __pyx_t_82 * __pyx_v_depth_map.strides[0]) )) + __pyx_t_83)) )));
+        __pyx_t_50 = (__pyx_v_self->viewport_height - __pyx_v_y_screen);
+        __pyx_t_51 = __pyx_v_x_screen;
+        if (__pyx_t_50 < 0) __pyx_t_50 += __pyx_v_depth_map.shape[0];
+        if (__pyx_t_51 < 0) __pyx_t_51 += __pyx_v_depth_map.shape[1];
+        __pyx_v_depth = (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_map.data + __pyx_t_50 * __pyx_v_depth_map.strides[0]) )) + __pyx_t_51)) )));
 
-        /* "color_sdf_fusion_volume.pyx":124
+        /* "color_sdf_fusion_volume.pyx":117
  * 
  *                     # w_clip = -z_e, w_clip is the distance between the point to the camera in the camera coords space
  *                     signed_distance = depth-w_clip             # <<<<<<<<<<<<<<
- *                     #printf("depth: %f\n", depth)
- *                     #printf("w_clip: %f\n", w_clip)
+ * 
+ *                     ## sdf fusion
  */
         __pyx_v_signed_distance = (__pyx_v_depth - __pyx_v_w_clip);
 
-        /* "color_sdf_fusion_volume.pyx":129
+        /* "color_sdf_fusion_volume.pyx":120
  * 
  *                     ## sdf fusion
  *                     if signed_distance >= -self.max_distance:             # <<<<<<<<<<<<<<
  * 
  *                         if signed_distance > 0:
  */
-        __pyx_t_80 = ((__pyx_v_signed_distance >= (-__pyx_v_self->max_distance)) != 0);
-        if (__pyx_t_80) {
+        __pyx_t_48 = ((__pyx_v_signed_distance >= (-__pyx_v_self->max_distance)) != 0);
+        if (__pyx_t_48) {
 
-          /* "color_sdf_fusion_volume.pyx":131
+          /* "color_sdf_fusion_volume.pyx":122
  *                     if signed_distance >= -self.max_distance:
  * 
  *                         if signed_distance > 0:             # <<<<<<<<<<<<<<
  *                             truncated_distance = min(signed_distance, self.max_distance)
  *                         else:
  */
-          __pyx_t_80 = ((__pyx_v_signed_distance > 0.0) != 0);
-          if (__pyx_t_80) {
+          __pyx_t_48 = ((__pyx_v_signed_distance > 0.0) != 0);
+          if (__pyx_t_48) {
 
-            /* "color_sdf_fusion_volume.pyx":132
+            /* "color_sdf_fusion_volume.pyx":123
  * 
  *                         if signed_distance > 0:
  *                             truncated_distance = min(signed_distance, self.max_distance)             # <<<<<<<<<<<<<<
  *                         else:
  *                             truncated_distance = signed_distance
  */
-            __pyx_t_84 = __pyx_v_self->max_distance;
-            __pyx_t_85 = __pyx_v_signed_distance;
-            if (((__pyx_t_84 < __pyx_t_85) != 0)) {
-              __pyx_t_86 = __pyx_t_84;
+            __pyx_t_52 = __pyx_v_self->max_distance;
+            __pyx_t_53 = __pyx_v_signed_distance;
+            if (((__pyx_t_52 < __pyx_t_53) != 0)) {
+              __pyx_t_54 = __pyx_t_52;
             } else {
-              __pyx_t_86 = __pyx_t_85;
+              __pyx_t_54 = __pyx_t_53;
             }
-            __pyx_t_87 = PyFloat_FromDouble(__pyx_t_86); if (unlikely(!__pyx_t_87)) __PYX_ERR(0, 132, __pyx_L1_error)
-            __Pyx_GOTREF(__pyx_t_87);
-            __Pyx_XDECREF_SET(__pyx_v_truncated_distance, __pyx_t_87);
-            __pyx_t_87 = 0;
+            __pyx_v_truncated_distance = __pyx_t_54;
 
-            /* "color_sdf_fusion_volume.pyx":131
+            /* "color_sdf_fusion_volume.pyx":122
  *                     if signed_distance >= -self.max_distance:
  * 
  *                         if signed_distance > 0:             # <<<<<<<<<<<<<<
@@ -4160,7 +4012,7 @@ static PyObject *__pyx_pf_23color_sdf_fusion_volume_14ColorSDFVolume_4fuse(struc
             goto __pyx_L18;
           }
 
-          /* "color_sdf_fusion_volume.pyx":134
+          /* "color_sdf_fusion_volume.pyx":125
  *                             truncated_distance = min(signed_distance, self.max_distance)
  *                         else:
  *                             truncated_distance = signed_distance             # <<<<<<<<<<<<<<
@@ -4168,29 +4020,26 @@ static PyObject *__pyx_pf_23color_sdf_fusion_volume_14ColorSDFVolume_4fuse(struc
  *                         prior_sdf_weight = self.sdf_weight_data[i, j, k]
  */
           /*else*/ {
-            __pyx_t_87 = PyFloat_FromDouble(__pyx_v_signed_distance); if (unlikely(!__pyx_t_87)) __PYX_ERR(0, 134, __pyx_L1_error)
-            __Pyx_GOTREF(__pyx_t_87);
-            __Pyx_XDECREF_SET(__pyx_v_truncated_distance, __pyx_t_87);
-            __pyx_t_87 = 0;
+            __pyx_v_truncated_distance = __pyx_v_signed_distance;
           }
           __pyx_L18:;
 
-          /* "color_sdf_fusion_volume.pyx":136
+          /* "color_sdf_fusion_volume.pyx":127
  *                             truncated_distance = signed_distance
  * 
  *                         prior_sdf_weight = self.sdf_weight_data[i, j, k]             # <<<<<<<<<<<<<<
  *                         new_sdf_weight = prior_sdf_weight+1.0
  *                         self.volume[i,j,k,-1] = (prior_sdf_weight * self.volume[i,j,k,-1] + 1.0  * truncated_distance)/new_sdf_weight
  */
-          __pyx_t_88 = __pyx_v_i;
-          __pyx_t_89 = __pyx_v_j;
-          __pyx_t_90 = __pyx_v_k;
-          if (__pyx_t_88 < 0) __pyx_t_88 += __pyx_v_self->sdf_weight_data.shape[0];
-          if (__pyx_t_89 < 0) __pyx_t_89 += __pyx_v_self->sdf_weight_data.shape[1];
-          if (__pyx_t_90 < 0) __pyx_t_90 += __pyx_v_self->sdf_weight_data.shape[2];
-          __pyx_v_prior_sdf_weight = (*((float *) ( /* dim=2 */ ((char *) (((float *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_self->sdf_weight_data.data + __pyx_t_88 * __pyx_v_self->sdf_weight_data.strides[0]) ) + __pyx_t_89 * __pyx_v_self->sdf_weight_data.strides[1]) )) + __pyx_t_90)) )));
+          __pyx_t_55 = __pyx_v_i;
+          __pyx_t_56 = __pyx_v_j;
+          __pyx_t_57 = __pyx_v_k;
+          if (__pyx_t_55 < 0) __pyx_t_55 += __pyx_v_self->sdf_weight_data.shape[0];
+          if (__pyx_t_56 < 0) __pyx_t_56 += __pyx_v_self->sdf_weight_data.shape[1];
+          if (__pyx_t_57 < 0) __pyx_t_57 += __pyx_v_self->sdf_weight_data.shape[2];
+          __pyx_v_prior_sdf_weight = (*((float *) ( /* dim=2 */ ((char *) (((float *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_self->sdf_weight_data.data + __pyx_t_55 * __pyx_v_self->sdf_weight_data.strides[0]) ) + __pyx_t_56 * __pyx_v_self->sdf_weight_data.strides[1]) )) + __pyx_t_57)) )));
 
-          /* "color_sdf_fusion_volume.pyx":137
+          /* "color_sdf_fusion_volume.pyx":128
  * 
  *                         prior_sdf_weight = self.sdf_weight_data[i, j, k]
  *                         new_sdf_weight = prior_sdf_weight+1.0             # <<<<<<<<<<<<<<
@@ -4199,63 +4048,47 @@ static PyObject *__pyx_pf_23color_sdf_fusion_volume_14ColorSDFVolume_4fuse(struc
  */
           __pyx_v_new_sdf_weight = (__pyx_v_prior_sdf_weight + 1.0);
 
-          /* "color_sdf_fusion_volume.pyx":138
+          /* "color_sdf_fusion_volume.pyx":129
  *                         prior_sdf_weight = self.sdf_weight_data[i, j, k]
  *                         new_sdf_weight = prior_sdf_weight+1.0
  *                         self.volume[i,j,k,-1] = (prior_sdf_weight * self.volume[i,j,k,-1] + 1.0  * truncated_distance)/new_sdf_weight             # <<<<<<<<<<<<<<
  *                         self.sdf_weight_data[i, j, k] = new_sdf_weight
  * 
  */
-          __pyx_t_91 = __pyx_v_i;
-          __pyx_t_92 = __pyx_v_j;
-          __pyx_t_93 = __pyx_v_k;
-          __pyx_t_94 = -1L;
-          if (__pyx_t_91 < 0) __pyx_t_91 += __pyx_v_self->volume.shape[0];
-          if (__pyx_t_92 < 0) __pyx_t_92 += __pyx_v_self->volume.shape[1];
-          if (__pyx_t_93 < 0) __pyx_t_93 += __pyx_v_self->volume.shape[2];
-          if (__pyx_t_94 < 0) __pyx_t_94 += __pyx_v_self->volume.shape[3];
-          __pyx_t_87 = PyFloat_FromDouble((__pyx_v_prior_sdf_weight * (*((float *) ( /* dim=3 */ ((char *) (((float *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_self->volume.data + __pyx_t_91 * __pyx_v_self->volume.strides[0]) ) + __pyx_t_92 * __pyx_v_self->volume.strides[1]) ) + __pyx_t_93 * __pyx_v_self->volume.strides[2]) )) + __pyx_t_94)) ))))); if (unlikely(!__pyx_t_87)) __PYX_ERR(0, 138, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_87);
-          __pyx_t_95 = PyNumber_Multiply(__pyx_float_1_0, __pyx_v_truncated_distance); if (unlikely(!__pyx_t_95)) __PYX_ERR(0, 138, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_95);
-          __pyx_t_96 = PyNumber_Add(__pyx_t_87, __pyx_t_95); if (unlikely(!__pyx_t_96)) __PYX_ERR(0, 138, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_96);
-          __Pyx_DECREF(__pyx_t_87); __pyx_t_87 = 0;
-          __Pyx_DECREF(__pyx_t_95); __pyx_t_95 = 0;
-          __pyx_t_95 = PyFloat_FromDouble(__pyx_v_new_sdf_weight); if (unlikely(!__pyx_t_95)) __PYX_ERR(0, 138, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_95);
-          __pyx_t_87 = __Pyx_PyNumber_Divide(__pyx_t_96, __pyx_t_95); if (unlikely(!__pyx_t_87)) __PYX_ERR(0, 138, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_87);
-          __Pyx_DECREF(__pyx_t_96); __pyx_t_96 = 0;
-          __Pyx_DECREF(__pyx_t_95); __pyx_t_95 = 0;
-          __pyx_t_86 = __pyx_PyFloat_AsFloat(__pyx_t_87); if (unlikely((__pyx_t_86 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 138, __pyx_L1_error)
-          __Pyx_DECREF(__pyx_t_87); __pyx_t_87 = 0;
-          __pyx_t_97 = __pyx_v_i;
-          __pyx_t_98 = __pyx_v_j;
-          __pyx_t_99 = __pyx_v_k;
-          __pyx_t_100 = -1L;
-          if (__pyx_t_97 < 0) __pyx_t_97 += __pyx_v_self->volume.shape[0];
-          if (__pyx_t_98 < 0) __pyx_t_98 += __pyx_v_self->volume.shape[1];
-          if (__pyx_t_99 < 0) __pyx_t_99 += __pyx_v_self->volume.shape[2];
-          if (__pyx_t_100 < 0) __pyx_t_100 += __pyx_v_self->volume.shape[3];
-          *((float *) ( /* dim=3 */ ((char *) (((float *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_self->volume.data + __pyx_t_97 * __pyx_v_self->volume.strides[0]) ) + __pyx_t_98 * __pyx_v_self->volume.strides[1]) ) + __pyx_t_99 * __pyx_v_self->volume.strides[2]) )) + __pyx_t_100)) )) = __pyx_t_86;
+          __pyx_t_58 = __pyx_v_i;
+          __pyx_t_59 = __pyx_v_j;
+          __pyx_t_60 = __pyx_v_k;
+          __pyx_t_61 = -1L;
+          if (__pyx_t_58 < 0) __pyx_t_58 += __pyx_v_self->volume.shape[0];
+          if (__pyx_t_59 < 0) __pyx_t_59 += __pyx_v_self->volume.shape[1];
+          if (__pyx_t_60 < 0) __pyx_t_60 += __pyx_v_self->volume.shape[2];
+          if (__pyx_t_61 < 0) __pyx_t_61 += __pyx_v_self->volume.shape[3];
+          __pyx_t_62 = __pyx_v_i;
+          __pyx_t_63 = __pyx_v_j;
+          __pyx_t_64 = __pyx_v_k;
+          __pyx_t_65 = -1L;
+          if (__pyx_t_62 < 0) __pyx_t_62 += __pyx_v_self->volume.shape[0];
+          if (__pyx_t_63 < 0) __pyx_t_63 += __pyx_v_self->volume.shape[1];
+          if (__pyx_t_64 < 0) __pyx_t_64 += __pyx_v_self->volume.shape[2];
+          if (__pyx_t_65 < 0) __pyx_t_65 += __pyx_v_self->volume.shape[3];
+          *((float *) ( /* dim=3 */ ((char *) (((float *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_self->volume.data + __pyx_t_62 * __pyx_v_self->volume.strides[0]) ) + __pyx_t_63 * __pyx_v_self->volume.strides[1]) ) + __pyx_t_64 * __pyx_v_self->volume.strides[2]) )) + __pyx_t_65)) )) = (((__pyx_v_prior_sdf_weight * (*((float *) ( /* dim=3 */ ((char *) (((float *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_self->volume.data + __pyx_t_58 * __pyx_v_self->volume.strides[0]) ) + __pyx_t_59 * __pyx_v_self->volume.strides[1]) ) + __pyx_t_60 * __pyx_v_self->volume.strides[2]) )) + __pyx_t_61)) )))) + (1.0 * __pyx_v_truncated_distance)) / __pyx_v_new_sdf_weight);
 
-          /* "color_sdf_fusion_volume.pyx":139
+          /* "color_sdf_fusion_volume.pyx":130
  *                         new_sdf_weight = prior_sdf_weight+1.0
  *                         self.volume[i,j,k,-1] = (prior_sdf_weight * self.volume[i,j,k,-1] + 1.0  * truncated_distance)/new_sdf_weight
  *                         self.sdf_weight_data[i, j, k] = new_sdf_weight             # <<<<<<<<<<<<<<
  * 
  * 
  */
-          __pyx_t_101 = __pyx_v_i;
-          __pyx_t_102 = __pyx_v_j;
-          __pyx_t_103 = __pyx_v_k;
-          if (__pyx_t_101 < 0) __pyx_t_101 += __pyx_v_self->sdf_weight_data.shape[0];
-          if (__pyx_t_102 < 0) __pyx_t_102 += __pyx_v_self->sdf_weight_data.shape[1];
-          if (__pyx_t_103 < 0) __pyx_t_103 += __pyx_v_self->sdf_weight_data.shape[2];
-          *((float *) ( /* dim=2 */ ((char *) (((float *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_self->sdf_weight_data.data + __pyx_t_101 * __pyx_v_self->sdf_weight_data.strides[0]) ) + __pyx_t_102 * __pyx_v_self->sdf_weight_data.strides[1]) )) + __pyx_t_103)) )) = __pyx_v_new_sdf_weight;
+          __pyx_t_66 = __pyx_v_i;
+          __pyx_t_67 = __pyx_v_j;
+          __pyx_t_68 = __pyx_v_k;
+          if (__pyx_t_66 < 0) __pyx_t_66 += __pyx_v_self->sdf_weight_data.shape[0];
+          if (__pyx_t_67 < 0) __pyx_t_67 += __pyx_v_self->sdf_weight_data.shape[1];
+          if (__pyx_t_68 < 0) __pyx_t_68 += __pyx_v_self->sdf_weight_data.shape[2];
+          *((float *) ( /* dim=2 */ ((char *) (((float *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_self->sdf_weight_data.data + __pyx_t_66 * __pyx_v_self->sdf_weight_data.strides[0]) ) + __pyx_t_67 * __pyx_v_self->sdf_weight_data.strides[1]) )) + __pyx_t_68)) )) = __pyx_v_new_sdf_weight;
 
-          /* "color_sdf_fusion_volume.pyx":129
+          /* "color_sdf_fusion_volume.pyx":120
  * 
  *                     ## sdf fusion
  *                     if signed_distance >= -self.max_distance:             # <<<<<<<<<<<<<<
@@ -4264,17 +4097,17 @@ static PyObject *__pyx_pf_23color_sdf_fusion_volume_14ColorSDFVolume_4fuse(struc
  */
         }
 
-        /* "color_sdf_fusion_volume.pyx":143
+        /* "color_sdf_fusion_volume.pyx":134
  * 
  *                     # color fusion
  *                     if abs(signed_distance) > self.max_distance:             # <<<<<<<<<<<<<<
  *                         continue
  * 
  */
-        __pyx_t_80 = ((fabsf(__pyx_v_signed_distance) > __pyx_v_self->max_distance) != 0);
-        if (__pyx_t_80) {
+        __pyx_t_48 = ((fabsf(__pyx_v_signed_distance) > __pyx_v_self->max_distance) != 0);
+        if (__pyx_t_48) {
 
-          /* "color_sdf_fusion_volume.pyx":144
+          /* "color_sdf_fusion_volume.pyx":135
  *                     # color fusion
  *                     if abs(signed_distance) > self.max_distance:
  *                         continue             # <<<<<<<<<<<<<<
@@ -4283,7 +4116,7 @@ static PyObject *__pyx_pf_23color_sdf_fusion_volume_14ColorSDFVolume_4fuse(struc
  */
           goto __pyx_L7_continue;
 
-          /* "color_sdf_fusion_volume.pyx":143
+          /* "color_sdf_fusion_volume.pyx":134
  * 
  *                     # color fusion
  *                     if abs(signed_distance) > self.max_distance:             # <<<<<<<<<<<<<<
@@ -4292,22 +4125,22 @@ static PyObject *__pyx_pf_23color_sdf_fusion_volume_14ColorSDFVolume_4fuse(struc
  */
         }
 
-        /* "color_sdf_fusion_volume.pyx":146
+        /* "color_sdf_fusion_volume.pyx":137
  *                         continue
  * 
  *                     prior_color_weight = self.color_weight_data[i,j,k]             # <<<<<<<<<<<<<<
  *                     new_color_weight = prior_color_weight+1.0
  * 
  */
-        __pyx_t_104 = __pyx_v_i;
-        __pyx_t_105 = __pyx_v_j;
-        __pyx_t_106 = __pyx_v_k;
-        if (__pyx_t_104 < 0) __pyx_t_104 += __pyx_v_self->color_weight_data.shape[0];
-        if (__pyx_t_105 < 0) __pyx_t_105 += __pyx_v_self->color_weight_data.shape[1];
-        if (__pyx_t_106 < 0) __pyx_t_106 += __pyx_v_self->color_weight_data.shape[2];
-        __pyx_v_prior_color_weight = (*((float *) ( /* dim=2 */ ((char *) (((float *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_self->color_weight_data.data + __pyx_t_104 * __pyx_v_self->color_weight_data.strides[0]) ) + __pyx_t_105 * __pyx_v_self->color_weight_data.strides[1]) )) + __pyx_t_106)) )));
+        __pyx_t_69 = __pyx_v_i;
+        __pyx_t_70 = __pyx_v_j;
+        __pyx_t_71 = __pyx_v_k;
+        if (__pyx_t_69 < 0) __pyx_t_69 += __pyx_v_self->color_weight_data.shape[0];
+        if (__pyx_t_70 < 0) __pyx_t_70 += __pyx_v_self->color_weight_data.shape[1];
+        if (__pyx_t_71 < 0) __pyx_t_71 += __pyx_v_self->color_weight_data.shape[2];
+        __pyx_v_prior_color_weight = (*((float *) ( /* dim=2 */ ((char *) (((float *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_self->color_weight_data.data + __pyx_t_69 * __pyx_v_self->color_weight_data.strides[0]) ) + __pyx_t_70 * __pyx_v_self->color_weight_data.strides[1]) )) + __pyx_t_71)) )));
 
-        /* "color_sdf_fusion_volume.pyx":147
+        /* "color_sdf_fusion_volume.pyx":138
  * 
  *                     prior_color_weight = self.color_weight_data[i,j,k]
  *                     new_color_weight = prior_color_weight+1.0             # <<<<<<<<<<<<<<
@@ -4316,70 +4149,70 @@ static PyObject *__pyx_pf_23color_sdf_fusion_volume_14ColorSDFVolume_4fuse(struc
  */
         __pyx_v_new_color_weight = (__pyx_v_prior_color_weight + 1.0);
 
-        /* "color_sdf_fusion_volume.pyx":149
+        /* "color_sdf_fusion_volume.pyx":140
  *                     new_color_weight = prior_color_weight+1.0
  * 
  *                     for ch in range(color_map.shape[2]):             # <<<<<<<<<<<<<<
- *                         self.volume[i, j, k, ch] = min((prior_color_weight * self.volume[i,j,k,ch] + 1.0 *  color_map[y_screen, x_screen, ch])/new_color_weight, 255.0)
+ *                         self.volume[i, j, k, ch] = min((prior_color_weight * self.volume[i,j,k,ch] + 1.0 *  color_map[self.viewport_height-y_screen, x_screen, ch])/new_color_weight, 255.0)
  * 
  */
-        __pyx_t_107 = (__pyx_v_color_map.shape[2]);
-        __pyx_t_108 = __pyx_t_107;
-        for (__pyx_t_109 = 0; __pyx_t_109 < __pyx_t_108; __pyx_t_109+=1) {
-          __pyx_v_ch = __pyx_t_109;
+        __pyx_t_72 = (__pyx_v_color_map.shape[2]);
+        __pyx_t_73 = __pyx_t_72;
+        for (__pyx_t_74 = 0; __pyx_t_74 < __pyx_t_73; __pyx_t_74+=1) {
+          __pyx_v_ch = __pyx_t_74;
 
-          /* "color_sdf_fusion_volume.pyx":150
+          /* "color_sdf_fusion_volume.pyx":141
  * 
  *                     for ch in range(color_map.shape[2]):
- *                         self.volume[i, j, k, ch] = min((prior_color_weight * self.volume[i,j,k,ch] + 1.0 *  color_map[y_screen, x_screen, ch])/new_color_weight, 255.0)             # <<<<<<<<<<<<<<
+ *                         self.volume[i, j, k, ch] = min((prior_color_weight * self.volume[i,j,k,ch] + 1.0 *  color_map[self.viewport_height-y_screen, x_screen, ch])/new_color_weight, 255.0)             # <<<<<<<<<<<<<<
  * 
  *                     self.color_weight_data[i,j,k] = new_color_weight
  */
-          __pyx_t_110 = 255.0;
-          __pyx_t_111 = __pyx_v_i;
-          __pyx_t_112 = __pyx_v_j;
-          __pyx_t_113 = __pyx_v_k;
-          __pyx_t_114 = __pyx_v_ch;
-          if (__pyx_t_111 < 0) __pyx_t_111 += __pyx_v_self->volume.shape[0];
-          if (__pyx_t_112 < 0) __pyx_t_112 += __pyx_v_self->volume.shape[1];
-          if (__pyx_t_113 < 0) __pyx_t_113 += __pyx_v_self->volume.shape[2];
-          if (__pyx_t_114 < 0) __pyx_t_114 += __pyx_v_self->volume.shape[3];
-          __pyx_t_115 = __pyx_v_y_screen;
-          __pyx_t_116 = __pyx_v_x_screen;
-          __pyx_t_117 = __pyx_v_ch;
-          if (__pyx_t_115 < 0) __pyx_t_115 += __pyx_v_color_map.shape[0];
-          if (__pyx_t_116 < 0) __pyx_t_116 += __pyx_v_color_map.shape[1];
-          if (__pyx_t_117 < 0) __pyx_t_117 += __pyx_v_color_map.shape[2];
-          __pyx_t_118 = (((__pyx_v_prior_color_weight * (*((float *) ( /* dim=3 */ ((char *) (((float *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_self->volume.data + __pyx_t_111 * __pyx_v_self->volume.strides[0]) ) + __pyx_t_112 * __pyx_v_self->volume.strides[1]) ) + __pyx_t_113 * __pyx_v_self->volume.strides[2]) )) + __pyx_t_114)) )))) + (1.0 * (*((__pyx_t_5numpy_float32_t *) ( /* dim=2 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_color_map.data + __pyx_t_115 * __pyx_v_color_map.strides[0]) ) + __pyx_t_116 * __pyx_v_color_map.strides[1]) )) + __pyx_t_117)) ))))) / __pyx_v_new_color_weight);
-          if (((__pyx_t_110 < __pyx_t_118) != 0)) {
-            __pyx_t_119 = __pyx_t_110;
+          __pyx_t_75 = 255.0;
+          __pyx_t_76 = __pyx_v_i;
+          __pyx_t_77 = __pyx_v_j;
+          __pyx_t_78 = __pyx_v_k;
+          __pyx_t_79 = __pyx_v_ch;
+          if (__pyx_t_76 < 0) __pyx_t_76 += __pyx_v_self->volume.shape[0];
+          if (__pyx_t_77 < 0) __pyx_t_77 += __pyx_v_self->volume.shape[1];
+          if (__pyx_t_78 < 0) __pyx_t_78 += __pyx_v_self->volume.shape[2];
+          if (__pyx_t_79 < 0) __pyx_t_79 += __pyx_v_self->volume.shape[3];
+          __pyx_t_80 = (__pyx_v_self->viewport_height - __pyx_v_y_screen);
+          __pyx_t_81 = __pyx_v_x_screen;
+          __pyx_t_82 = __pyx_v_ch;
+          if (__pyx_t_80 < 0) __pyx_t_80 += __pyx_v_color_map.shape[0];
+          if (__pyx_t_81 < 0) __pyx_t_81 += __pyx_v_color_map.shape[1];
+          if (__pyx_t_82 < 0) __pyx_t_82 += __pyx_v_color_map.shape[2];
+          __pyx_t_83 = (((__pyx_v_prior_color_weight * (*((float *) ( /* dim=3 */ ((char *) (((float *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_self->volume.data + __pyx_t_76 * __pyx_v_self->volume.strides[0]) ) + __pyx_t_77 * __pyx_v_self->volume.strides[1]) ) + __pyx_t_78 * __pyx_v_self->volume.strides[2]) )) + __pyx_t_79)) )))) + (1.0 * (*((__pyx_t_5numpy_float32_t *) ( /* dim=2 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_color_map.data + __pyx_t_80 * __pyx_v_color_map.strides[0]) ) + __pyx_t_81 * __pyx_v_color_map.strides[1]) )) + __pyx_t_82)) ))))) / __pyx_v_new_color_weight);
+          if (((__pyx_t_75 < __pyx_t_83) != 0)) {
+            __pyx_t_84 = __pyx_t_75;
           } else {
-            __pyx_t_119 = __pyx_t_118;
+            __pyx_t_84 = __pyx_t_83;
           }
-          __pyx_t_120 = __pyx_v_i;
-          __pyx_t_121 = __pyx_v_j;
-          __pyx_t_122 = __pyx_v_k;
-          __pyx_t_123 = __pyx_v_ch;
-          if (__pyx_t_120 < 0) __pyx_t_120 += __pyx_v_self->volume.shape[0];
-          if (__pyx_t_121 < 0) __pyx_t_121 += __pyx_v_self->volume.shape[1];
-          if (__pyx_t_122 < 0) __pyx_t_122 += __pyx_v_self->volume.shape[2];
-          if (__pyx_t_123 < 0) __pyx_t_123 += __pyx_v_self->volume.shape[3];
-          *((float *) ( /* dim=3 */ ((char *) (((float *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_self->volume.data + __pyx_t_120 * __pyx_v_self->volume.strides[0]) ) + __pyx_t_121 * __pyx_v_self->volume.strides[1]) ) + __pyx_t_122 * __pyx_v_self->volume.strides[2]) )) + __pyx_t_123)) )) = __pyx_t_119;
+          __pyx_t_85 = __pyx_v_i;
+          __pyx_t_86 = __pyx_v_j;
+          __pyx_t_87 = __pyx_v_k;
+          __pyx_t_88 = __pyx_v_ch;
+          if (__pyx_t_85 < 0) __pyx_t_85 += __pyx_v_self->volume.shape[0];
+          if (__pyx_t_86 < 0) __pyx_t_86 += __pyx_v_self->volume.shape[1];
+          if (__pyx_t_87 < 0) __pyx_t_87 += __pyx_v_self->volume.shape[2];
+          if (__pyx_t_88 < 0) __pyx_t_88 += __pyx_v_self->volume.shape[3];
+          *((float *) ( /* dim=3 */ ((char *) (((float *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_self->volume.data + __pyx_t_85 * __pyx_v_self->volume.strides[0]) ) + __pyx_t_86 * __pyx_v_self->volume.strides[1]) ) + __pyx_t_87 * __pyx_v_self->volume.strides[2]) )) + __pyx_t_88)) )) = __pyx_t_84;
         }
 
-        /* "color_sdf_fusion_volume.pyx":152
- *                         self.volume[i, j, k, ch] = min((prior_color_weight * self.volume[i,j,k,ch] + 1.0 *  color_map[y_screen, x_screen, ch])/new_color_weight, 255.0)
+        /* "color_sdf_fusion_volume.pyx":143
+ *                         self.volume[i, j, k, ch] = min((prior_color_weight * self.volume[i,j,k,ch] + 1.0 *  color_map[self.viewport_height-y_screen, x_screen, ch])/new_color_weight, 255.0)
  * 
  *                     self.color_weight_data[i,j,k] = new_color_weight             # <<<<<<<<<<<<<<
  * 
  */
-        __pyx_t_124 = __pyx_v_i;
-        __pyx_t_125 = __pyx_v_j;
-        __pyx_t_126 = __pyx_v_k;
-        if (__pyx_t_124 < 0) __pyx_t_124 += __pyx_v_self->color_weight_data.shape[0];
-        if (__pyx_t_125 < 0) __pyx_t_125 += __pyx_v_self->color_weight_data.shape[1];
-        if (__pyx_t_126 < 0) __pyx_t_126 += __pyx_v_self->color_weight_data.shape[2];
-        *((float *) ( /* dim=2 */ ((char *) (((float *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_self->color_weight_data.data + __pyx_t_124 * __pyx_v_self->color_weight_data.strides[0]) ) + __pyx_t_125 * __pyx_v_self->color_weight_data.strides[1]) )) + __pyx_t_126)) )) = __pyx_v_new_color_weight;
+        __pyx_t_89 = __pyx_v_i;
+        __pyx_t_90 = __pyx_v_j;
+        __pyx_t_91 = __pyx_v_k;
+        if (__pyx_t_89 < 0) __pyx_t_89 += __pyx_v_self->color_weight_data.shape[0];
+        if (__pyx_t_90 < 0) __pyx_t_90 += __pyx_v_self->color_weight_data.shape[1];
+        if (__pyx_t_91 < 0) __pyx_t_91 += __pyx_v_self->color_weight_data.shape[2];
+        *((float *) ( /* dim=2 */ ((char *) (((float *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_self->color_weight_data.data + __pyx_t_89 * __pyx_v_self->color_weight_data.strides[0]) ) + __pyx_t_90 * __pyx_v_self->color_weight_data.strides[1]) )) + __pyx_t_91)) )) = __pyx_v_new_color_weight;
         __pyx_L7_continue:;
       }
     }
@@ -4397,13 +4230,9 @@ static PyObject *__pyx_pf_23color_sdf_fusion_volume_14ColorSDFVolume_4fuse(struc
   __pyx_r = Py_None; __Pyx_INCREF(Py_None);
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_87);
-  __Pyx_XDECREF(__pyx_t_95);
-  __Pyx_XDECREF(__pyx_t_96);
   __Pyx_AddTraceback("color_sdf_fusion_volume.ColorSDFVolume.fuse", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
-  __Pyx_XDECREF(__pyx_v_truncated_distance);
   __PYX_XDEC_MEMVIEW(&__pyx_v_transform_matrix, 1);
   __PYX_XDEC_MEMVIEW(&__pyx_v_depth_map, 1);
   __PYX_XDEC_MEMVIEW(&__pyx_v_color_map, 1);
@@ -21585,7 +21414,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 71, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 64, __pyx_L1_error)
   __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(2, 229, __pyx_L1_error)
   __pyx_builtin_RuntimeError = __Pyx_GetBuiltinName(__pyx_n_s_RuntimeError); if (!__pyx_builtin_RuntimeError) __PYX_ERR(2, 810, __pyx_L1_error)
   __pyx_builtin_ImportError = __Pyx_GetBuiltinName(__pyx_n_s_ImportError); if (!__pyx_builtin_ImportError) __PYX_ERR(2, 1000, __pyx_L1_error)
@@ -22009,7 +21838,6 @@ static int __Pyx_InitCachedConstants(void) {
 
 static int __Pyx_InitGlobals(void) {
   if (__Pyx_InitStrings(__pyx_string_tab) < 0) __PYX_ERR(0, 1, __pyx_L1_error);
-  __pyx_float_1_0 = PyFloat_FromDouble(1.0); if (unlikely(!__pyx_float_1_0)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_0 = PyInt_FromLong(0); if (unlikely(!__pyx_int_0)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_1 = PyInt_FromLong(1); if (unlikely(!__pyx_int_1)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_4 = PyInt_FromLong(4); if (unlikely(!__pyx_int_4)) __PYX_ERR(0, 1, __pyx_L1_error)
