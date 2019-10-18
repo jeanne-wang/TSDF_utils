@@ -6,7 +6,6 @@ import numpy as np
 cimport numpy as np
 from libc.math cimport round
 
-
 cdef class ObservedVolume:
 
     cdef int viewport_width
@@ -16,16 +15,17 @@ cdef class ObservedVolume:
     cdef int [::1] observed ## binary 1/0 observed/not observed
 
 
-    def __init__(self, viewport_height, viewport_width, np.float32_t[:, ::1] coords):
+    def __init__(self, viewport_height, viewport_width, coords):
     
         self.viewport_height = viewport_height
         self.viewport_width = viewport_width
 
-        num_point = coords.shape[0] 
+        self.coords = coords.astype(np.float32)
+
+        num_point = self.coords.shape[0] 
+        assert self.coords.shape[1] == 3
         self.observed= np.zeros([num_point],
                                dtype=np.int32)
-
-        self.coords = coords
 
     def get_volume(self):
         return np.array(self.observed)

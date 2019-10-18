@@ -39,9 +39,7 @@ def main():
         rotated_point=quat_rotate_vector(rotation, point)
         rotated_points.append(rotated_point)
 
-    rotated_points = np.asarray(rotated_points)
-
-
+    rotated_points = np.asarray(rotated_points, dtype=np.float32)
 
     observed_volume = ObservedVolume(args.viewport_height, args.viewport_width, rotated_points)
 
