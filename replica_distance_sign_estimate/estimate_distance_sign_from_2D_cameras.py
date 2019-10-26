@@ -6,23 +6,22 @@ import plyfile
 import json
 from freespace_volume_from_2D_cameras import FreespaceVolume
 
-selected_classes = ['wall', 'floor', 'cabinet', 'bed', 'chair', 'sofa', 'table', 'door', 'window', 'shelf',
-    'picture', 'rug', 'blinds', 'lamp', 'refrigerator', 'cushion', 'ceiling', 'wall-cabinet']
-selected_class_ids = [93, 40, 18, 7, 20, 76, 80, 37, 97, 71, 59, 98, 12, 47, 67, 29, 31, 94]
+selected_classes = ['wall', 'floor', 'cabinet', 'bed', 'chair', 'sofa', 'table', 'door', 'window', 'shelf', 
+    'rug', 'blinds', 'lamp', 'refrigerator', 'cushion', 'ceiling', 'wall-cabinet']
+selected_class_ids = [93, 40, 18, 7, 20, 76, 80, 37, 97, 71, 98, 12, 47, 67, 29, 31, 94]
 
 
 remapper=np.ones(150)*(-100)
 for i,x in enumerate(selected_class_ids):
-    remapper[x]=i+1
+    remapper[x]=i
 
 ## pillow class id 61,map pillow to cushsion
-remapper[61] = 16
+remapper[61] = 14
 
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--frames_2d_path", required=True)
     parser.add_argument("--scene_sampled_point_file", required=True)
-    parser.add_argument("--scene_semantic_mesh", required=True)
     parser.add_argument("--scene_semantic_json_file", required=True)
     parser.add_argument("--output_file", required=True)
     parser.add_argument("--viewport_height", type=int, default=480)
@@ -36,38 +35,23 @@ def main():
 
 
     #########load face semantic info
-    mesh_semantic = plyfile.PlyData().read(args.scene_semantic_mesh)
-    face_object_ids = np.asarray(mesh_semantic.elements[1]['object_id'])
 
     with open(args.scene_semantic_json_file) as info_sem_json_file:
         info_sem = json.load(info_sem_json_file)
 
     id_to_label = info_sem['id_to_label']
     id_to_label = np.asarray(id_to_label)
-    face_labels = id_to_label[face_object_ids]
-
 
     ############ observation fusion ####################
+
     d = np.load(args.scene_sampled_point_file, allow_pickle=True).item()
     coords = d['point_coordinate']
-    nearest_point = d['nearest_point_in_mesh']
     distance_to_mesh = d['distance_to_mesh']
-    nearest_face_index = d['nearest_face_index']
     nearest_instance_index = d['nearest_instance_index']
     print("There are {} uniformly sampled points.".format(coords.shape[0]))
 
-    ########
-    for i in range(nearest_face_index.shape[0]):
-        assert(face_object_ids[nearest_face_index[i]] == nearest_instance_index[i] )
+    ##################################
 
-    print(np.min(coords[:,0]))
-    print(np.max(coords[:,0]))
-    print(np.min(coords[:,1]))
-    print(np.max(coords[:,1]))
-    print(np.min(coords[:,2]))
-    print(np.max(coords[:,2]))
-
-    #######
 
     observed_volume = FreespaceVolume(args.viewport_height, args.viewport_width, coords)
 
@@ -109,7 +93,7 @@ def main():
             valid_coords.append(coords[i,:])
             valid_distance_to_mesh.append(distance_to_mesh[i])
             valid_tsdf.append(min(distance_to_mesh[i], args.truncated_distance))
-            valid_label.append(0) ## freespace
+            valid_label.append(-100) ## freespace also labeled as -100, will be ignored during semantic loss computation
 
         elif distance_to_mesh[i] <= args.truncated_distance:
             
