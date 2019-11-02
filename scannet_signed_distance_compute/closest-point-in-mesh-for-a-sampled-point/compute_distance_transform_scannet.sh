@@ -1,12 +1,14 @@
-REPLICA_PATH=/Users/xiaojwan/CVPR2020/replica_v1
-for scene_path in $(ls -d $REPLICA_PATH/*/)
+g++ -std=c++11 compute_distance_transform_scannet.cpp -o compute_distance_transform_scannet -lpthread
+MESH_ROOT="/home/xiaojwan/CVPR2020/Experiment/SparseConvNet/exampes/ScanNet_v2/*/scene*2.ply"
+POINT_ROOT="/home/xiaojwan/CVPR2020/Experiment/ScanNet_v2_points_along_surf"
+for MESH_FILE in $(ls ${MESH_ROOT})
 do
-	scene_name=$(basename $scene_path)
-   
-	mkdir -p "scene_"$scene_name
+	SCENE_NAME=$(basename ${MESH_FILE})
+	SCENE_NAME=${SCENE_NAME//.ply/}
+	mkdir -p "./scannet/"${SCENE_NAME}
 	echo "==========================="
-	echo $scene_name
-	./compute_distance_transform -f $scene_path/mesh.ply -p $scene_path/sample_along_surf_points.dat -o "scene_"$scene_name -v 10000
+	echo ${SCENE_NAME}
+	./compute_distance_transform_scannet -f ${MESH_FILE} -p $POINT_ROOT/$SCENE_NAME"_sample_along_surf_points.dat" -o "./scannet/"${SCENE_NAME} -v 10000
 	echo "==========================="
 
 done
