@@ -1,6 +1,6 @@
 REPLICA_PATH=/Users/xiaojwan/CVPR2020/replica_v1
-REPLICA_SAMPLED_POINT_PATH=/Users/xiaojwan/CVPR2020/replica-points
-OUTPUT_PATH=/Users/xiaojwan/CVPR2020/replica-points-tsdf
+REPLICA_SAMPLED_POINT_PATH=/Users/xiaojwan/CVPR2020/replica-points-surf
+OUTPUT_PATH=/Users/xiaojwan/CVPR2020/replica-points-surf-tsdf
 for scene_path in $(ls -d $REPLICA_PATH/*/)
 do
 	scene_name=$(basename $scene_path)

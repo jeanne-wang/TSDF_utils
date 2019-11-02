@@ -66,9 +66,11 @@ def main():
 
     print("There are {} sampled point together".format(point_coords.shape[0]))
     label_set, label_count = np.unique(point_labels, return_counts=True)
+    print(np.sum(point_tsdfs >= 0))
+    print(np.max(point_distances))
 
-    label_set = np.ascontiguousarray(label_set[1:]) ## ignore -100 class
-    label_count = np.ascontiguousarray(label_count[1:])
+    # label_set = np.ascontiguousarray(label_set[1:]) ## ignore -100 class
+    # label_count = np.ascontiguousarray(label_count[1:])
 
     statistic_info = list(zip(label_set, label_count))
     for count in statistic_info:
