@@ -1,1 +1,5 @@
 *.pyc
+replica_color_fusion/*.so
+replica_color_fusion/*.c
+replica_color_fusion/*.o
+replica_color_fusion/build/
