@@ -233,6 +233,7 @@ int main(int argc, char** argv) {
 	std::cout << "Wrting to file takes " << elapsed_secs << " seconds." << std::endl;
 
 	if (vis != 0) {
+		vis = std::min(vis, num_points);
 		std::vector<float> xxx, yyy, zzz;
 		for (int i = 0; i < vis; ++i) {
 			xxx.push_back(P(i, 0));

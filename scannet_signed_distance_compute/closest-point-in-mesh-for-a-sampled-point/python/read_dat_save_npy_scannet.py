@@ -23,7 +23,7 @@ def common(p, li):
 		assert(almost0(np.linalg.det(lc)))
 	return
 
-folders = glob.glob('../scannet/scene_*')
+folders = glob.glob('../scannet/scene*')
 for folder in folders:
 	points = np.fromfile(folder + '/point_coordinate.dat', np.float32).reshape((-1, 3))
 	c_points = np.fromfile(folder + '/nearest_point_in_mesh.dat', np.float32).reshape((-1, 3))
@@ -38,7 +38,7 @@ for folder in folders:
 	scene_name = os.path.basename(folder)
 	print(scene_name)
 
-	ply_file = glob.glob('/media/root/data/ScanNet_v2_data/*/%s.labels.ply' % scene_name)
+	ply_file = glob.glob('/Users/xiaojwan/Desktop/%s.labels.ply' % scene_name)
 	assert(len(ply_file) == 1)
 	ply_file = ply_file[0]
 
@@ -46,17 +46,17 @@ for folder in folders:
 	mesh_vertex = plydata.elements[0].data
 	mesh_face = plydata.elements[1].data
 
-	for i in tqdm.tqdm(range(points.shape[0])):
-		assert(almost0(dist[i] - l2dist(points[i], c_points[i])))
-		common(c_points[i], mesh_vertex[mesh_face[fid[i]][0]])
-		ins_id[i] = mesh_face[fid[i]][1]
+	# for i in tqdm.tqdm(range(points.shape[0])):
+	# 	assert(almost0(dist[i] - l2dist(points[i], c_points[i])))
+	# 	#common(c_points[i], mesh_vertex[mesh_face[fid[i]][0]])
+	# 	ins_id[i] = mesh_face[fid[i]][1]
 
 	d = {
 		'point_coordinate': points,
 		'nearest_point_in_mesh': c_points,
 		'distance_to_mesh': dist,
 		'nearest_face_index': fid,
-		'nearest_instance_index': ins_id,
+		#'nearest_instance_index': ins_id,
 	}
 
 	np.save('%s.npy' % scene_name, d) 
