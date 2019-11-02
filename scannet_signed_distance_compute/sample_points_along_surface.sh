@@ -1,5 +1,5 @@
-MESH_ROOT="/home/xiaojwan/CVPR2020/Experiment/SparseConvNet/exampes/ScanNet_v2/*/scene*2.ply"
-OUTPUT_PATH="/home/xiaojwan/CVPR2020/ScanNet_v2_points_along_surf"
+MESH_ROOT="/home/xiaojwan/CVPR2020/Experiment/SparseConvNet/examples/ScanNet/*/scene*2.ply"
+OUTPUT_PATH="/home/xiaojwan/CVPR2020/Experiment/ScanNet_v2_points_along_surf"
 for MESH_FILE in $(ls ${MESH_ROOT})
 do
   SCENE_NAME=$(basename ${MESH_FILE})
