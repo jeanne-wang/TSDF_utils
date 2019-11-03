@@ -1,5 +1,5 @@
 g++ -std=c++11 compute_distance_transform_scannet.cpp -o compute_distance_transform_scannet -lpthread
-MESH_ROOT="/home/xiaojwan/CVPR2020/Experiment/SparseConvNet/exampes/ScanNet_v2/*/scene*2.ply"
+MESH_ROOT="/home/xiaojwan/CVPR2020/Experiment/SparseConvNet/examples/ScanNet/*/scene*2.ply"
 POINT_ROOT="/home/xiaojwan/CVPR2020/Experiment/ScanNet_v2_points_along_surf"
 for MESH_FILE in $(ls ${MESH_ROOT})
 do
