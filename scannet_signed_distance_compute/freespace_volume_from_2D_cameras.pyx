@@ -19,11 +19,13 @@ cdef class FreespaceVolume:
 
         num_point = self.coords.shape[0] 
         assert self.coords.shape[1] == 3
-        self.observed= np.zeros([num_point],
+        self.front_of_camera = np.zeros([num_point],
+                               dtype=np.int32)
+        self.behind_of_camera = np.zeros([num_point],
                                dtype=np.int32)
 
     def get_volume(self):
-        return np.array(self.observed)
+        return np.array(self.front_of_camera), np.array(self.behind_of_camera)
 
     def fuse(self,
              np.float32_t[:, ::1] depth_proj_matrix,
@@ -38,7 +40,7 @@ cdef class FreespaceVolume:
 
         for i in range(self.coords.shape[0]):
 
-            if self.observed[i] == 1:
+            if self.front_of_camera[i] == 1:
                 continue
             x = self.coords[i, 0]
             y = self.coords[i, 1]
@@ -80,7 +82,9 @@ cdef class FreespaceVolume:
 
             
             if depth_proj_z <= depth:
-                self.observed[i] = 1
+                self.front_of_camera[i] = 1
+            else:
+              self.behind_of_camera[i] = 1
 
                    
 

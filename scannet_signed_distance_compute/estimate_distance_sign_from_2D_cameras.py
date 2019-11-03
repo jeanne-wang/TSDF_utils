@@ -7,8 +7,6 @@ import json
 from freespace_volume_from_2D_cameras import FreespaceVolume
 
 selected_class_ids = [93, 40, 18, 7, 20, 76, 80, 37, 97, 71, 98, 12, 47, 67, 29, 31, 94]
-
-
 remapper=np.ones(150)*(-100)
 for i,x in enumerate(selected_class_ids):
     remapper[x]=i
@@ -16,7 +14,6 @@ for i,x in enumerate(selected_class_ids):
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--scene_path", required=True)
-    parser.add_argument("--frames_2d_path", required=True)
     parser.add_argument("--scene_sampled_point_file", required=True)
     parser.add_argument("--output_file", required=True)
     parser.add_argument("--truncated_distance", type=float, default=0.1)
@@ -58,35 +55,35 @@ def main():
     d = np.load(args.scene_sampled_point_file, allow_pickle=True).item()
     coords = d['point_coordinate']
     distance_to_mesh = d['distance_to_mesh']
-    nearest_instance_index = d['nearest_instance_index']
+    nearest_face_label = d['nearest_face_label']
     print("There are {} uniformly sampled points.".format(coords.shape[0]))
 
     ##################################
 
 
     observed_volume = FreespaceVolume(coords)
+    pose_paths = sorted(glob.glob(os.path.join(args.scene_path, "sensor/*.pose.txt")))
+    for i, pose_path in enumerate(pose_paths):
 
-    
-    camera_paths = sorted(glob.glob(os.path.join(args.frames_2d_path, "frame*.camera.npz")))
-    for i, camera_path in enumerate(camera_paths):
-
-        frame_id = int(os.path.basename(camera_path)[6:11])
+        frame_id = int(os.path.basename(pose_path)[6:-9])
         print("Processing frame {} [{}/{}]".format(
-             frame_id, i + 1, len(camera_paths)))
+             frame_id, i + 1, len(pose_paths)))
 
-        
-        
+        depth_map_path = os.path.join(args.scene_path,
+                "sensor/frame-{:06d}.depth.pgm".format(frame_id))
+        assert os.path.exists(depth_map_path)
 
-        camera = np.load(camera_path)
-        proj_matrix = camera['projection_matrix']
-        cam_matrix = camera['camera_matrix']
-        transform_matrix =  np.matmul(proj_matrix, cam_matrix)
+        pose = np.loadtxt(pose_path)
 
-        depth_map_path = os.path.join(args.frames_2d_path, "frame-{:05d}.depth.npz".format(frame_id))
-        depth_map = np.load(depth_map_path)['depth']
+        proj_matrix = np.linalg.inv(pose)
+        depth_proj_matrix = \
+                np.dot(depth_K, np.dot(color_to_depth_T, proj_matrix)[:3])
 
-        
-        observed_volume.fuse(transform_matrix, depth_map)
+        depth_proj_matrix = depth_proj_matrix.astype(np.float32)
+        depth_map = skimage.io.imread(depth_map_path)
+        depth_map = depth_map.astype(np.float32) / 1000
+
+        observed_volume.fuse(depth_proj_matrix, depth_map)
 
 
 
@@ -111,10 +108,8 @@ def main():
             valid_coords.append(coords[i,:])
             valid_distance_to_mesh.append(distance_to_mesh[i])
             valid_tsdf.append(-distance_to_mesh[i])
-            label = id_to_label[nearest_instance_index[i]]
-            if label < 0:
-                label = 149
-            valid_label.append(remapper[label])
+            valid_label.append(remapper[nearest_face_label[i]])
+            
 
     valid_coords=np.asarray(valid_coords)
     valid_distance_to_mesh = np.asarray(valid_distance_to_mesh)
