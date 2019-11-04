@@ -46,12 +46,11 @@ cdef class ObservationVolume:
             y = self.coords[i, 1]
             z = self.coords[i, 2]
 
-
-           # Compute the depth of the current voxel wrt. the camera.
-           depth_proj_z = depth_proj_matrix[2, 0] * x + \
-                          depth_proj_matrix[2, 1] * y + \
-                          depth_proj_matrix[2, 2] * z + \
-                          depth_proj_matrix[2, 3]
+            # Compute the depth of the current voxel wrt. the camera.
+            depth_proj_z = depth_proj_matrix[2, 0] * x + \
+                           depth_proj_matrix[2, 1] * y + \
+                           depth_proj_matrix[2, 2] * z + \
+                           depth_proj_matrix[2, 3]
 
             # Check if voxel behind camera.
             if depth_proj_z <= 0:
