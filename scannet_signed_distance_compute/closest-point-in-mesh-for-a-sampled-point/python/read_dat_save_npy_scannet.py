@@ -29,7 +29,7 @@ for folder in folders:
 	c_points = np.fromfile(folder + '/nearest_point_in_mesh.dat', np.float32).reshape((-1, 3))
 	dist = np.fromfile(folder + '/distance_to_mesh.dat', np.float32)
 	fid = np.fromfile(folder + '/nearest_face_index.dat', np.int32)
-	ins_id = fid.copy()
+	labels = fid.copy()
 
 	assert(points.shape[0] == c_points.shape[0])
 	assert(points.shape[0] == dist.shape[0])
@@ -46,17 +46,25 @@ for folder in folders:
 	mesh_vertex = plydata.elements[0].data
 	mesh_face = plydata.elements[1].data
 
-	# for i in tqdm.tqdm(range(points.shape[0])):
-	# 	assert(almost0(dist[i] - l2dist(points[i], c_points[i])))
-	# 	#common(c_points[i], mesh_vertex[mesh_face[fid[i]][0]])
-	# 	ins_id[i] = mesh_face[fid[i]][1]
+	## generating label for each point
+	np.random.seed(0)
+	for i in tqdm.tqdm(range(points.shape[0])):
+		assert(almost0(dist[i] - l2dist(points[i], c_points[i])))
+		#common(c_points[i], mesh_vertex[mesh_face[fid[i]][0]])
+		face_vertex_inds = mesh_face[fid[i]][0]
+		ind_v = np.random.randint(3)
+		
+		labels[i] = mesh_vertex[face_vertex_inds[ind_v]][7]
+		
+
+
 
 	d = {
 		'point_coordinate': points,
 		'nearest_point_in_mesh': c_points,
 		'distance_to_mesh': dist,
 		'nearest_face_index': fid,
-		#'nearest_instance_index': ins_id,
+		'nearest_face_label': labels,
 	}
 
 	np.save('%s.npy' % scene_name, d) 
