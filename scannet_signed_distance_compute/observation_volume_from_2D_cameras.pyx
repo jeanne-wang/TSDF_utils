@@ -7,11 +7,11 @@ cimport numpy as np
 from libc.math cimport round
 from libc.stdio cimport printf
 
-cdef class FreespaceVolume:
+cdef class ObservationVolume:
 
     cdef float[:, ::1] coords
-    cdef int [::1] observed ## binary 1/0 freespace/not observed
-
+    cdef int [::1] front_of_camera ## binary 1/0 
+    cdef int [::1] behind_of_camera 
 
     def __init__(self, coords):
 
@@ -84,7 +84,7 @@ cdef class FreespaceVolume:
             if depth_proj_z <= depth:
                 self.front_of_camera[i] = 1
             else:
-              self.behind_of_camera[i] = 1
+              self.behind_of_camera[i] += 1
 
                    
 

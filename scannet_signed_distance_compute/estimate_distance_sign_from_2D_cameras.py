@@ -4,7 +4,7 @@ import argparse
 import numpy as np
 import plyfile
 import json
-from freespace_volume_from_2D_cameras import FreespaceVolume
+from observation_volume_from_2D_cameras import ObservationVolume
 
 selected_class_ids = [93, 40, 18, 7, 20, 76, 80, 37, 97, 71, 98, 12, 47, 67, 29, 31, 94]
 remapper=np.ones(150)*(-100)
@@ -17,6 +17,7 @@ def parse_args():
     parser.add_argument("--scene_sampled_point_file", required=True)
     parser.add_argument("--output_file", required=True)
     parser.add_argument("--truncated_distance", type=float, default=0.1)
+    parser.add_argument("--visualization", type=bool, default=False)
     return parser.parse_args()
 
 
@@ -61,7 +62,7 @@ def main():
     ##################################
 
 
-    observed_volume = FreespaceVolume(coords)
+    observed_volume = ObservationVolume(coords)
     pose_paths = sorted(glob.glob(os.path.join(args.scene_path, "sensor/*.pose.txt")))
     for i, pose_path in enumerate(pose_paths):
 
@@ -87,7 +88,7 @@ def main():
 
 
 
-    observed_volume_flag = observed_volume.get_volume()
+    front_of_camera, behind_of_camera = observed_volume.get_volume()
 
     valid_coords = []
     valid_distance_to_mesh = []
@@ -96,20 +97,20 @@ def main():
     for i in range(coords.shape[0]):
 
         ## freeespace
-        if observed_volume_flag[i] == 1:
+        if front_of_camera[i] == 1:
 
             valid_coords.append(coords[i,:])
             valid_distance_to_mesh.append(distance_to_mesh[i])
             valid_tsdf.append(min(distance_to_mesh[i], args.truncated_distance))
             valid_label.append(-100) ## freespace also labeled as -100, will be ignored during semantic loss computation
 
-        elif distance_to_mesh[i] <= args.truncated_distance:
+        elif (behind_of_camera[i] == len(pose_paths) and distance_to_mesh[i] <= args.truncated_distance):
             
             valid_coords.append(coords[i,:])
             valid_distance_to_mesh.append(distance_to_mesh[i])
             valid_tsdf.append(-distance_to_mesh[i])
             valid_label.append(remapper[nearest_face_label[i]])
-            
+
 
     valid_coords=np.asarray(valid_coords)
     valid_distance_to_mesh = np.asarray(valid_distance_to_mesh)
