@@ -1231,7 +1231,6 @@ struct __pyx_obj_34observation_volume_from_2D_cameras_ObservationVolume {
   PyObject_HEAD
   __Pyx_memviewslice coords;
   __Pyx_memviewslice front_of_camera;
-  __Pyx_memviewslice behind_of_camera;
 };
 
 
@@ -1929,12 +1928,9 @@ static int __pyx_slices_overlap(__Pyx_memviewslice *slice1,
 /* Capsule.proto */
 static CYTHON_INLINE PyObject *__pyx_capsule_create(void *p, const char *sig);
 
-/* CIntToPy.proto */
-static CYTHON_INLINE PyObject* __Pyx_PyInt_From_int(int value);
-
 /* MemviewDtypeToObject.proto */
-static CYTHON_INLINE PyObject *__pyx_memview_get_int(const char *itemp);
-static CYTHON_INLINE int __pyx_memview_set_int(const char *itemp, PyObject *obj);
+static CYTHON_INLINE PyObject *__pyx_memview_get_float(const char *itemp);
+static CYTHON_INLINE int __pyx_memview_set_float(const char *itemp, PyObject *obj);
 
 /* IsLittleEndian.proto */
 static CYTHON_INLINE int __Pyx_Is_Little_Endian(void);
@@ -1960,14 +1956,17 @@ static int __Pyx_ValidateAndInit_memviewslice(
                 PyObject *original_obj);
 
 /* ObjectToMemviewSlice.proto */
-static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_dc_int(PyObject *, int writable_flag);
+static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_d_dc_float(PyObject *, int writable_flag);
+
+/* CIntToPy.proto */
+static CYTHON_INLINE PyObject* __Pyx_PyInt_From_int(int value);
 
 /* MemviewDtypeToObject.proto */
-static CYTHON_INLINE PyObject *__pyx_memview_get_float(const char *itemp);
-static CYTHON_INLINE int __pyx_memview_set_float(const char *itemp, PyObject *obj);
+static CYTHON_INLINE PyObject *__pyx_memview_get_int(const char *itemp);
+static CYTHON_INLINE int __pyx_memview_set_int(const char *itemp, PyObject *obj);
 
 /* ObjectToMemviewSlice.proto */
-static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_d_dc_float(PyObject *, int writable_flag);
+static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_dc_int(PyObject *, int writable_flag);
 
 /* ObjectToMemviewSlice.proto */
 static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_float32_t(PyObject *, int writable_flag);
@@ -2187,8 +2186,8 @@ static void __pyx_memoryview_refcount_objects_in_slice(char *, Py_ssize_t *, Py_
 static void __pyx_memoryview_slice_assign_scalar(__Pyx_memviewslice *, int, size_t, void *, int); /*proto*/
 static void __pyx_memoryview__slice_assign_scalar(char *, Py_ssize_t *, Py_ssize_t *, int, size_t, void *); /*proto*/
 static PyObject *__pyx_unpickle_Enum__set_state(struct __pyx_MemviewEnum_obj *, PyObject *); /*proto*/
-static __Pyx_TypeInfo __Pyx_TypeInfo_int = { "int", NULL, sizeof(int), { 0 }, 0, IS_UNSIGNED(int) ? 'U' : 'I', IS_UNSIGNED(int), 0 };
 static __Pyx_TypeInfo __Pyx_TypeInfo_float = { "float", NULL, sizeof(float), { 0 }, 0, 'R', 0, 0 };
+static __Pyx_TypeInfo __Pyx_TypeInfo_int = { "int", NULL, sizeof(int), { 0 }, 0, IS_UNSIGNED(int) ? 'U' : 'I', IS_UNSIGNED(int), 0 };
 static __Pyx_TypeInfo __Pyx_TypeInfo_nn___pyx_t_5numpy_float32_t = { "float32_t", NULL, sizeof(__pyx_t_5numpy_float32_t), { 0 }, 0, 'R', 0, 0 };
 #define __Pyx_MODULE_NAME "observation_volume_from_2D_cameras"
 extern int __pyx_module_is_main_observation_volume_from_2D_cameras;
@@ -2300,8 +2299,8 @@ static const char __pyx_k_Cannot_assign_to_read_only_memor[] = "Cannot assign to
 static const char __pyx_k_Cannot_create_writable_memory_vi[] = "Cannot create writable memory view from read-only memoryview";
 static const char __pyx_k_Empty_shape_tuple_for_cython_arr[] = "Empty shape tuple for cython.array";
 static const char __pyx_k_Format_string_allocated_too_shor[] = "Format string allocated too short, see comment in numpy.pxd";
+static const char __pyx_k_Incompatible_checksums_s_vs_0x8f[] = "Incompatible checksums (%s vs 0x8fc314c = (coords, front_of_camera))";
 static const char __pyx_k_Incompatible_checksums_s_vs_0xb0[] = "Incompatible checksums (%s vs 0xb068931 = (name))";
-static const char __pyx_k_Incompatible_checksums_s_vs_0xbb[] = "Incompatible checksums (%s vs 0xbb31bbc = (behind_of_camera, coords, front_of_camera))";
 static const char __pyx_k_Indirect_dimensions_not_supporte[] = "Indirect dimensions not supported";
 static const char __pyx_k_Invalid_mode_expected_c_or_fortr[] = "Invalid mode, expected 'c' or 'fortran', got %s";
 static const char __pyx_k_Non_native_byte_order_not_suppor[] = "Non-native byte order not supported";
@@ -2325,8 +2324,8 @@ static PyObject *__pyx_kp_s_Empty_shape_tuple_for_cython_arr;
 static PyObject *__pyx_kp_u_Format_string_allocated_too_shor;
 static PyObject *__pyx_kp_u_Format_string_allocated_too_shor_2;
 static PyObject *__pyx_n_s_ImportError;
+static PyObject *__pyx_kp_s_Incompatible_checksums_s_vs_0x8f;
 static PyObject *__pyx_kp_s_Incompatible_checksums_s_vs_0xb0;
-static PyObject *__pyx_kp_s_Incompatible_checksums_s_vs_0xbb;
 static PyObject *__pyx_n_s_IndexError;
 static PyObject *__pyx_kp_s_Indirect_dimensions_not_supporte;
 static PyObject *__pyx_kp_s_Invalid_mode_expected_c_or_fortr;
@@ -2482,8 +2481,8 @@ static PyObject *__pyx_tp_new_memoryview(PyTypeObject *t, PyObject *a, PyObject 
 static PyObject *__pyx_tp_new__memoryviewslice(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_int_0;
 static PyObject *__pyx_int_1;
+static PyObject *__pyx_int_150745420;
 static PyObject *__pyx_int_184977713;
-static PyObject *__pyx_int_196287420;
 static PyObject *__pyx_int_neg_1;
 static PyObject *__pyx_tuple_;
 static PyObject *__pyx_tuple__2;
@@ -2521,8 +2520,8 @@ static PyObject *__pyx_codeobj__27;
 static PyObject *__pyx_codeobj__34;
 /* Late includes */
 
-/* "observation_volume_from_2D_cameras.pyx":16
- *     cdef int [::1] behind_of_camera
+/* "observation_volume_from_2D_cameras.pyx":15
+ *     cdef int [::1] front_of_camera ## binary 1/0
  * 
  *     def __init__(self, coords):             # <<<<<<<<<<<<<<
  * 
@@ -2555,7 +2554,7 @@ static int __pyx_pw_34observation_volume_from_2D_cameras_17ObservationVolume_1__
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 16, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 15, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
       goto __pyx_L5_argtuple_error;
@@ -2566,7 +2565,7 @@ static int __pyx_pw_34observation_volume_from_2D_cameras_17ObservationVolume_1__
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 16, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 15, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("observation_volume_from_2D_cameras.ObservationVolume.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -2592,18 +2591,18 @@ static int __pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolume___i
   __Pyx_memviewslice __pyx_t_7 = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "observation_volume_from_2D_cameras.pyx":18
+  /* "observation_volume_from_2D_cameras.pyx":17
  *     def __init__(self, coords):
  * 
  *         self.coords = coords.astype(np.float32)             # <<<<<<<<<<<<<<
  * 
  *         num_point = self.coords.shape[0]
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_coords, __pyx_n_s_astype); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 18, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_coords, __pyx_n_s_astype); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 18, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_float32); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 18, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_float32); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -2619,17 +2618,17 @@ static int __pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolume___i
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_4);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 18, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_5 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_float(__pyx_t_1, PyBUF_WRITABLE); if (unlikely(!__pyx_t_5.memview)) __PYX_ERR(0, 18, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_float(__pyx_t_1, PyBUF_WRITABLE); if (unlikely(!__pyx_t_5.memview)) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __PYX_XDEC_MEMVIEW(&__pyx_v_self->coords, 0);
   __pyx_v_self->coords = __pyx_t_5;
   __pyx_t_5.memview = NULL;
   __pyx_t_5.data = NULL;
 
-  /* "observation_volume_from_2D_cameras.pyx":20
+  /* "observation_volume_from_2D_cameras.pyx":19
  *         self.coords = coords.astype(np.float32)
  * 
  *         num_point = self.coords.shape[0]             # <<<<<<<<<<<<<<
@@ -2638,7 +2637,7 @@ static int __pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolume___i
  */
   __pyx_v_num_point = (__pyx_v_self->coords.shape[0]);
 
-  /* "observation_volume_from_2D_cameras.pyx":21
+  /* "observation_volume_from_2D_cameras.pyx":20
  * 
  *         num_point = self.coords.shape[0]
  *         assert self.coords.shape[1] == 3             # <<<<<<<<<<<<<<
@@ -2649,135 +2648,74 @@ static int __pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolume___i
   if (unlikely(!Py_OptimizeFlag)) {
     if (unlikely(!(((__pyx_v_self->coords.shape[1]) == 3) != 0))) {
       PyErr_SetNone(PyExc_AssertionError);
-      __PYX_ERR(0, 21, __pyx_L1_error)
+      __PYX_ERR(0, 20, __pyx_L1_error)
     }
   }
   #endif
 
-  /* "observation_volume_from_2D_cameras.pyx":22
+  /* "observation_volume_from_2D_cameras.pyx":21
  *         num_point = self.coords.shape[0]
  *         assert self.coords.shape[1] == 3
  *         self.front_of_camera = np.zeros([num_point],             # <<<<<<<<<<<<<<
  *                                dtype=np.int32)
- *         self.behind_of_camera = np.zeros([num_point],
+ *     def get_volume(self):
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyInt_FromSsize_t(__pyx_v_num_point); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_t_1 = PyInt_FromSsize_t(__pyx_v_num_point); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_4 = PyList_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_t_4 = PyList_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_1);
   PyList_SET_ITEM(__pyx_t_4, 0, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_4);
   PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_4);
   __pyx_t_4 = 0;
 
-  /* "observation_volume_from_2D_cameras.pyx":23
+  /* "observation_volume_from_2D_cameras.pyx":22
  *         assert self.coords.shape[1] == 3
  *         self.front_of_camera = np.zeros([num_point],
  *                                dtype=np.int32)             # <<<<<<<<<<<<<<
- *         self.behind_of_camera = np.zeros([num_point],
- *                                dtype=np.int32)
+ *     def get_volume(self):
+ *         return np.array(self.front_of_camera)
  */
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 22, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 23, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 22, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_int32); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_int32); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 22, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_6) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_6) < 0) __PYX_ERR(0, 22, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "observation_volume_from_2D_cameras.pyx":22
+  /* "observation_volume_from_2D_cameras.pyx":21
  *         num_point = self.coords.shape[0]
  *         assert self.coords.shape[1] == 3
  *         self.front_of_camera = np.zeros([num_point],             # <<<<<<<<<<<<<<
  *                                dtype=np.int32)
- *         self.behind_of_camera = np.zeros([num_point],
+ *     def get_volume(self):
  */
-  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_1, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_1, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_7 = __Pyx_PyObject_to_MemoryviewSlice_dc_int(__pyx_t_6, PyBUF_WRITABLE); if (unlikely(!__pyx_t_7.memview)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_to_MemoryviewSlice_dc_int(__pyx_t_6, PyBUF_WRITABLE); if (unlikely(!__pyx_t_7.memview)) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __PYX_XDEC_MEMVIEW(&__pyx_v_self->front_of_camera, 0);
   __pyx_v_self->front_of_camera = __pyx_t_7;
   __pyx_t_7.memview = NULL;
   __pyx_t_7.data = NULL;
 
-  /* "observation_volume_from_2D_cameras.pyx":24
- *         self.front_of_camera = np.zeros([num_point],
- *                                dtype=np.int32)
- *         self.behind_of_camera = np.zeros([num_point],             # <<<<<<<<<<<<<<
- *                                dtype=np.int32)
- * 
- */
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 24, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_zeros); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 24, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = PyInt_FromSsize_t(__pyx_v_num_point); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 24, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 24, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GIVEREF(__pyx_t_6);
-  PyList_SET_ITEM(__pyx_t_1, 0, __pyx_t_6);
-  __pyx_t_6 = 0;
-  __pyx_t_6 = PyTuple_New(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 24, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_6);
-  __Pyx_GIVEREF(__pyx_t_1);
-  PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_1);
-  __pyx_t_1 = 0;
-
-  /* "observation_volume_from_2D_cameras.pyx":25
- *                                dtype=np.int32)
- *         self.behind_of_camera = np.zeros([num_point],
- *                                dtype=np.int32)             # <<<<<<<<<<<<<<
- * 
- *     def get_volume(self):
- */
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 25, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 25, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_int32); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 25, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dtype, __pyx_t_3) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-
-  /* "observation_volume_from_2D_cameras.pyx":24
- *         self.front_of_camera = np.zeros([num_point],
- *                                dtype=np.int32)
- *         self.behind_of_camera = np.zeros([num_point],             # <<<<<<<<<<<<<<
- *                                dtype=np.int32)
- * 
- */
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_6, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 24, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_7 = __Pyx_PyObject_to_MemoryviewSlice_dc_int(__pyx_t_3, PyBUF_WRITABLE); if (unlikely(!__pyx_t_7.memview)) __PYX_ERR(0, 24, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __PYX_XDEC_MEMVIEW(&__pyx_v_self->behind_of_camera, 0);
-  __pyx_v_self->behind_of_camera = __pyx_t_7;
-  __pyx_t_7.memview = NULL;
-  __pyx_t_7.data = NULL;
-
-  /* "observation_volume_from_2D_cameras.pyx":16
- *     cdef int [::1] behind_of_camera
+  /* "observation_volume_from_2D_cameras.pyx":15
+ *     cdef int [::1] front_of_camera ## binary 1/0
  * 
  *     def __init__(self, coords):             # <<<<<<<<<<<<<<
  * 
@@ -2802,11 +2740,11 @@ static int __pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolume___i
   return __pyx_r;
 }
 
-/* "observation_volume_from_2D_cameras.pyx":27
+/* "observation_volume_from_2D_cameras.pyx":23
+ *         self.front_of_camera = np.zeros([num_point],
  *                                dtype=np.int32)
- * 
  *     def get_volume(self):             # <<<<<<<<<<<<<<
- *         return np.array(self.front_of_camera), np.array(self.behind_of_camera)
+ *         return np.array(self.front_of_camera)
  * 
  */
 
@@ -2830,23 +2768,22 @@ static PyObject *__pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolu
   PyObject *__pyx_t_2 = NULL;
   PyObject *__pyx_t_3 = NULL;
   PyObject *__pyx_t_4 = NULL;
-  PyObject *__pyx_t_5 = NULL;
   __Pyx_RefNannySetupContext("get_volume", 0);
 
-  /* "observation_volume_from_2D_cameras.pyx":28
- * 
+  /* "observation_volume_from_2D_cameras.pyx":24
+ *                                dtype=np.int32)
  *     def get_volume(self):
- *         return np.array(self.front_of_camera), np.array(self.behind_of_camera)             # <<<<<<<<<<<<<<
+ *         return np.array(self.front_of_camera)             # <<<<<<<<<<<<<<
  * 
  *     def fuse(self,
  */
   __Pyx_XDECREF(__pyx_r);
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_array); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_array); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_self->front_of_camera, 1, (PyObject *(*)(char *)) __pyx_memview_get_int, (int (*)(char *, PyObject *)) __pyx_memview_set_int, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_self->front_of_camera, 1, (PyObject *(*)(char *)) __pyx_memview_get_int, (int (*)(char *, PyObject *)) __pyx_memview_set_int, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_4 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_3))) {
@@ -2861,49 +2798,18 @@ static PyObject *__pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolu
   __pyx_t_1 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, __pyx_t_2) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2);
   __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 28, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 28, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_array); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 28, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_self->behind_of_camera, 1, (PyObject *(*)(char *)) __pyx_memview_get_int, (int (*)(char *, PyObject *)) __pyx_memview_set_int, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 28, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_5 = NULL;
-  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
-    __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_4);
-    if (likely(__pyx_t_5)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
-      __Pyx_INCREF(__pyx_t_5);
-      __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_4, function);
-    }
-  }
-  __pyx_t_3 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_t_2) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 28, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 28, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_GIVEREF(__pyx_t_1);
-  PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_1);
-  __Pyx_GIVEREF(__pyx_t_3);
-  PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_3);
+  __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
-  __pyx_t_3 = 0;
-  __pyx_r = __pyx_t_4;
-  __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "observation_volume_from_2D_cameras.pyx":27
+  /* "observation_volume_from_2D_cameras.pyx":23
+ *         self.front_of_camera = np.zeros([num_point],
  *                                dtype=np.int32)
- * 
  *     def get_volume(self):             # <<<<<<<<<<<<<<
- *         return np.array(self.front_of_camera), np.array(self.behind_of_camera)
+ *         return np.array(self.front_of_camera)
  * 
  */
 
@@ -2913,7 +2819,6 @@ static PyObject *__pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolu
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_XDECREF(__pyx_t_5);
   __Pyx_AddTraceback("observation_volume_from_2D_cameras.ObservationVolume.get_volume", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -2922,8 +2827,8 @@ static PyObject *__pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolu
   return __pyx_r;
 }
 
-/* "observation_volume_from_2D_cameras.pyx":30
- *         return np.array(self.front_of_camera), np.array(self.behind_of_camera)
+/* "observation_volume_from_2D_cameras.pyx":26
+ *         return np.array(self.front_of_camera)
  * 
  *     def fuse(self,             # <<<<<<<<<<<<<<
  *              np.float32_t[:, ::1] depth_proj_matrix,
@@ -2961,11 +2866,11 @@ static PyObject *__pyx_pw_34observation_volume_from_2D_cameras_17ObservationVolu
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_depth_map)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("fuse", 1, 2, 2, 1); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("fuse", 1, 2, 2, 1); __PYX_ERR(0, 26, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "fuse") < 0)) __PYX_ERR(0, 30, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "fuse") < 0)) __PYX_ERR(0, 26, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -2973,12 +2878,12 @@ static PyObject *__pyx_pw_34observation_volume_from_2D_cameras_17ObservationVolu
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
-    __pyx_v_depth_proj_matrix = __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_float32_t(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_depth_proj_matrix.memview)) __PYX_ERR(0, 31, __pyx_L3_error)
-    __pyx_v_depth_map = __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_float32_t(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_depth_map.memview)) __PYX_ERR(0, 32, __pyx_L3_error)
+    __pyx_v_depth_proj_matrix = __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_float32_t(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_depth_proj_matrix.memview)) __PYX_ERR(0, 27, __pyx_L3_error)
+    __pyx_v_depth_map = __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_float32_t(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_depth_map.memview)) __PYX_ERR(0, 28, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("fuse", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 30, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("fuse", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 26, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("observation_volume_from_2D_cameras.ObservationVolume.fuse", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -3008,7 +2913,7 @@ static PyObject *__pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolu
   Py_ssize_t __pyx_t_2;
   Py_ssize_t __pyx_t_3;
   Py_ssize_t __pyx_t_4;
-  int __pyx_t_5;
+  Py_ssize_t __pyx_t_5;
   Py_ssize_t __pyx_t_6;
   Py_ssize_t __pyx_t_7;
   Py_ssize_t __pyx_t_8;
@@ -3021,7 +2926,7 @@ static PyObject *__pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolu
   Py_ssize_t __pyx_t_15;
   Py_ssize_t __pyx_t_16;
   Py_ssize_t __pyx_t_17;
-  Py_ssize_t __pyx_t_18;
+  int __pyx_t_18;
   Py_ssize_t __pyx_t_19;
   Py_ssize_t __pyx_t_20;
   Py_ssize_t __pyx_t_21;
@@ -3038,163 +2943,131 @@ static PyObject *__pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolu
   Py_ssize_t __pyx_t_32;
   Py_ssize_t __pyx_t_33;
   Py_ssize_t __pyx_t_34;
-  Py_ssize_t __pyx_t_35;
-  int __pyx_t_36;
+  int __pyx_t_35;
+  Py_ssize_t __pyx_t_36;
   Py_ssize_t __pyx_t_37;
   Py_ssize_t __pyx_t_38;
-  Py_ssize_t __pyx_t_39;
-  Py_ssize_t __pyx_t_40;
   __Pyx_RefNannySetupContext("fuse", 0);
 
-  /* "observation_volume_from_2D_cameras.pyx":41
+  /* "observation_volume_from_2D_cameras.pyx":37
  * 
  * 
  *         for i in range(self.coords.shape[0]):             # <<<<<<<<<<<<<<
  * 
- *             if self.front_of_camera[i] == 1:
+ *             # if self.front_of_camera[i] == 1:
  */
   __pyx_t_1 = (__pyx_v_self->coords.shape[0]);
   __pyx_t_2 = __pyx_t_1;
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "observation_volume_from_2D_cameras.pyx":43
- *         for i in range(self.coords.shape[0]):
- * 
- *             if self.front_of_camera[i] == 1:             # <<<<<<<<<<<<<<
- *                 continue
- *             x = self.coords[i, 0]
- */
-    __pyx_t_4 = __pyx_v_i;
-    if (__pyx_t_4 < 0) __pyx_t_4 += __pyx_v_self->front_of_camera.shape[0];
-    __pyx_t_5 = (((*((int *) ( /* dim=0 */ ((char *) (((int *) __pyx_v_self->front_of_camera.data) + __pyx_t_4)) ))) == 1) != 0);
-    if (__pyx_t_5) {
-
-      /* "observation_volume_from_2D_cameras.pyx":44
- * 
- *             if self.front_of_camera[i] == 1:
- *                 continue             # <<<<<<<<<<<<<<
- *             x = self.coords[i, 0]
- *             y = self.coords[i, 1]
- */
-      goto __pyx_L3_continue;
-
-      /* "observation_volume_from_2D_cameras.pyx":43
- *         for i in range(self.coords.shape[0]):
- * 
- *             if self.front_of_camera[i] == 1:             # <<<<<<<<<<<<<<
- *                 continue
- *             x = self.coords[i, 0]
- */
-    }
-
-    /* "observation_volume_from_2D_cameras.pyx":45
- *             if self.front_of_camera[i] == 1:
- *                 continue
+    /* "observation_volume_from_2D_cameras.pyx":41
+ *             # if self.front_of_camera[i] == 1:
+ *             #     continue
  *             x = self.coords[i, 0]             # <<<<<<<<<<<<<<
  *             y = self.coords[i, 1]
  *             z = self.coords[i, 2]
  */
-    __pyx_t_6 = __pyx_v_i;
-    __pyx_t_7 = 0;
-    if (__pyx_t_6 < 0) __pyx_t_6 += __pyx_v_self->coords.shape[0];
-    if (__pyx_t_7 < 0) __pyx_t_7 += __pyx_v_self->coords.shape[1];
-    __pyx_v_x = (*((float *) ( /* dim=1 */ ((char *) (((float *) ( /* dim=0 */ (__pyx_v_self->coords.data + __pyx_t_6 * __pyx_v_self->coords.strides[0]) )) + __pyx_t_7)) )));
+    __pyx_t_4 = __pyx_v_i;
+    __pyx_t_5 = 0;
+    if (__pyx_t_4 < 0) __pyx_t_4 += __pyx_v_self->coords.shape[0];
+    if (__pyx_t_5 < 0) __pyx_t_5 += __pyx_v_self->coords.shape[1];
+    __pyx_v_x = (*((float *) ( /* dim=1 */ ((char *) (((float *) ( /* dim=0 */ (__pyx_v_self->coords.data + __pyx_t_4 * __pyx_v_self->coords.strides[0]) )) + __pyx_t_5)) )));
 
-    /* "observation_volume_from_2D_cameras.pyx":46
- *                 continue
+    /* "observation_volume_from_2D_cameras.pyx":42
+ *             #     continue
  *             x = self.coords[i, 0]
  *             y = self.coords[i, 1]             # <<<<<<<<<<<<<<
  *             z = self.coords[i, 2]
  * 
  */
-    __pyx_t_8 = __pyx_v_i;
-    __pyx_t_9 = 1;
-    if (__pyx_t_8 < 0) __pyx_t_8 += __pyx_v_self->coords.shape[0];
-    if (__pyx_t_9 < 0) __pyx_t_9 += __pyx_v_self->coords.shape[1];
-    __pyx_v_y = (*((float *) ( /* dim=1 */ ((char *) (((float *) ( /* dim=0 */ (__pyx_v_self->coords.data + __pyx_t_8 * __pyx_v_self->coords.strides[0]) )) + __pyx_t_9)) )));
+    __pyx_t_6 = __pyx_v_i;
+    __pyx_t_7 = 1;
+    if (__pyx_t_6 < 0) __pyx_t_6 += __pyx_v_self->coords.shape[0];
+    if (__pyx_t_7 < 0) __pyx_t_7 += __pyx_v_self->coords.shape[1];
+    __pyx_v_y = (*((float *) ( /* dim=1 */ ((char *) (((float *) ( /* dim=0 */ (__pyx_v_self->coords.data + __pyx_t_6 * __pyx_v_self->coords.strides[0]) )) + __pyx_t_7)) )));
 
-    /* "observation_volume_from_2D_cameras.pyx":47
+    /* "observation_volume_from_2D_cameras.pyx":43
  *             x = self.coords[i, 0]
  *             y = self.coords[i, 1]
  *             z = self.coords[i, 2]             # <<<<<<<<<<<<<<
  * 
  *             # Compute the depth of the current voxel wrt. the camera.
  */
-    __pyx_t_10 = __pyx_v_i;
-    __pyx_t_11 = 2;
-    if (__pyx_t_10 < 0) __pyx_t_10 += __pyx_v_self->coords.shape[0];
-    if (__pyx_t_11 < 0) __pyx_t_11 += __pyx_v_self->coords.shape[1];
-    __pyx_v_z = (*((float *) ( /* dim=1 */ ((char *) (((float *) ( /* dim=0 */ (__pyx_v_self->coords.data + __pyx_t_10 * __pyx_v_self->coords.strides[0]) )) + __pyx_t_11)) )));
+    __pyx_t_8 = __pyx_v_i;
+    __pyx_t_9 = 2;
+    if (__pyx_t_8 < 0) __pyx_t_8 += __pyx_v_self->coords.shape[0];
+    if (__pyx_t_9 < 0) __pyx_t_9 += __pyx_v_self->coords.shape[1];
+    __pyx_v_z = (*((float *) ( /* dim=1 */ ((char *) (((float *) ( /* dim=0 */ (__pyx_v_self->coords.data + __pyx_t_8 * __pyx_v_self->coords.strides[0]) )) + __pyx_t_9)) )));
 
-    /* "observation_volume_from_2D_cameras.pyx":50
+    /* "observation_volume_from_2D_cameras.pyx":46
  * 
  *             # Compute the depth of the current voxel wrt. the camera.
  *             depth_proj_z = depth_proj_matrix[2, 0] * x + \             # <<<<<<<<<<<<<<
  *                            depth_proj_matrix[2, 1] * y + \
  *                            depth_proj_matrix[2, 2] * z + \
  */
-    __pyx_t_12 = 2;
-    __pyx_t_13 = 0;
-    if (__pyx_t_12 < 0) __pyx_t_12 += __pyx_v_depth_proj_matrix.shape[0];
-    if (__pyx_t_13 < 0) __pyx_t_13 += __pyx_v_depth_proj_matrix.shape[1];
+    __pyx_t_10 = 2;
+    __pyx_t_11 = 0;
+    if (__pyx_t_10 < 0) __pyx_t_10 += __pyx_v_depth_proj_matrix.shape[0];
+    if (__pyx_t_11 < 0) __pyx_t_11 += __pyx_v_depth_proj_matrix.shape[1];
 
-    /* "observation_volume_from_2D_cameras.pyx":51
+    /* "observation_volume_from_2D_cameras.pyx":47
  *             # Compute the depth of the current voxel wrt. the camera.
  *             depth_proj_z = depth_proj_matrix[2, 0] * x + \
  *                            depth_proj_matrix[2, 1] * y + \             # <<<<<<<<<<<<<<
  *                            depth_proj_matrix[2, 2] * z + \
  *                            depth_proj_matrix[2, 3]
  */
-    __pyx_t_14 = 2;
-    __pyx_t_15 = 1;
-    if (__pyx_t_14 < 0) __pyx_t_14 += __pyx_v_depth_proj_matrix.shape[0];
-    if (__pyx_t_15 < 0) __pyx_t_15 += __pyx_v_depth_proj_matrix.shape[1];
+    __pyx_t_12 = 2;
+    __pyx_t_13 = 1;
+    if (__pyx_t_12 < 0) __pyx_t_12 += __pyx_v_depth_proj_matrix.shape[0];
+    if (__pyx_t_13 < 0) __pyx_t_13 += __pyx_v_depth_proj_matrix.shape[1];
 
-    /* "observation_volume_from_2D_cameras.pyx":52
+    /* "observation_volume_from_2D_cameras.pyx":48
  *             depth_proj_z = depth_proj_matrix[2, 0] * x + \
  *                            depth_proj_matrix[2, 1] * y + \
  *                            depth_proj_matrix[2, 2] * z + \             # <<<<<<<<<<<<<<
  *                            depth_proj_matrix[2, 3]
  * 
  */
-    __pyx_t_16 = 2;
-    __pyx_t_17 = 2;
-    if (__pyx_t_16 < 0) __pyx_t_16 += __pyx_v_depth_proj_matrix.shape[0];
-    if (__pyx_t_17 < 0) __pyx_t_17 += __pyx_v_depth_proj_matrix.shape[1];
+    __pyx_t_14 = 2;
+    __pyx_t_15 = 2;
+    if (__pyx_t_14 < 0) __pyx_t_14 += __pyx_v_depth_proj_matrix.shape[0];
+    if (__pyx_t_15 < 0) __pyx_t_15 += __pyx_v_depth_proj_matrix.shape[1];
 
-    /* "observation_volume_from_2D_cameras.pyx":53
+    /* "observation_volume_from_2D_cameras.pyx":49
  *                            depth_proj_matrix[2, 1] * y + \
  *                            depth_proj_matrix[2, 2] * z + \
  *                            depth_proj_matrix[2, 3]             # <<<<<<<<<<<<<<
  * 
  *             # Check if voxel behind camera.
  */
-    __pyx_t_18 = 2;
-    __pyx_t_19 = 3;
-    if (__pyx_t_18 < 0) __pyx_t_18 += __pyx_v_depth_proj_matrix.shape[0];
-    if (__pyx_t_19 < 0) __pyx_t_19 += __pyx_v_depth_proj_matrix.shape[1];
+    __pyx_t_16 = 2;
+    __pyx_t_17 = 3;
+    if (__pyx_t_16 < 0) __pyx_t_16 += __pyx_v_depth_proj_matrix.shape[0];
+    if (__pyx_t_17 < 0) __pyx_t_17 += __pyx_v_depth_proj_matrix.shape[1];
 
-    /* "observation_volume_from_2D_cameras.pyx":52
+    /* "observation_volume_from_2D_cameras.pyx":48
  *             depth_proj_z = depth_proj_matrix[2, 0] * x + \
  *                            depth_proj_matrix[2, 1] * y + \
  *                            depth_proj_matrix[2, 2] * z + \             # <<<<<<<<<<<<<<
  *                            depth_proj_matrix[2, 3]
  * 
  */
-    __pyx_v_depth_proj_z = (((((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_12 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_13)) ))) * __pyx_v_x) + ((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_14 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_15)) ))) * __pyx_v_y)) + ((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_16 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_17)) ))) * __pyx_v_z)) + (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_18 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_19)) ))));
+    __pyx_v_depth_proj_z = (((((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_10 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_11)) ))) * __pyx_v_x) + ((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_12 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_13)) ))) * __pyx_v_y)) + ((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_14 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_15)) ))) * __pyx_v_z)) + (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_16 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_17)) ))));
 
-    /* "observation_volume_from_2D_cameras.pyx":56
+    /* "observation_volume_from_2D_cameras.pyx":52
  * 
  *             # Check if voxel behind camera.
  *             if depth_proj_z <= 0:             # <<<<<<<<<<<<<<
  *                 continue
  * 
  */
-    __pyx_t_5 = ((__pyx_v_depth_proj_z <= 0.0) != 0);
-    if (__pyx_t_5) {
+    __pyx_t_18 = ((__pyx_v_depth_proj_z <= 0.0) != 0);
+    if (__pyx_t_18) {
 
-      /* "observation_volume_from_2D_cameras.pyx":57
+      /* "observation_volume_from_2D_cameras.pyx":53
  *             # Check if voxel behind camera.
  *             if depth_proj_z <= 0:
  *                 continue             # <<<<<<<<<<<<<<
@@ -3203,7 +3076,7 @@ static PyObject *__pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolu
  */
       goto __pyx_L3_continue;
 
-      /* "observation_volume_from_2D_cameras.pyx":56
+      /* "observation_volume_from_2D_cameras.pyx":52
  * 
  *             # Check if voxel behind camera.
  *             if depth_proj_z <= 0:             # <<<<<<<<<<<<<<
@@ -3212,121 +3085,121 @@ static PyObject *__pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolu
  */
     }
 
-    /* "observation_volume_from_2D_cameras.pyx":60
+    /* "observation_volume_from_2D_cameras.pyx":56
  * 
  *             # Compute pixel location of the current voxel in the image.
  *             depth_proj_x = depth_proj_matrix[0, 0] * x + \             # <<<<<<<<<<<<<<
  *                            depth_proj_matrix[0, 1] * y + \
  *                            depth_proj_matrix[0, 2] * z + \
  */
+    __pyx_t_19 = 0;
     __pyx_t_20 = 0;
-    __pyx_t_21 = 0;
-    if (__pyx_t_20 < 0) __pyx_t_20 += __pyx_v_depth_proj_matrix.shape[0];
-    if (__pyx_t_21 < 0) __pyx_t_21 += __pyx_v_depth_proj_matrix.shape[1];
+    if (__pyx_t_19 < 0) __pyx_t_19 += __pyx_v_depth_proj_matrix.shape[0];
+    if (__pyx_t_20 < 0) __pyx_t_20 += __pyx_v_depth_proj_matrix.shape[1];
 
-    /* "observation_volume_from_2D_cameras.pyx":61
+    /* "observation_volume_from_2D_cameras.pyx":57
  *             # Compute pixel location of the current voxel in the image.
  *             depth_proj_x = depth_proj_matrix[0, 0] * x + \
  *                            depth_proj_matrix[0, 1] * y + \             # <<<<<<<<<<<<<<
  *                            depth_proj_matrix[0, 2] * z + \
  *                            depth_proj_matrix[0, 3]
  */
-    __pyx_t_22 = 0;
-    __pyx_t_23 = 1;
-    if (__pyx_t_22 < 0) __pyx_t_22 += __pyx_v_depth_proj_matrix.shape[0];
-    if (__pyx_t_23 < 0) __pyx_t_23 += __pyx_v_depth_proj_matrix.shape[1];
+    __pyx_t_21 = 0;
+    __pyx_t_22 = 1;
+    if (__pyx_t_21 < 0) __pyx_t_21 += __pyx_v_depth_proj_matrix.shape[0];
+    if (__pyx_t_22 < 0) __pyx_t_22 += __pyx_v_depth_proj_matrix.shape[1];
 
-    /* "observation_volume_from_2D_cameras.pyx":62
+    /* "observation_volume_from_2D_cameras.pyx":58
  *             depth_proj_x = depth_proj_matrix[0, 0] * x + \
  *                            depth_proj_matrix[0, 1] * y + \
  *                            depth_proj_matrix[0, 2] * z + \             # <<<<<<<<<<<<<<
  *                            depth_proj_matrix[0, 3]
  * 
  */
-    __pyx_t_24 = 0;
-    __pyx_t_25 = 2;
-    if (__pyx_t_24 < 0) __pyx_t_24 += __pyx_v_depth_proj_matrix.shape[0];
-    if (__pyx_t_25 < 0) __pyx_t_25 += __pyx_v_depth_proj_matrix.shape[1];
+    __pyx_t_23 = 0;
+    __pyx_t_24 = 2;
+    if (__pyx_t_23 < 0) __pyx_t_23 += __pyx_v_depth_proj_matrix.shape[0];
+    if (__pyx_t_24 < 0) __pyx_t_24 += __pyx_v_depth_proj_matrix.shape[1];
 
-    /* "observation_volume_from_2D_cameras.pyx":63
+    /* "observation_volume_from_2D_cameras.pyx":59
  *                            depth_proj_matrix[0, 1] * y + \
  *                            depth_proj_matrix[0, 2] * z + \
  *                            depth_proj_matrix[0, 3]             # <<<<<<<<<<<<<<
  * 
  *             depth_proj_y = depth_proj_matrix[1, 0] * x + \
  */
-    __pyx_t_26 = 0;
-    __pyx_t_27 = 3;
-    if (__pyx_t_26 < 0) __pyx_t_26 += __pyx_v_depth_proj_matrix.shape[0];
-    if (__pyx_t_27 < 0) __pyx_t_27 += __pyx_v_depth_proj_matrix.shape[1];
+    __pyx_t_25 = 0;
+    __pyx_t_26 = 3;
+    if (__pyx_t_25 < 0) __pyx_t_25 += __pyx_v_depth_proj_matrix.shape[0];
+    if (__pyx_t_26 < 0) __pyx_t_26 += __pyx_v_depth_proj_matrix.shape[1];
 
-    /* "observation_volume_from_2D_cameras.pyx":62
+    /* "observation_volume_from_2D_cameras.pyx":58
  *             depth_proj_x = depth_proj_matrix[0, 0] * x + \
  *                            depth_proj_matrix[0, 1] * y + \
  *                            depth_proj_matrix[0, 2] * z + \             # <<<<<<<<<<<<<<
  *                            depth_proj_matrix[0, 3]
  * 
  */
-    __pyx_v_depth_proj_x = (((((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_20 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_21)) ))) * __pyx_v_x) + ((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_22 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_23)) ))) * __pyx_v_y)) + ((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_24 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_25)) ))) * __pyx_v_z)) + (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_26 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_27)) ))));
+    __pyx_v_depth_proj_x = (((((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_19 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_20)) ))) * __pyx_v_x) + ((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_21 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_22)) ))) * __pyx_v_y)) + ((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_23 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_24)) ))) * __pyx_v_z)) + (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_25 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_26)) ))));
 
-    /* "observation_volume_from_2D_cameras.pyx":65
+    /* "observation_volume_from_2D_cameras.pyx":61
  *                            depth_proj_matrix[0, 3]
  * 
  *             depth_proj_y = depth_proj_matrix[1, 0] * x + \             # <<<<<<<<<<<<<<
  *                            depth_proj_matrix[1, 1] * y + \
  *                            depth_proj_matrix[1, 2] * z + \
  */
-    __pyx_t_28 = 1;
-    __pyx_t_29 = 0;
-    if (__pyx_t_28 < 0) __pyx_t_28 += __pyx_v_depth_proj_matrix.shape[0];
-    if (__pyx_t_29 < 0) __pyx_t_29 += __pyx_v_depth_proj_matrix.shape[1];
+    __pyx_t_27 = 1;
+    __pyx_t_28 = 0;
+    if (__pyx_t_27 < 0) __pyx_t_27 += __pyx_v_depth_proj_matrix.shape[0];
+    if (__pyx_t_28 < 0) __pyx_t_28 += __pyx_v_depth_proj_matrix.shape[1];
 
-    /* "observation_volume_from_2D_cameras.pyx":66
+    /* "observation_volume_from_2D_cameras.pyx":62
  * 
  *             depth_proj_y = depth_proj_matrix[1, 0] * x + \
  *                            depth_proj_matrix[1, 1] * y + \             # <<<<<<<<<<<<<<
  *                            depth_proj_matrix[1, 2] * z + \
  *                            depth_proj_matrix[1, 3]
  */
+    __pyx_t_29 = 1;
     __pyx_t_30 = 1;
-    __pyx_t_31 = 1;
-    if (__pyx_t_30 < 0) __pyx_t_30 += __pyx_v_depth_proj_matrix.shape[0];
-    if (__pyx_t_31 < 0) __pyx_t_31 += __pyx_v_depth_proj_matrix.shape[1];
+    if (__pyx_t_29 < 0) __pyx_t_29 += __pyx_v_depth_proj_matrix.shape[0];
+    if (__pyx_t_30 < 0) __pyx_t_30 += __pyx_v_depth_proj_matrix.shape[1];
 
-    /* "observation_volume_from_2D_cameras.pyx":67
+    /* "observation_volume_from_2D_cameras.pyx":63
  *             depth_proj_y = depth_proj_matrix[1, 0] * x + \
  *                            depth_proj_matrix[1, 1] * y + \
  *                            depth_proj_matrix[1, 2] * z + \             # <<<<<<<<<<<<<<
  *                            depth_proj_matrix[1, 3]
  * 
  */
-    __pyx_t_32 = 1;
-    __pyx_t_33 = 2;
-    if (__pyx_t_32 < 0) __pyx_t_32 += __pyx_v_depth_proj_matrix.shape[0];
-    if (__pyx_t_33 < 0) __pyx_t_33 += __pyx_v_depth_proj_matrix.shape[1];
+    __pyx_t_31 = 1;
+    __pyx_t_32 = 2;
+    if (__pyx_t_31 < 0) __pyx_t_31 += __pyx_v_depth_proj_matrix.shape[0];
+    if (__pyx_t_32 < 0) __pyx_t_32 += __pyx_v_depth_proj_matrix.shape[1];
 
-    /* "observation_volume_from_2D_cameras.pyx":68
+    /* "observation_volume_from_2D_cameras.pyx":64
  *                            depth_proj_matrix[1, 1] * y + \
  *                            depth_proj_matrix[1, 2] * z + \
  *                            depth_proj_matrix[1, 3]             # <<<<<<<<<<<<<<
  * 
  *             depth_image_proj_x = <int>round(depth_proj_x / depth_proj_z)
  */
-    __pyx_t_34 = 1;
-    __pyx_t_35 = 3;
-    if (__pyx_t_34 < 0) __pyx_t_34 += __pyx_v_depth_proj_matrix.shape[0];
-    if (__pyx_t_35 < 0) __pyx_t_35 += __pyx_v_depth_proj_matrix.shape[1];
+    __pyx_t_33 = 1;
+    __pyx_t_34 = 3;
+    if (__pyx_t_33 < 0) __pyx_t_33 += __pyx_v_depth_proj_matrix.shape[0];
+    if (__pyx_t_34 < 0) __pyx_t_34 += __pyx_v_depth_proj_matrix.shape[1];
 
-    /* "observation_volume_from_2D_cameras.pyx":67
+    /* "observation_volume_from_2D_cameras.pyx":63
  *             depth_proj_y = depth_proj_matrix[1, 0] * x + \
  *                            depth_proj_matrix[1, 1] * y + \
  *                            depth_proj_matrix[1, 2] * z + \             # <<<<<<<<<<<<<<
  *                            depth_proj_matrix[1, 3]
  * 
  */
-    __pyx_v_depth_proj_y = (((((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_28 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_29)) ))) * __pyx_v_x) + ((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_30 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_31)) ))) * __pyx_v_y)) + ((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_32 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_33)) ))) * __pyx_v_z)) + (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_34 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_35)) ))));
+    __pyx_v_depth_proj_y = (((((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_27 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_28)) ))) * __pyx_v_x) + ((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_29 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_30)) ))) * __pyx_v_y)) + ((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_31 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_32)) ))) * __pyx_v_z)) + (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_33 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_34)) ))));
 
-    /* "observation_volume_from_2D_cameras.pyx":70
+    /* "observation_volume_from_2D_cameras.pyx":66
  *                            depth_proj_matrix[1, 3]
  * 
  *             depth_image_proj_x = <int>round(depth_proj_x / depth_proj_z)             # <<<<<<<<<<<<<<
@@ -3335,7 +3208,7 @@ static PyObject *__pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolu
  */
     __pyx_v_depth_image_proj_x = ((int)round((__pyx_v_depth_proj_x / __pyx_v_depth_proj_z)));
 
-    /* "observation_volume_from_2D_cameras.pyx":71
+    /* "observation_volume_from_2D_cameras.pyx":67
  * 
  *             depth_image_proj_x = <int>round(depth_proj_x / depth_proj_z)
  *             depth_image_proj_y = <int>round(depth_proj_y / depth_proj_z)             # <<<<<<<<<<<<<<
@@ -3344,61 +3217,61 @@ static PyObject *__pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolu
  */
     __pyx_v_depth_image_proj_y = ((int)round((__pyx_v_depth_proj_y / __pyx_v_depth_proj_z)));
 
-    /* "observation_volume_from_2D_cameras.pyx":74
+    /* "observation_volume_from_2D_cameras.pyx":70
  * 
  *             # Check if projection is inside image.
  *             if (depth_image_proj_x < 0 or depth_image_proj_y < 0 or             # <<<<<<<<<<<<<<
  *                 depth_image_proj_x >= depth_map.shape[1] or
  *                 depth_image_proj_y >= depth_map.shape[0]):
  */
-    __pyx_t_36 = ((__pyx_v_depth_image_proj_x < 0) != 0);
-    if (!__pyx_t_36) {
+    __pyx_t_35 = ((__pyx_v_depth_image_proj_x < 0) != 0);
+    if (!__pyx_t_35) {
     } else {
-      __pyx_t_5 = __pyx_t_36;
-      goto __pyx_L8_bool_binop_done;
+      __pyx_t_18 = __pyx_t_35;
+      goto __pyx_L7_bool_binop_done;
     }
-    __pyx_t_36 = ((__pyx_v_depth_image_proj_y < 0) != 0);
-    if (!__pyx_t_36) {
+    __pyx_t_35 = ((__pyx_v_depth_image_proj_y < 0) != 0);
+    if (!__pyx_t_35) {
     } else {
-      __pyx_t_5 = __pyx_t_36;
-      goto __pyx_L8_bool_binop_done;
+      __pyx_t_18 = __pyx_t_35;
+      goto __pyx_L7_bool_binop_done;
     }
 
-    /* "observation_volume_from_2D_cameras.pyx":75
+    /* "observation_volume_from_2D_cameras.pyx":71
  *             # Check if projection is inside image.
  *             if (depth_image_proj_x < 0 or depth_image_proj_y < 0 or
  *                 depth_image_proj_x >= depth_map.shape[1] or             # <<<<<<<<<<<<<<
  *                 depth_image_proj_y >= depth_map.shape[0]):
  *                 continue
  */
-    __pyx_t_36 = ((__pyx_v_depth_image_proj_x >= (__pyx_v_depth_map.shape[1])) != 0);
-    if (!__pyx_t_36) {
+    __pyx_t_35 = ((__pyx_v_depth_image_proj_x >= (__pyx_v_depth_map.shape[1])) != 0);
+    if (!__pyx_t_35) {
     } else {
-      __pyx_t_5 = __pyx_t_36;
-      goto __pyx_L8_bool_binop_done;
+      __pyx_t_18 = __pyx_t_35;
+      goto __pyx_L7_bool_binop_done;
     }
 
-    /* "observation_volume_from_2D_cameras.pyx":76
+    /* "observation_volume_from_2D_cameras.pyx":72
  *             if (depth_image_proj_x < 0 or depth_image_proj_y < 0 or
  *                 depth_image_proj_x >= depth_map.shape[1] or
  *                 depth_image_proj_y >= depth_map.shape[0]):             # <<<<<<<<<<<<<<
  *                 continue
  * 
  */
-    __pyx_t_36 = ((__pyx_v_depth_image_proj_y >= (__pyx_v_depth_map.shape[0])) != 0);
-    __pyx_t_5 = __pyx_t_36;
-    __pyx_L8_bool_binop_done:;
+    __pyx_t_35 = ((__pyx_v_depth_image_proj_y >= (__pyx_v_depth_map.shape[0])) != 0);
+    __pyx_t_18 = __pyx_t_35;
+    __pyx_L7_bool_binop_done:;
 
-    /* "observation_volume_from_2D_cameras.pyx":74
+    /* "observation_volume_from_2D_cameras.pyx":70
  * 
  *             # Check if projection is inside image.
  *             if (depth_image_proj_x < 0 or depth_image_proj_y < 0 or             # <<<<<<<<<<<<<<
  *                 depth_image_proj_x >= depth_map.shape[1] or
  *                 depth_image_proj_y >= depth_map.shape[0]):
  */
-    if (__pyx_t_5) {
+    if (__pyx_t_18) {
 
-      /* "observation_volume_from_2D_cameras.pyx":77
+      /* "observation_volume_from_2D_cameras.pyx":73
  *                 depth_image_proj_x >= depth_map.shape[1] or
  *                 depth_image_proj_y >= depth_map.shape[0]):
  *                 continue             # <<<<<<<<<<<<<<
@@ -3407,7 +3280,7 @@ static PyObject *__pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolu
  */
       goto __pyx_L3_continue;
 
-      /* "observation_volume_from_2D_cameras.pyx":74
+      /* "observation_volume_from_2D_cameras.pyx":70
  * 
  *             # Check if projection is inside image.
  *             if (depth_image_proj_x < 0 or depth_image_proj_y < 0 or             # <<<<<<<<<<<<<<
@@ -3416,68 +3289,53 @@ static PyObject *__pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolu
  */
     }
 
-    /* "observation_volume_from_2D_cameras.pyx":80
+    /* "observation_volume_from_2D_cameras.pyx":76
  * 
  *             # Extract measured depth at projection.
  *             depth = depth_map[depth_image_proj_y, depth_image_proj_x]             # <<<<<<<<<<<<<<
  * 
  * 
  */
-    __pyx_t_37 = __pyx_v_depth_image_proj_y;
-    __pyx_t_38 = __pyx_v_depth_image_proj_x;
-    if (__pyx_t_37 < 0) __pyx_t_37 += __pyx_v_depth_map.shape[0];
-    if (__pyx_t_38 < 0) __pyx_t_38 += __pyx_v_depth_map.shape[1];
-    __pyx_v_depth = (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_map.data + __pyx_t_37 * __pyx_v_depth_map.strides[0]) )) + __pyx_t_38)) )));
+    __pyx_t_36 = __pyx_v_depth_image_proj_y;
+    __pyx_t_37 = __pyx_v_depth_image_proj_x;
+    if (__pyx_t_36 < 0) __pyx_t_36 += __pyx_v_depth_map.shape[0];
+    if (__pyx_t_37 < 0) __pyx_t_37 += __pyx_v_depth_map.shape[1];
+    __pyx_v_depth = (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_map.data + __pyx_t_36 * __pyx_v_depth_map.strides[0]) )) + __pyx_t_37)) )));
 
-    /* "observation_volume_from_2D_cameras.pyx":83
+    /* "observation_volume_from_2D_cameras.pyx":79
  * 
  * 
  *             if depth_proj_z <= depth-0.01:             # <<<<<<<<<<<<<<
- *                 self.front_of_camera[i] = 1
- *             else:
+ *                 self.front_of_camera[i] += 1
+ * 
  */
-    __pyx_t_5 = ((__pyx_v_depth_proj_z <= (__pyx_v_depth - 0.01)) != 0);
-    if (__pyx_t_5) {
+    __pyx_t_18 = ((__pyx_v_depth_proj_z <= (__pyx_v_depth - 0.01)) != 0);
+    if (__pyx_t_18) {
 
-      /* "observation_volume_from_2D_cameras.pyx":84
+      /* "observation_volume_from_2D_cameras.pyx":80
  * 
  *             if depth_proj_z <= depth-0.01:
- *                 self.front_of_camera[i] = 1             # <<<<<<<<<<<<<<
- *             else:
- *               self.behind_of_camera[i] += 1
+ *                 self.front_of_camera[i] += 1             # <<<<<<<<<<<<<<
+ * 
+ * 
  */
-      __pyx_t_39 = __pyx_v_i;
-      if (__pyx_t_39 < 0) __pyx_t_39 += __pyx_v_self->front_of_camera.shape[0];
-      *((int *) ( /* dim=0 */ ((char *) (((int *) __pyx_v_self->front_of_camera.data) + __pyx_t_39)) )) = 1;
+      __pyx_t_38 = __pyx_v_i;
+      if (__pyx_t_38 < 0) __pyx_t_38 += __pyx_v_self->front_of_camera.shape[0];
+      *((int *) ( /* dim=0 */ ((char *) (((int *) __pyx_v_self->front_of_camera.data) + __pyx_t_38)) )) += 1;
 
-      /* "observation_volume_from_2D_cameras.pyx":83
+      /* "observation_volume_from_2D_cameras.pyx":79
  * 
  * 
  *             if depth_proj_z <= depth-0.01:             # <<<<<<<<<<<<<<
- *                 self.front_of_camera[i] = 1
- *             else:
- */
-      goto __pyx_L12;
-    }
-
-    /* "observation_volume_from_2D_cameras.pyx":86
- *                 self.front_of_camera[i] = 1
- *             else:
- *               self.behind_of_camera[i] += 1             # <<<<<<<<<<<<<<
- * 
+ *                 self.front_of_camera[i] += 1
  * 
  */
-    /*else*/ {
-      __pyx_t_40 = __pyx_v_i;
-      if (__pyx_t_40 < 0) __pyx_t_40 += __pyx_v_self->behind_of_camera.shape[0];
-      *((int *) ( /* dim=0 */ ((char *) (((int *) __pyx_v_self->behind_of_camera.data) + __pyx_t_40)) )) += 1;
     }
-    __pyx_L12:;
     __pyx_L3_continue:;
   }
 
-  /* "observation_volume_from_2D_cameras.pyx":30
- *         return np.array(self.front_of_camera), np.array(self.behind_of_camera)
+  /* "observation_volume_from_2D_cameras.pyx":26
+ *         return np.array(self.front_of_camera)
  * 
  *     def fuse(self,             # <<<<<<<<<<<<<<
  *              np.float32_t[:, ::1] depth_proj_matrix,
@@ -3521,60 +3379,54 @@ static PyObject *__pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolu
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
   PyObject *__pyx_t_3 = NULL;
-  PyObject *__pyx_t_4 = NULL;
+  int __pyx_t_4;
   int __pyx_t_5;
-  int __pyx_t_6;
   __Pyx_RefNannySetupContext("__reduce_cython__", 0);
 
   /* "(tree fragment)":5
  *     cdef object _dict
  *     cdef bint use_setstate
- *     state = (self.behind_of_camera, self.coords, self.front_of_camera)             # <<<<<<<<<<<<<<
+ *     state = (self.coords, self.front_of_camera)             # <<<<<<<<<<<<<<
  *     _dict = getattr(self, '__dict__', None)
  *     if _dict is not None:
  */
-  __pyx_t_1 = __pyx_memoryview_fromslice(__pyx_v_self->behind_of_camera, 1, (PyObject *(*)(char *)) __pyx_memview_get_int, (int (*)(char *, PyObject *)) __pyx_memview_set_int, 0);; if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 5, __pyx_L1_error)
+  __pyx_t_1 = __pyx_memoryview_fromslice(__pyx_v_self->coords, 2, (PyObject *(*)(char *)) __pyx_memview_get_float, (int (*)(char *, PyObject *)) __pyx_memview_set_float, 0);; if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 5, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_self->coords, 2, (PyObject *(*)(char *)) __pyx_memview_get_float, (int (*)(char *, PyObject *)) __pyx_memview_set_float, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 5, __pyx_L1_error)
+  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_self->front_of_camera, 1, (PyObject *(*)(char *)) __pyx_memview_get_int, (int (*)(char *, PyObject *)) __pyx_memview_set_int, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 5, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __pyx_memoryview_fromslice(__pyx_v_self->front_of_camera, 1, (PyObject *(*)(char *)) __pyx_memview_get_int, (int (*)(char *, PyObject *)) __pyx_memview_set_int, 0);; if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 5, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 5, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 5, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_1);
-  PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_1);
+  PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_2);
-  PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_2);
-  __Pyx_GIVEREF(__pyx_t_3);
-  PyTuple_SET_ITEM(__pyx_t_4, 2, __pyx_t_3);
+  PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_2);
   __pyx_t_1 = 0;
   __pyx_t_2 = 0;
+  __pyx_v_state = ((PyObject*)__pyx_t_3);
   __pyx_t_3 = 0;
-  __pyx_v_state = ((PyObject*)__pyx_t_4);
-  __pyx_t_4 = 0;
 
   /* "(tree fragment)":6
  *     cdef bint use_setstate
- *     state = (self.behind_of_camera, self.coords, self.front_of_camera)
+ *     state = (self.coords, self.front_of_camera)
  *     _dict = getattr(self, '__dict__', None)             # <<<<<<<<<<<<<<
  *     if _dict is not None:
  *         state += (_dict,)
  */
-  __pyx_t_4 = __Pyx_GetAttr3(((PyObject *)__pyx_v_self), __pyx_n_s_dict, Py_None); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 6, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_v__dict = __pyx_t_4;
-  __pyx_t_4 = 0;
+  __pyx_t_3 = __Pyx_GetAttr3(((PyObject *)__pyx_v_self), __pyx_n_s_dict, Py_None); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 6, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_v__dict = __pyx_t_3;
+  __pyx_t_3 = 0;
 
   /* "(tree fragment)":7
- *     state = (self.behind_of_camera, self.coords, self.front_of_camera)
+ *     state = (self.coords, self.front_of_camera)
  *     _dict = getattr(self, '__dict__', None)
  *     if _dict is not None:             # <<<<<<<<<<<<<<
  *         state += (_dict,)
  *         use_setstate = True
  */
-  __pyx_t_5 = (__pyx_v__dict != Py_None);
-  __pyx_t_6 = (__pyx_t_5 != 0);
-  if (__pyx_t_6) {
+  __pyx_t_4 = (__pyx_v__dict != Py_None);
+  __pyx_t_5 = (__pyx_t_4 != 0);
+  if (__pyx_t_5) {
 
     /* "(tree fragment)":8
  *     _dict = getattr(self, '__dict__', None)
@@ -3583,16 +3435,16 @@ static PyObject *__pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolu
  *         use_setstate = True
  *     else:
  */
-    __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 8, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
+    __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 8, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
     __Pyx_INCREF(__pyx_v__dict);
     __Pyx_GIVEREF(__pyx_v__dict);
-    PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_v__dict);
-    __pyx_t_3 = PyNumber_InPlaceAdd(__pyx_v_state, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 8, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __Pyx_DECREF_SET(__pyx_v_state, ((PyObject*)__pyx_t_3));
-    __pyx_t_3 = 0;
+    PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_v__dict);
+    __pyx_t_2 = PyNumber_InPlaceAdd(__pyx_v_state, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 8, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_DECREF_SET(__pyx_v_state, ((PyObject*)__pyx_t_2));
+    __pyx_t_2 = 0;
 
     /* "(tree fragment)":9
  *     if _dict is not None:
@@ -3604,7 +3456,7 @@ static PyObject *__pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolu
     __pyx_v_use_setstate = 1;
 
     /* "(tree fragment)":7
- *     state = (self.behind_of_camera, self.coords, self.front_of_camera)
+ *     state = (self.coords, self.front_of_camera)
  *     _dict = getattr(self, '__dict__', None)
  *     if _dict is not None:             # <<<<<<<<<<<<<<
  *         state += (_dict,)
@@ -3618,7 +3470,7 @@ static PyObject *__pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolu
  *     else:
  *         use_setstate = False             # <<<<<<<<<<<<<<
  *     if use_setstate:
- *         return __pyx_unpickle_ObservationVolume, (type(self), 0xbb31bbc, None), state
+ *         return __pyx_unpickle_ObservationVolume, (type(self), 0x8fc314c, None), state
  */
   /*else*/ {
     __pyx_v_use_setstate = 0;
@@ -3629,89 +3481,89 @@ static PyObject *__pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolu
  *     else:
  *         use_setstate = False
  *     if use_setstate:             # <<<<<<<<<<<<<<
- *         return __pyx_unpickle_ObservationVolume, (type(self), 0xbb31bbc, None), state
+ *         return __pyx_unpickle_ObservationVolume, (type(self), 0x8fc314c, None), state
  *     else:
  */
-  __pyx_t_6 = (__pyx_v_use_setstate != 0);
-  if (__pyx_t_6) {
+  __pyx_t_5 = (__pyx_v_use_setstate != 0);
+  if (__pyx_t_5) {
 
     /* "(tree fragment)":13
  *         use_setstate = False
  *     if use_setstate:
- *         return __pyx_unpickle_ObservationVolume, (type(self), 0xbb31bbc, None), state             # <<<<<<<<<<<<<<
+ *         return __pyx_unpickle_ObservationVolume, (type(self), 0x8fc314c, None), state             # <<<<<<<<<<<<<<
  *     else:
- *         return __pyx_unpickle_ObservationVolume, (type(self), 0xbb31bbc, state)
+ *         return __pyx_unpickle_ObservationVolume, (type(self), 0x8fc314c, state)
  */
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_pyx_unpickle_ObservationVolume); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 13, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_pyx_unpickle_ObservationVolume); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 13, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __pyx_t_3 = PyTuple_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 13, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 13, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
     __Pyx_INCREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
     __Pyx_GIVEREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
-    PyTuple_SET_ITEM(__pyx_t_4, 0, ((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
-    __Pyx_INCREF(__pyx_int_196287420);
-    __Pyx_GIVEREF(__pyx_int_196287420);
-    PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_int_196287420);
+    PyTuple_SET_ITEM(__pyx_t_3, 0, ((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
+    __Pyx_INCREF(__pyx_int_150745420);
+    __Pyx_GIVEREF(__pyx_int_150745420);
+    PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_int_150745420);
     __Pyx_INCREF(Py_None);
     __Pyx_GIVEREF(Py_None);
-    PyTuple_SET_ITEM(__pyx_t_4, 2, Py_None);
-    __pyx_t_2 = PyTuple_New(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 13, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
+    PyTuple_SET_ITEM(__pyx_t_3, 2, Py_None);
+    __pyx_t_1 = PyTuple_New(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 13, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_GIVEREF(__pyx_t_2);
+    PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_2);
     __Pyx_GIVEREF(__pyx_t_3);
-    PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_3);
-    __Pyx_GIVEREF(__pyx_t_4);
-    PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_4);
+    PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_t_3);
     __Pyx_INCREF(__pyx_v_state);
     __Pyx_GIVEREF(__pyx_v_state);
-    PyTuple_SET_ITEM(__pyx_t_2, 2, __pyx_v_state);
-    __pyx_t_3 = 0;
-    __pyx_t_4 = 0;
-    __pyx_r = __pyx_t_2;
+    PyTuple_SET_ITEM(__pyx_t_1, 2, __pyx_v_state);
     __pyx_t_2 = 0;
+    __pyx_t_3 = 0;
+    __pyx_r = __pyx_t_1;
+    __pyx_t_1 = 0;
     goto __pyx_L0;
 
     /* "(tree fragment)":12
  *     else:
  *         use_setstate = False
  *     if use_setstate:             # <<<<<<<<<<<<<<
- *         return __pyx_unpickle_ObservationVolume, (type(self), 0xbb31bbc, None), state
+ *         return __pyx_unpickle_ObservationVolume, (type(self), 0x8fc314c, None), state
  *     else:
  */
   }
 
   /* "(tree fragment)":15
- *         return __pyx_unpickle_ObservationVolume, (type(self), 0xbb31bbc, None), state
+ *         return __pyx_unpickle_ObservationVolume, (type(self), 0x8fc314c, None), state
  *     else:
- *         return __pyx_unpickle_ObservationVolume, (type(self), 0xbb31bbc, state)             # <<<<<<<<<<<<<<
+ *         return __pyx_unpickle_ObservationVolume, (type(self), 0x8fc314c, state)             # <<<<<<<<<<<<<<
  * def __setstate_cython__(self, __pyx_state):
  *     __pyx_unpickle_ObservationVolume__set_state(self, __pyx_state)
  */
   /*else*/ {
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_pyx_unpickle_ObservationVolume); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 15, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 15, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_pyx_unpickle_ObservationVolume); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 15, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_3 = PyTuple_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 15, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
     __Pyx_INCREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
     __Pyx_GIVEREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
-    PyTuple_SET_ITEM(__pyx_t_4, 0, ((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
-    __Pyx_INCREF(__pyx_int_196287420);
-    __Pyx_GIVEREF(__pyx_int_196287420);
-    PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_int_196287420);
+    PyTuple_SET_ITEM(__pyx_t_3, 0, ((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
+    __Pyx_INCREF(__pyx_int_150745420);
+    __Pyx_GIVEREF(__pyx_int_150745420);
+    PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_int_150745420);
     __Pyx_INCREF(__pyx_v_state);
     __Pyx_GIVEREF(__pyx_v_state);
-    PyTuple_SET_ITEM(__pyx_t_4, 2, __pyx_v_state);
-    __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 15, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-    __Pyx_GIVEREF(__pyx_t_2);
-    PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_2);
-    __Pyx_GIVEREF(__pyx_t_4);
-    PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_4);
-    __pyx_t_2 = 0;
-    __pyx_t_4 = 0;
-    __pyx_r = __pyx_t_3;
+    PyTuple_SET_ITEM(__pyx_t_3, 2, __pyx_v_state);
+    __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 15, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_GIVEREF(__pyx_t_1);
+    PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1);
+    __Pyx_GIVEREF(__pyx_t_3);
+    PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_3);
+    __pyx_t_1 = 0;
     __pyx_t_3 = 0;
+    __pyx_r = __pyx_t_2;
+    __pyx_t_2 = 0;
     goto __pyx_L0;
   }
 
@@ -3726,7 +3578,6 @@ static PyObject *__pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolu
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_XDECREF(__pyx_t_4);
   __Pyx_AddTraceback("observation_volume_from_2D_cameras.ObservationVolume.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -3739,7 +3590,7 @@ static PyObject *__pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolu
 
 /* "(tree fragment)":16
  *     else:
- *         return __pyx_unpickle_ObservationVolume, (type(self), 0xbb31bbc, state)
+ *         return __pyx_unpickle_ObservationVolume, (type(self), 0x8fc314c, state)
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_ObservationVolume__set_state(self, __pyx_state)
  */
@@ -3764,7 +3615,7 @@ static PyObject *__pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolu
   __Pyx_RefNannySetupContext("__setstate_cython__", 0);
 
   /* "(tree fragment)":17
- *         return __pyx_unpickle_ObservationVolume, (type(self), 0xbb31bbc, state)
+ *         return __pyx_unpickle_ObservationVolume, (type(self), 0x8fc314c, state)
  * def __setstate_cython__(self, __pyx_state):
  *     __pyx_unpickle_ObservationVolume__set_state(self, __pyx_state)             # <<<<<<<<<<<<<<
  */
@@ -3775,7 +3626,7 @@ static PyObject *__pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolu
 
   /* "(tree fragment)":16
  *     else:
- *         return __pyx_unpickle_ObservationVolume, (type(self), 0xbb31bbc, state)
+ *         return __pyx_unpickle_ObservationVolume, (type(self), 0x8fc314c, state)
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_ObservationVolume__set_state(self, __pyx_state)
  */
@@ -3888,18 +3739,18 @@ static PyObject *__pyx_pf_34observation_volume_from_2D_cameras___pyx_unpickle_Ob
   /* "(tree fragment)":4
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
- *     if __pyx_checksum != 0xbb31bbc:             # <<<<<<<<<<<<<<
+ *     if __pyx_checksum != 0x8fc314c:             # <<<<<<<<<<<<<<
  *         from pickle import PickleError as __pyx_PickleError
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xbb31bbc = (behind_of_camera, coords, front_of_camera))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x8fc314c = (coords, front_of_camera))" % __pyx_checksum)
  */
-  __pyx_t_1 = ((__pyx_v___pyx_checksum != 0xbb31bbc) != 0);
+  __pyx_t_1 = ((__pyx_v___pyx_checksum != 0x8fc314c) != 0);
   if (__pyx_t_1) {
 
     /* "(tree fragment)":5
  *     cdef object __pyx_result
- *     if __pyx_checksum != 0xbb31bbc:
+ *     if __pyx_checksum != 0x8fc314c:
  *         from pickle import PickleError as __pyx_PickleError             # <<<<<<<<<<<<<<
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xbb31bbc = (behind_of_camera, coords, front_of_camera))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x8fc314c = (coords, front_of_camera))" % __pyx_checksum)
  *     __pyx_result = ObservationVolume.__new__(__pyx_type)
  */
     __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 5, __pyx_L1_error)
@@ -3918,15 +3769,15 @@ static PyObject *__pyx_pf_34observation_volume_from_2D_cameras___pyx_unpickle_Ob
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
     /* "(tree fragment)":6
- *     if __pyx_checksum != 0xbb31bbc:
+ *     if __pyx_checksum != 0x8fc314c:
  *         from pickle import PickleError as __pyx_PickleError
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xbb31bbc = (behind_of_camera, coords, front_of_camera))" % __pyx_checksum)             # <<<<<<<<<<<<<<
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x8fc314c = (coords, front_of_camera))" % __pyx_checksum)             # <<<<<<<<<<<<<<
  *     __pyx_result = ObservationVolume.__new__(__pyx_type)
  *     if __pyx_state is not None:
  */
     __pyx_t_2 = __Pyx_PyInt_From_long(__pyx_v___pyx_checksum); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 6, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = __Pyx_PyString_Format(__pyx_kp_s_Incompatible_checksums_s_vs_0xbb, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 6, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyString_Format(__pyx_kp_s_Incompatible_checksums_s_vs_0x8f, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 6, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_INCREF(__pyx_v___pyx_PickleError);
@@ -3953,15 +3804,15 @@ static PyObject *__pyx_pf_34observation_volume_from_2D_cameras___pyx_unpickle_Ob
     /* "(tree fragment)":4
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
- *     if __pyx_checksum != 0xbb31bbc:             # <<<<<<<<<<<<<<
+ *     if __pyx_checksum != 0x8fc314c:             # <<<<<<<<<<<<<<
  *         from pickle import PickleError as __pyx_PickleError
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xbb31bbc = (behind_of_camera, coords, front_of_camera))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x8fc314c = (coords, front_of_camera))" % __pyx_checksum)
  */
   }
 
   /* "(tree fragment)":7
  *         from pickle import PickleError as __pyx_PickleError
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xbb31bbc = (behind_of_camera, coords, front_of_camera))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x8fc314c = (coords, front_of_camera))" % __pyx_checksum)
  *     __pyx_result = ObservationVolume.__new__(__pyx_type)             # <<<<<<<<<<<<<<
  *     if __pyx_state is not None:
  *         __pyx_unpickle_ObservationVolume__set_state(<ObservationVolume> __pyx_result, __pyx_state)
@@ -3987,7 +3838,7 @@ static PyObject *__pyx_pf_34observation_volume_from_2D_cameras___pyx_unpickle_Ob
   __pyx_t_3 = 0;
 
   /* "(tree fragment)":8
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xbb31bbc = (behind_of_camera, coords, front_of_camera))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x8fc314c = (coords, front_of_camera))" % __pyx_checksum)
  *     __pyx_result = ObservationVolume.__new__(__pyx_type)
  *     if __pyx_state is not None:             # <<<<<<<<<<<<<<
  *         __pyx_unpickle_ObservationVolume__set_state(<ObservationVolume> __pyx_result, __pyx_state)
@@ -4010,7 +3861,7 @@ static PyObject *__pyx_pf_34observation_volume_from_2D_cameras___pyx_unpickle_Ob
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
     /* "(tree fragment)":8
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xbb31bbc = (behind_of_camera, coords, front_of_camera))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x8fc314c = (coords, front_of_camera))" % __pyx_checksum)
  *     __pyx_result = ObservationVolume.__new__(__pyx_type)
  *     if __pyx_state is not None:             # <<<<<<<<<<<<<<
  *         __pyx_unpickle_ObservationVolume__set_state(<ObservationVolume> __pyx_result, __pyx_state)
@@ -4023,7 +3874,7 @@ static PyObject *__pyx_pf_34observation_volume_from_2D_cameras___pyx_unpickle_Ob
  *         __pyx_unpickle_ObservationVolume__set_state(<ObservationVolume> __pyx_result, __pyx_state)
  *     return __pyx_result             # <<<<<<<<<<<<<<
  * cdef __pyx_unpickle_ObservationVolume__set_state(ObservationVolume __pyx_result, tuple __pyx_state):
- *     __pyx_result.behind_of_camera = __pyx_state[0]; __pyx_result.coords = __pyx_state[1]; __pyx_result.front_of_camera = __pyx_state[2]
+ *     __pyx_result.coords = __pyx_state[0]; __pyx_result.front_of_camera = __pyx_state[1]
  */
   __Pyx_XDECREF(__pyx_r);
   __Pyx_INCREF(__pyx_v___pyx_result);
@@ -4056,8 +3907,8 @@ static PyObject *__pyx_pf_34observation_volume_from_2D_cameras___pyx_unpickle_Ob
  *         __pyx_unpickle_ObservationVolume__set_state(<ObservationVolume> __pyx_result, __pyx_state)
  *     return __pyx_result
  * cdef __pyx_unpickle_ObservationVolume__set_state(ObservationVolume __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
- *     __pyx_result.behind_of_camera = __pyx_state[0]; __pyx_result.coords = __pyx_state[1]; __pyx_result.front_of_camera = __pyx_state[2]
- *     if len(__pyx_state) > 3 and hasattr(__pyx_result, '__dict__'):
+ *     __pyx_result.coords = __pyx_state[0]; __pyx_result.front_of_camera = __pyx_state[1]
+ *     if len(__pyx_state) > 2 and hasattr(__pyx_result, '__dict__'):
  */
 
 static PyObject *__pyx_f_34observation_volume_from_2D_cameras___pyx_unpickle_ObservationVolume__set_state(struct __pyx_obj_34observation_volume_from_2D_cameras_ObservationVolume *__pyx_v___pyx_result, PyObject *__pyx_v___pyx_state) {
@@ -4077,50 +3928,41 @@ static PyObject *__pyx_f_34observation_volume_from_2D_cameras___pyx_unpickle_Obs
   /* "(tree fragment)":12
  *     return __pyx_result
  * cdef __pyx_unpickle_ObservationVolume__set_state(ObservationVolume __pyx_result, tuple __pyx_state):
- *     __pyx_result.behind_of_camera = __pyx_state[0]; __pyx_result.coords = __pyx_state[1]; __pyx_result.front_of_camera = __pyx_state[2]             # <<<<<<<<<<<<<<
- *     if len(__pyx_state) > 3 and hasattr(__pyx_result, '__dict__'):
- *         __pyx_result.__dict__.update(__pyx_state[3])
+ *     __pyx_result.coords = __pyx_state[0]; __pyx_result.front_of_camera = __pyx_state[1]             # <<<<<<<<<<<<<<
+ *     if len(__pyx_state) > 2 and hasattr(__pyx_result, '__dict__'):
+ *         __pyx_result.__dict__.update(__pyx_state[2])
  */
   if (unlikely(__pyx_v___pyx_state == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
     __PYX_ERR(1, 12, __pyx_L1_error)
   }
-  __pyx_t_1 = __Pyx_PyObject_to_MemoryviewSlice_dc_int(PyTuple_GET_ITEM(__pyx_v___pyx_state, 0), PyBUF_WRITABLE); if (unlikely(!__pyx_t_1.memview)) __PYX_ERR(1, 12, __pyx_L1_error)
-  __PYX_XDEC_MEMVIEW(&__pyx_v___pyx_result->behind_of_camera, 0);
-  __pyx_v___pyx_result->behind_of_camera = __pyx_t_1;
+  __pyx_t_1 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_float(PyTuple_GET_ITEM(__pyx_v___pyx_state, 0), PyBUF_WRITABLE); if (unlikely(!__pyx_t_1.memview)) __PYX_ERR(1, 12, __pyx_L1_error)
+  __PYX_XDEC_MEMVIEW(&__pyx_v___pyx_result->coords, 0);
+  __pyx_v___pyx_result->coords = __pyx_t_1;
   __pyx_t_1.memview = NULL;
   __pyx_t_1.data = NULL;
   if (unlikely(__pyx_v___pyx_state == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
     __PYX_ERR(1, 12, __pyx_L1_error)
   }
-  __pyx_t_2 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_float(PyTuple_GET_ITEM(__pyx_v___pyx_state, 1), PyBUF_WRITABLE); if (unlikely(!__pyx_t_2.memview)) __PYX_ERR(1, 12, __pyx_L1_error)
-  __PYX_XDEC_MEMVIEW(&__pyx_v___pyx_result->coords, 0);
-  __pyx_v___pyx_result->coords = __pyx_t_2;
+  __pyx_t_2 = __Pyx_PyObject_to_MemoryviewSlice_dc_int(PyTuple_GET_ITEM(__pyx_v___pyx_state, 1), PyBUF_WRITABLE); if (unlikely(!__pyx_t_2.memview)) __PYX_ERR(1, 12, __pyx_L1_error)
+  __PYX_XDEC_MEMVIEW(&__pyx_v___pyx_result->front_of_camera, 0);
+  __pyx_v___pyx_result->front_of_camera = __pyx_t_2;
   __pyx_t_2.memview = NULL;
   __pyx_t_2.data = NULL;
-  if (unlikely(__pyx_v___pyx_state == Py_None)) {
-    PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(1, 12, __pyx_L1_error)
-  }
-  __pyx_t_1 = __Pyx_PyObject_to_MemoryviewSlice_dc_int(PyTuple_GET_ITEM(__pyx_v___pyx_state, 2), PyBUF_WRITABLE); if (unlikely(!__pyx_t_1.memview)) __PYX_ERR(1, 12, __pyx_L1_error)
-  __PYX_XDEC_MEMVIEW(&__pyx_v___pyx_result->front_of_camera, 0);
-  __pyx_v___pyx_result->front_of_camera = __pyx_t_1;
-  __pyx_t_1.memview = NULL;
-  __pyx_t_1.data = NULL;
 
   /* "(tree fragment)":13
  * cdef __pyx_unpickle_ObservationVolume__set_state(ObservationVolume __pyx_result, tuple __pyx_state):
- *     __pyx_result.behind_of_camera = __pyx_state[0]; __pyx_result.coords = __pyx_state[1]; __pyx_result.front_of_camera = __pyx_state[2]
- *     if len(__pyx_state) > 3 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
- *         __pyx_result.__dict__.update(__pyx_state[3])
+ *     __pyx_result.coords = __pyx_state[0]; __pyx_result.front_of_camera = __pyx_state[1]
+ *     if len(__pyx_state) > 2 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
+ *         __pyx_result.__dict__.update(__pyx_state[2])
  */
   if (unlikely(__pyx_v___pyx_state == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
     __PYX_ERR(1, 13, __pyx_L1_error)
   }
   __pyx_t_4 = PyTuple_GET_SIZE(__pyx_v___pyx_state); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(1, 13, __pyx_L1_error)
-  __pyx_t_5 = ((__pyx_t_4 > 3) != 0);
+  __pyx_t_5 = ((__pyx_t_4 > 2) != 0);
   if (__pyx_t_5) {
   } else {
     __pyx_t_3 = __pyx_t_5;
@@ -4133,9 +3975,9 @@ static PyObject *__pyx_f_34observation_volume_from_2D_cameras___pyx_unpickle_Obs
   if (__pyx_t_3) {
 
     /* "(tree fragment)":14
- *     __pyx_result.behind_of_camera = __pyx_state[0]; __pyx_result.coords = __pyx_state[1]; __pyx_result.front_of_camera = __pyx_state[2]
- *     if len(__pyx_state) > 3 and hasattr(__pyx_result, '__dict__'):
- *         __pyx_result.__dict__.update(__pyx_state[3])             # <<<<<<<<<<<<<<
+ *     __pyx_result.coords = __pyx_state[0]; __pyx_result.front_of_camera = __pyx_state[1]
+ *     if len(__pyx_state) > 2 and hasattr(__pyx_result, '__dict__'):
+ *         __pyx_result.__dict__.update(__pyx_state[2])             # <<<<<<<<<<<<<<
  */
     __pyx_t_8 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v___pyx_result), __pyx_n_s_dict); if (unlikely(!__pyx_t_8)) __PYX_ERR(1, 14, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
@@ -4156,7 +3998,7 @@ static PyObject *__pyx_f_34observation_volume_from_2D_cameras___pyx_unpickle_Obs
         __Pyx_DECREF_SET(__pyx_t_9, function);
       }
     }
-    __pyx_t_7 = (__pyx_t_8) ? __Pyx_PyObject_Call2Args(__pyx_t_9, __pyx_t_8, PyTuple_GET_ITEM(__pyx_v___pyx_state, 3)) : __Pyx_PyObject_CallOneArg(__pyx_t_9, PyTuple_GET_ITEM(__pyx_v___pyx_state, 3));
+    __pyx_t_7 = (__pyx_t_8) ? __Pyx_PyObject_Call2Args(__pyx_t_9, __pyx_t_8, PyTuple_GET_ITEM(__pyx_v___pyx_state, 2)) : __Pyx_PyObject_CallOneArg(__pyx_t_9, PyTuple_GET_ITEM(__pyx_v___pyx_state, 2));
     __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
     if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 14, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
@@ -4165,9 +4007,9 @@ static PyObject *__pyx_f_34observation_volume_from_2D_cameras___pyx_unpickle_Obs
 
     /* "(tree fragment)":13
  * cdef __pyx_unpickle_ObservationVolume__set_state(ObservationVolume __pyx_result, tuple __pyx_state):
- *     __pyx_result.behind_of_camera = __pyx_state[0]; __pyx_result.coords = __pyx_state[1]; __pyx_result.front_of_camera = __pyx_state[2]
- *     if len(__pyx_state) > 3 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
- *         __pyx_result.__dict__.update(__pyx_state[3])
+ *     __pyx_result.coords = __pyx_state[0]; __pyx_result.front_of_camera = __pyx_state[1]
+ *     if len(__pyx_state) > 2 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
+ *         __pyx_result.__dict__.update(__pyx_state[2])
  */
   }
 
@@ -4175,8 +4017,8 @@ static PyObject *__pyx_f_34observation_volume_from_2D_cameras___pyx_unpickle_Obs
  *         __pyx_unpickle_ObservationVolume__set_state(<ObservationVolume> __pyx_result, __pyx_state)
  *     return __pyx_result
  * cdef __pyx_unpickle_ObservationVolume__set_state(ObservationVolume __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
- *     __pyx_result.behind_of_camera = __pyx_state[0]; __pyx_result.coords = __pyx_state[1]; __pyx_result.front_of_camera = __pyx_state[2]
- *     if len(__pyx_state) > 3 and hasattr(__pyx_result, '__dict__'):
+ *     __pyx_result.coords = __pyx_state[0]; __pyx_result.front_of_camera = __pyx_state[1]
+ *     if len(__pyx_state) > 2 and hasattr(__pyx_result, '__dict__'):
  */
 
   /* function exit code */
@@ -19441,8 +19283,6 @@ static PyObject *__pyx_tp_new_34observation_volume_from_2D_cameras_ObservationVo
   p->coords.memview = NULL;
   p->front_of_camera.data = NULL;
   p->front_of_camera.memview = NULL;
-  p->behind_of_camera.data = NULL;
-  p->behind_of_camera.memview = NULL;
   return o;
 }
 
@@ -19455,7 +19295,6 @@ static void __pyx_tp_dealloc_34observation_volume_from_2D_cameras_ObservationVol
   #endif
   __PYX_XDEC_MEMVIEW(&p->coords, 1);
   __PYX_XDEC_MEMVIEW(&p->front_of_camera, 1);
-  __PYX_XDEC_MEMVIEW(&p->behind_of_camera, 1);
   (*Py_TYPE(o)->tp_free)(o);
 }
 
@@ -20268,8 +20107,8 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_kp_u_Format_string_allocated_too_shor, __pyx_k_Format_string_allocated_too_shor, sizeof(__pyx_k_Format_string_allocated_too_shor), 0, 1, 0, 0},
   {&__pyx_kp_u_Format_string_allocated_too_shor_2, __pyx_k_Format_string_allocated_too_shor_2, sizeof(__pyx_k_Format_string_allocated_too_shor_2), 0, 1, 0, 0},
   {&__pyx_n_s_ImportError, __pyx_k_ImportError, sizeof(__pyx_k_ImportError), 0, 0, 1, 1},
+  {&__pyx_kp_s_Incompatible_checksums_s_vs_0x8f, __pyx_k_Incompatible_checksums_s_vs_0x8f, sizeof(__pyx_k_Incompatible_checksums_s_vs_0x8f), 0, 0, 1, 0},
   {&__pyx_kp_s_Incompatible_checksums_s_vs_0xb0, __pyx_k_Incompatible_checksums_s_vs_0xb0, sizeof(__pyx_k_Incompatible_checksums_s_vs_0xb0), 0, 0, 1, 0},
-  {&__pyx_kp_s_Incompatible_checksums_s_vs_0xbb, __pyx_k_Incompatible_checksums_s_vs_0xbb, sizeof(__pyx_k_Incompatible_checksums_s_vs_0xbb), 0, 0, 1, 0},
   {&__pyx_n_s_IndexError, __pyx_k_IndexError, sizeof(__pyx_k_IndexError), 0, 0, 1, 1},
   {&__pyx_kp_s_Indirect_dimensions_not_supporte, __pyx_k_Indirect_dimensions_not_supporte, sizeof(__pyx_k_Indirect_dimensions_not_supporte), 0, 0, 1, 0},
   {&__pyx_kp_s_Invalid_mode_expected_c_or_fortr, __pyx_k_Invalid_mode_expected_c_or_fortr, sizeof(__pyx_k_Invalid_mode_expected_c_or_fortr), 0, 0, 1, 0},
@@ -20371,7 +20210,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 41, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 37, __pyx_L1_error)
   __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(2, 272, __pyx_L1_error)
   __pyx_builtin_RuntimeError = __Pyx_GetBuiltinName(__pyx_n_s_RuntimeError); if (!__pyx_builtin_RuntimeError) __PYX_ERR(2, 856, __pyx_L1_error)
   __pyx_builtin_ImportError = __Pyx_GetBuiltinName(__pyx_n_s_ImportError); if (!__pyx_builtin_ImportError) __PYX_ERR(2, 1038, __pyx_L1_error)
@@ -20744,8 +20583,8 @@ static CYTHON_SMALL_CODE int __Pyx_InitGlobals(void) {
   if (__Pyx_InitStrings(__pyx_string_tab) < 0) __PYX_ERR(0, 1, __pyx_L1_error);
   __pyx_int_0 = PyInt_FromLong(0); if (unlikely(!__pyx_int_0)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_1 = PyInt_FromLong(1); if (unlikely(!__pyx_int_1)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_150745420 = PyInt_FromLong(150745420L); if (unlikely(!__pyx_int_150745420)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_184977713 = PyInt_FromLong(184977713L); if (unlikely(!__pyx_int_184977713)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __pyx_int_196287420 = PyInt_FromLong(196287420L); if (unlikely(!__pyx_int_196287420)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_neg_1 = PyInt_FromLong(-1); if (unlikely(!__pyx_int_neg_1)) __PYX_ERR(0, 1, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
@@ -23605,68 +23444,15 @@ __pyx_capsule_create(void *p, CYTHON_UNUSED const char *sig)
     return cobj;
 }
 
-/* CIntToPy */
-static CYTHON_INLINE PyObject* __Pyx_PyInt_From_int(int value) {
-    const int neg_one = (int) ((int) 0 - (int) 1), const_zero = (int) 0;
-    const int is_unsigned = neg_one > const_zero;
-    if (is_unsigned) {
-        if (sizeof(int) < sizeof(long)) {
-            return PyInt_FromLong((long) value);
-        } else if (sizeof(int) <= sizeof(unsigned long)) {
-            return PyLong_FromUnsignedLong((unsigned long) value);
-#ifdef HAVE_LONG_LONG
-        } else if (sizeof(int) <= sizeof(unsigned PY_LONG_LONG)) {
-            return PyLong_FromUnsignedLongLong((unsigned PY_LONG_LONG) value);
-#endif
-        }
-    } else {
-        if (sizeof(int) <= sizeof(long)) {
-            return PyInt_FromLong((long) value);
-#ifdef HAVE_LONG_LONG
-        } else if (sizeof(int) <= sizeof(PY_LONG_LONG)) {
-            return PyLong_FromLongLong((PY_LONG_LONG) value);
-#endif
-        }
-    }
-    {
-        int one = 1; int little = (int)*(unsigned char *)&one;
-        unsigned char *bytes = (unsigned char *)&value;
-        return _PyLong_FromByteArray(bytes, sizeof(int),
-                                     little, !is_unsigned);
-    }
-}
-
-/* CIntFromPyVerify */
-#define __PYX_VERIFY_RETURN_INT(target_type, func_type, func_value)\
-    __PYX__VERIFY_RETURN_INT(target_type, func_type, func_value, 0)
-#define __PYX_VERIFY_RETURN_INT_EXC(target_type, func_type, func_value)\
-    __PYX__VERIFY_RETURN_INT(target_type, func_type, func_value, 1)
-#define __PYX__VERIFY_RETURN_INT(target_type, func_type, func_value, exc)\
-    {\
-        func_type value = func_value;\
-        if (sizeof(target_type) < sizeof(func_type)) {\
-            if (unlikely(value != (func_type) (target_type) value)) {\
-                func_type zero = 0;\
-                if (exc && unlikely(value == (func_type)-1 && PyErr_Occurred()))\
-                    return (target_type) -1;\
-                if (is_unsigned && unlikely(value < zero))\
-                    goto raise_neg_overflow;\
-                else\
-                    goto raise_overflow;\
-            }\
-        }\
-        return (target_type) value;\
-    }
-
 /* MemviewDtypeToObject */
-static CYTHON_INLINE PyObject *__pyx_memview_get_int(const char *itemp) {
-    return (PyObject *) __Pyx_PyInt_From_int(*(int *) itemp);
+static CYTHON_INLINE PyObject *__pyx_memview_get_float(const char *itemp) {
+    return (PyObject *) PyFloat_FromDouble(*(float *) itemp);
 }
-static CYTHON_INLINE int __pyx_memview_set_int(const char *itemp, PyObject *obj) {
-    int value = __Pyx_PyInt_As_int(obj);
-    if ((value == (int)-1) && PyErr_Occurred())
+static CYTHON_INLINE int __pyx_memview_set_float(const char *itemp, PyObject *obj) {
+    float value = __pyx_PyFloat_AsFloat(obj);
+    if ((value == (float)-1) && PyErr_Occurred())
         return 0;
-    *(int *) itemp = value;
+    *(float *) itemp = value;
     return 1;
 }
 
@@ -24407,41 +24193,6 @@ no_fail:
 }
 
 /* ObjectToMemviewSlice */
-  static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_dc_int(PyObject *obj, int writable_flag) {
-    __Pyx_memviewslice result = { 0, 0, { 0 }, { 0 }, { 0 } };
-    __Pyx_BufFmt_StackElem stack[1];
-    int axes_specs[] = { (__Pyx_MEMVIEW_DIRECT | __Pyx_MEMVIEW_CONTIG) };
-    int retcode;
-    if (obj == Py_None) {
-        result.memview = (struct __pyx_memoryview_obj *) Py_None;
-        return result;
-    }
-    retcode = __Pyx_ValidateAndInit_memviewslice(axes_specs, __Pyx_IS_C_CONTIG,
-                                                 (PyBUF_C_CONTIGUOUS | PyBUF_FORMAT) | writable_flag, 1,
-                                                 &__Pyx_TypeInfo_int, stack,
-                                                 &result, obj);
-    if (unlikely(retcode == -1))
-        goto __pyx_fail;
-    return result;
-__pyx_fail:
-    result.memview = NULL;
-    result.data = NULL;
-    return result;
-}
-
-/* MemviewDtypeToObject */
-  static CYTHON_INLINE PyObject *__pyx_memview_get_float(const char *itemp) {
-    return (PyObject *) PyFloat_FromDouble(*(float *) itemp);
-}
-static CYTHON_INLINE int __pyx_memview_set_float(const char *itemp, PyObject *obj) {
-    float value = __pyx_PyFloat_AsFloat(obj);
-    if ((value == (float)-1) && PyErr_Occurred())
-        return 0;
-    *(float *) itemp = value;
-    return 1;
-}
-
-/* ObjectToMemviewSlice */
   static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_d_dc_float(PyObject *obj, int writable_flag) {
     __Pyx_memviewslice result = { 0, 0, { 0 }, { 0 }, { 0 } };
     __Pyx_BufFmt_StackElem stack[1];
@@ -24454,6 +24205,94 @@ static CYTHON_INLINE int __pyx_memview_set_float(const char *itemp, PyObject *ob
     retcode = __Pyx_ValidateAndInit_memviewslice(axes_specs, __Pyx_IS_C_CONTIG,
                                                  (PyBUF_C_CONTIGUOUS | PyBUF_FORMAT) | writable_flag, 2,
                                                  &__Pyx_TypeInfo_float, stack,
+                                                 &result, obj);
+    if (unlikely(retcode == -1))
+        goto __pyx_fail;
+    return result;
+__pyx_fail:
+    result.memview = NULL;
+    result.data = NULL;
+    return result;
+}
+
+/* CIntToPy */
+  static CYTHON_INLINE PyObject* __Pyx_PyInt_From_int(int value) {
+    const int neg_one = (int) ((int) 0 - (int) 1), const_zero = (int) 0;
+    const int is_unsigned = neg_one > const_zero;
+    if (is_unsigned) {
+        if (sizeof(int) < sizeof(long)) {
+            return PyInt_FromLong((long) value);
+        } else if (sizeof(int) <= sizeof(unsigned long)) {
+            return PyLong_FromUnsignedLong((unsigned long) value);
+#ifdef HAVE_LONG_LONG
+        } else if (sizeof(int) <= sizeof(unsigned PY_LONG_LONG)) {
+            return PyLong_FromUnsignedLongLong((unsigned PY_LONG_LONG) value);
+#endif
+        }
+    } else {
+        if (sizeof(int) <= sizeof(long)) {
+            return PyInt_FromLong((long) value);
+#ifdef HAVE_LONG_LONG
+        } else if (sizeof(int) <= sizeof(PY_LONG_LONG)) {
+            return PyLong_FromLongLong((PY_LONG_LONG) value);
+#endif
+        }
+    }
+    {
+        int one = 1; int little = (int)*(unsigned char *)&one;
+        unsigned char *bytes = (unsigned char *)&value;
+        return _PyLong_FromByteArray(bytes, sizeof(int),
+                                     little, !is_unsigned);
+    }
+}
+
+/* CIntFromPyVerify */
+  #define __PYX_VERIFY_RETURN_INT(target_type, func_type, func_value)\
+    __PYX__VERIFY_RETURN_INT(target_type, func_type, func_value, 0)
+#define __PYX_VERIFY_RETURN_INT_EXC(target_type, func_type, func_value)\
+    __PYX__VERIFY_RETURN_INT(target_type, func_type, func_value, 1)
+#define __PYX__VERIFY_RETURN_INT(target_type, func_type, func_value, exc)\
+    {\
+        func_type value = func_value;\
+        if (sizeof(target_type) < sizeof(func_type)) {\
+            if (unlikely(value != (func_type) (target_type) value)) {\
+                func_type zero = 0;\
+                if (exc && unlikely(value == (func_type)-1 && PyErr_Occurred()))\
+                    return (target_type) -1;\
+                if (is_unsigned && unlikely(value < zero))\
+                    goto raise_neg_overflow;\
+                else\
+                    goto raise_overflow;\
+            }\
+        }\
+        return (target_type) value;\
+    }
+
+/* MemviewDtypeToObject */
+  static CYTHON_INLINE PyObject *__pyx_memview_get_int(const char *itemp) {
+    return (PyObject *) __Pyx_PyInt_From_int(*(int *) itemp);
+}
+static CYTHON_INLINE int __pyx_memview_set_int(const char *itemp, PyObject *obj) {
+    int value = __Pyx_PyInt_As_int(obj);
+    if ((value == (int)-1) && PyErr_Occurred())
+        return 0;
+    *(int *) itemp = value;
+    return 1;
+}
+
+/* ObjectToMemviewSlice */
+  static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_dc_int(PyObject *obj, int writable_flag) {
+    __Pyx_memviewslice result = { 0, 0, { 0 }, { 0 }, { 0 } };
+    __Pyx_BufFmt_StackElem stack[1];
+    int axes_specs[] = { (__Pyx_MEMVIEW_DIRECT | __Pyx_MEMVIEW_CONTIG) };
+    int retcode;
+    if (obj == Py_None) {
+        result.memview = (struct __pyx_memoryview_obj *) Py_None;
+        return result;
+    }
+    retcode = __Pyx_ValidateAndInit_memviewslice(axes_specs, __Pyx_IS_C_CONTIG,
+                                                 (PyBUF_C_CONTIGUOUS | PyBUF_FORMAT) | writable_flag, 1,
+                                                 &__Pyx_TypeInfo_int, stack,
                                                  &result, obj);
     if (unlikely(retcode == -1))
         goto __pyx_fail;

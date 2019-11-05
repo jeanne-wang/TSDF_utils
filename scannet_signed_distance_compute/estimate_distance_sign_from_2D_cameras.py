@@ -161,7 +161,7 @@ def main():
 
 
 
-    front_of_camera, behind_of_camera = observed_volume.get_volume()
+    front_of_camera = observed_volume.get_volume()
 
     valid_coords = []
     valid_nearest_point_in_mesh = []

@@ -11,7 +11,6 @@ cdef class ObservationVolume:
 
     cdef float[:, ::1] coords
     cdef int [::1] front_of_camera ## binary 1/0 
-    cdef int [::1] behind_of_camera 
 
     def __init__(self, coords):
 
@@ -21,11 +20,9 @@ cdef class ObservationVolume:
         assert self.coords.shape[1] == 3
         self.front_of_camera = np.zeros([num_point],
                                dtype=np.int32)
-        self.behind_of_camera = np.zeros([num_point],
-                               dtype=np.int32)
-
+        
     def get_volume(self):
-        return np.array(self.front_of_camera), np.array(self.behind_of_camera)
+        return np.array(self.front_of_camera)
 
     def fuse(self,
              np.float32_t[:, ::1] depth_proj_matrix,
@@ -82,9 +79,6 @@ cdef class ObservationVolume:
             
             if depth_proj_z <= depth-0.01:
                 self.front_of_camera[i] = 1
-            else:
-              self.behind_of_camera[i] += 1
-
                    
 
 
