@@ -80,7 +80,7 @@ cdef class ObservationVolume:
             depth = depth_map[depth_image_proj_y, depth_image_proj_x]
 
             
-            if depth_proj_z <= depth:
+            if depth_proj_z <= depth-0.01:
                 self.front_of_camera[i] = 1
             else:
               self.behind_of_camera[i] += 1

@@ -24,12 +24,13 @@ cdef class Sampling:
         assert self.pts_surf.shape[1] == 3
         num_pts_surf = self.pts_surf.shape[0] 
 
-        self.pts_along_camera_rays = np.zeros([1, 3], dtype=np.float32)
+        self.pts_along_camera_rays = np.zeros([num_pts_surf*2, 3], dtype=np.float32)
         self.observed = np.zeros([num_pts_surf],
                                dtype=np.int32)
     
     def get_sampled_points(self):
-        return np.array(self.pts_along_camera_rays)
+        num_observed = np.sum(self.observed)
+        return np.array(self.pts_along_camera_rays)[:num_observed*2]
 
     def sample(self,
              np.float32_t[:, ::1] depth_extrinsics_matrix,
@@ -108,16 +109,16 @@ cdef class Sampling:
             if abs(depth-depth_proj_z) <= self.observed_threshold:
                 self.observed[i] = 1
                 num_observed = np.sum(self.observed)
-                self.pts_along_camera_rays.resize([num_observed*2,3])
+              
                 ## generate two points along camera ray
-                z1 = depth_proj_z+np.random.normal(0, self.gaussian_variance)
-                z2 = depth_proj_z+np.random.normal(0, self.gaussian_variance)
+                z1_c = depth_proj_z+np.random.normal(0, self.gaussian_variance)
+                z2_c = depth_proj_z+np.random.normal(0, self.gaussian_variance)
 
-                x1_c = x_c*z1/depth_proj_z
-                x2_c = x_c*z2/depth_proj_z
+                x1_c = x_c*z1_c/depth_proj_z
+                y1_c = y_c*z1_c/depth_proj_z
 
-                y1_c = y_c*z1/depth_proj_z
-                y2_c = y_c*z1/depth_proj_z
+                x2_c = x_c*z2_c/depth_proj_z
+                y2_c = y_c*z2_c/depth_proj_z
 
                 x1 = depth_extrinsics_matrix_inv[0, 0] * x1_c + \
                      depth_extrinsics_matrix_inv[0, 1] * y1_c + \
@@ -151,13 +152,13 @@ cdef class Sampling:
 
             
                 
-                self.pts_along_camera_rays[-2,0] = x1
-                self.pts_along_camera_rays[-2,1] = y1
-                self.pts_along_camera_rays[-2,2] = z1
+                self.pts_along_camera_rays[(num_observed-1)*2,0] = x1
+                self.pts_along_camera_rays[(num_observed-1)*2,1] = y1
+                self.pts_along_camera_rays[(num_observed-1)*2,2] = z1
 
-                self.pts_along_camera_rays[-1,0] = x2
-                self.pts_along_camera_rays[-1,1] = y2
-                self.pts_along_camera_rays[-1,2] = z2
+                self.pts_along_camera_rays[(num_observed-1)*2+1,0] = x2
+                self.pts_along_camera_rays[(num_observed-1)*2+1,1] = y2
+                self.pts_along_camera_rays[(num_observed-1)*2+1,2] = z2
 
 
 

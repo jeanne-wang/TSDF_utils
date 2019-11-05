@@ -182,7 +182,7 @@ def main():
             count_free = count_free+1
             
 
-        elif ((behind_of_camera[i] == num_frames) and (distance_to_mesh[i] <= args.truncated_distance)):
+        elif distance_to_mesh[i] <= args.truncated_distance:
             count_occu = count_occu+1
             valid_coords.append(coords[i,:])
             valid_nearest_point_in_mesh.append(nearest_point_in_mesh[i])

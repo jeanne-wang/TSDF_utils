@@ -6,7 +6,9 @@ import plyfile
 import json
 import skimage.io
 import trimesh
+import struct
 from sample_along_camera_ray import Sampling
+import sys
 
 def write_to_binary(coords, outfile):
 
@@ -39,12 +41,9 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--scene_path", required=True)
     parser.add_argument("--output_file", required=True)
-    parser.add_argument("--num_sample", type=int, default=200000)
+    parser.add_argument("--num_sample", type=int, default=10000)
     parser.add_argument("--observed_threshold", type=float, default=0.01)
     parser.add_argument("--gaussian_variance", type=float, default=0.1)
-    parser.add_argument("--visualization", type=bool, default=False)
-    parser.add_argument("--visual_output_file", type=str, default='mesh_vis.ply')
-    parser.add_argument("--truncated_distance", type=float, default=0.1)
     return parser.parse_args()
 
 
@@ -107,7 +106,7 @@ def main():
 
         pose = np.loadtxt(pose_path)
         depth_extrinsics_matrix = np.dot(color_to_depth_T, np.linalg.inv(pose))[:3]
-        depth_extrinsics_matrix_inv = pose*np.linalg.inv(color_to_depth_T)[:3]
+        depth_extrinsics_matrix_inv = np.dot(pose, np.linalg.inv(color_to_depth_T))[:3]
         depth_proj_matrix = \
                 np.dot(depth_K, depth_extrinsics_matrix)
 
@@ -122,6 +121,7 @@ def main():
 
 
     pts_along_camera_rays = sampling.get_sampled_points()
+    print("There are {} sampled points along camera rays".format(pts_along_camera_rays.shape[0]))
     write_to_binary(pts_along_camera_rays, args.output_file)
 
 if __name__ == "__main__":
