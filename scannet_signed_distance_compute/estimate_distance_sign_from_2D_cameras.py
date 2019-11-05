@@ -4,6 +4,7 @@ import argparse
 import numpy as np
 import plyfile
 import json
+import skimage.io
 from observation_volume_from_2D_cameras import ObservationVolume
 
 def create_color_palette():
@@ -86,7 +87,7 @@ def parse_args():
     parser.add_argument("--scene_sampled_point_file", required=True)
     parser.add_argument("--output_file", required=True)
     parser.add_argument("--visualization", type=bool, default=False)
-    parser.add_argument("--visual_output_file", type=string, default='mesh_vis.ply')
+    parser.add_argument("--visual_output_file", type=str, default='mesh_vis.ply')
     parser.add_argument("--truncated_distance", type=float, default=0.1)
     return parser.parse_args()
 
@@ -166,6 +167,10 @@ def main():
     valid_nearest_point_in_mesh = []
     valid_sdf = []
     valid_label = []
+    ## for test
+    count_free = 0
+    count_occu = 0
+    ##
     for i in range(coords.shape[0]):
 
         ## freeespace
@@ -174,10 +179,11 @@ def main():
             valid_nearest_point_in_mesh.append(nearest_point_in_mesh[i])
             valid_sdf.append(distance_to_mesh[i])
             valid_label.append(41) ## freespace 
+            count_free = count_free+1
             
 
         elif ((behind_of_camera[i] == num_frames) and (distance_to_mesh[i] <= args.truncated_distance)):
-            
+            count_occu = count_occu+1
             valid_coords.append(coords[i,:])
             valid_nearest_point_in_mesh.append(nearest_point_in_mesh[i])
             valid_sdf.append(-distance_to_mesh[i])
@@ -192,7 +198,8 @@ def main():
     
     num_points_along_camera_rays = valid_coords.shape[0]
     print("There are {} sampled near surface points along camera rays.".format(num_points_along_camera_rays))
-
+    print("There are {} freespace points along camera rays".format(count_free))
+    print("There are {} occupied points along rays".format(count_occu))
     np.savez(args.output_file, coords=valid_coords, sdf=valid_sdf, 
         label=valid_label, nearest_point=valid_nearest_point_in_mesh)
 
@@ -215,8 +222,8 @@ def main():
 
         vis_coords = np.asarray(vis_coords)
         vis_color = np.asarray(vis_color)
-        fff = np.zeros((vis,3), dtype=np.int32)
-        for i in range(vis):
+        fff = np.zeros((num_points_along_camera_rays,3), dtype=np.int32)
+        for i in range(num_points_along_camera_rays):
             fff[i, 0] = i *3
             fff[i, 1] = i*3+1
             fff[i, 2] = i*3+2
