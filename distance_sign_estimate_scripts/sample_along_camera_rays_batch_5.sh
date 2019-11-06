@@ -1,4 +1,5 @@
 SCANNET_PATH=/cluster/scratch/xiaojwan/ScanNet_v2
+OUTPUT_PATH=/cluster/scratch/xiaojwan/ScanNet_v2_points_depthmap_camera_rays
 TOOL_PATH=/cluster/scratch/xiaojwan/TSDF_utils
 
 declare -i count=0
@@ -22,7 +23,7 @@ do
 
     python3 $TOOL_PATH/sample_along_camera_rays/sample_along_camera_rays_from_depthmap.py \
         --scene_path $scene_path \
-        --output_file $scene_path/points_depthmap_camera_rays_0_1.dat \
+        --output_file $OUTPUT_PATH/$scene_name"_points_depthmap_camera_rays_0_1.dat" \
         --num_sample 10000 \
         --gaussian_variance 0.1
 
