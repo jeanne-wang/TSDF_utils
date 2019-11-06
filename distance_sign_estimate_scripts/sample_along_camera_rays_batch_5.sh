@@ -6,9 +6,9 @@ for scene_path in $(ls -d $SCANNET_PATH/scans/scene*)
 do
 	scene_name=$(basename $scene_path)
 
-	if [ $count -eq 300 ]; then
-		echo $scene_name
-		break
+	if [ $count -lt 1200 ]; then
+		count=count+1
+        continue
     fi
 
 
