@@ -82,6 +82,8 @@ def main():
     pose_paths = sorted(glob.glob(os.path.join(args.scene_path, "sensor/*.pose.txt")))
     num_frames = len(pose_paths)
     num_sample_per_frame = int(args.num_sample/num_frames)
+    if num_sample_per_frame%2 != 0:
+        num_sample_per_frame = num_sample_per_frame+1
     sampling = Sampling(num_frames, num_sample_per_frame, args.gaussian_variance)
     for i, pose_path in enumerate(pose_paths):
 
