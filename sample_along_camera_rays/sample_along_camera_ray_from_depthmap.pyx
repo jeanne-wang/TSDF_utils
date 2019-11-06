@@ -42,18 +42,7 @@ cdef class Sampling:
         cdef float x1_c, y1_c, z1_c, x2_c, y2_c, z2_c
         cdef float x1, y1, z1, x2, y2, z2
         
-        cdef int valid = 0
-        for j in range(depth_map.shape[0]):
-            for k in range(depth_map.shape[1]):
-                if depth_map[j,k] != 0:
-                    valid = 1
-                    break
-
-        if(valid == 1):
-            self.num_valid_frame += 1
-        else:
-            return
-
+        self.num_valid_frame += 1
 
         for i in range(int(self.num_sample_per_frame/2)):
 
@@ -93,10 +82,6 @@ cdef class Sampling:
             x2_c = x_c*z2_c/depth
             y2_c = y_c*z2_c/depth
 
-            printf("depth: %f, z1_c: %f, z2_c: %f\n", depth, z1_c, z2_c)
-            printf("x1_c: %f, y1_c: %f\n", x1_c, y1_c)
-            printf("x2_c: %f, y2_c: %f\n", x2_c, y2_c)
-
             ## back projected to world coords system
             x1 = depth_extrinsics_matrix_inv[0, 0] * x1_c + \
                  depth_extrinsics_matrix_inv[0, 1] * y1_c + \
@@ -127,19 +112,6 @@ cdef class Sampling:
                  depth_extrinsics_matrix_inv[2, 1] * y2_c + \
                  depth_extrinsics_matrix_inv[2, 2] * z2_c + \
                  depth_extrinsics_matrix_inv[2, 3]
-
-            if(isnan(x1) or isnan(y1) or isnan(z1) or isnan(x2) or isnan(y2) or isnan(z2)):
-                printf("depth: %f, z1_c: %f, z2_c: %f\n", depth, z1_c, z2_c)
-                printf("x1_c: %f, y1_c: %f\n", x1_c, y1_c)
-                printf("x2_c: %f, y2_c: %f\n", x2_c, y2_c)
-                printf("depth_extrinsics_matrix_inv: \n")
-                printf("%f, %f, %f, %f\n", depth_extrinsics_matrix_inv[0, 0], depth_extrinsics_matrix_inv[0, 1],
-                    depth_extrinsics_matrix_inv[0, 2], depth_extrinsics_matrix_inv[0, 3])
-
-                printf("%f, %f, %f, %f\n", depth_extrinsics_matrix_inv[1, 0], depth_extrinsics_matrix_inv[1, 1],
-                    depth_extrinsics_matrix_inv[1, 2], depth_extrinsics_matrix_inv[1, 3])
-                printf("%f, %f, %f, %f\n", depth_extrinsics_matrix_inv[2, 0], depth_extrinsics_matrix_inv[2, 1],
-                    depth_extrinsics_matrix_inv[2, 2], depth_extrinsics_matrix_inv[2, 3])
 
                 
             self.pts_along_camera_rays[(self.num_valid_frame-1)*self.num_sample_per_frame+i*2,0] = x1

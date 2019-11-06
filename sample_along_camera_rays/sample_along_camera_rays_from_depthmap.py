@@ -76,6 +76,11 @@ def main():
                 assert line.split("=")[1].strip() \
                        == "1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"
     depth_K_inv = np.linalg.inv(depth_K)
+    depth_K_inv = depth_K_inv.astype(np.float32)
+
+    if np.isnan(depth_K_inv).any():
+        print("depth intrinsic matrix contains nan values, thereof skip this scene")
+        return
 
     ############ observation fusion ####################
 
@@ -98,11 +103,18 @@ def main():
         depth_map = skimage.io.imread(depth_map_path)
         depth_map = depth_map.astype(np.float32) / 1000
 
+        ## remove the case where all depth map values are zero
+        if not depth_map.any():
+            continue
+        if np.isnan(depth_map).all():
+            continue
+
         pose = np.loadtxt(pose_path)
         depth_extrinsics_matrix_inv = np.dot(pose, np.linalg.inv(color_to_depth_T))[:3]
         depth_extrinsics_matrix_inv = depth_extrinsics_matrix_inv.astype(np.float32)
-        
-        depth_K_inv = depth_K_inv.astype(np.float32)
+
+        if np.isnan(depth_extrinsics_matrix_inv).any():
+            continue
 
         sampling.sample(depth_K_inv, 
                         depth_extrinsics_matrix_inv, depth_map)
