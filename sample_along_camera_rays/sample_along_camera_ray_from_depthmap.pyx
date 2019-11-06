@@ -92,6 +92,10 @@ cdef class Sampling:
             x2_c = x_c*z2_c/depth
             y2_c = y_c*z2_c/depth
 
+            printf("depth: %f, z1_c: %f, z2_c: %f\n", depth, z1_c, z2_c)
+            printf("x1_c: %f, y1_c: %f\n", x1_c, y1_c)
+            printf("x2_c: %f, y2_c: %f\n", x2_c, y2_c)
+
             ## back projected to world coords system
             x1 = depth_extrinsics_matrix_inv[0, 0] * x1_c + \
                  depth_extrinsics_matrix_inv[0, 1] * y1_c + \
