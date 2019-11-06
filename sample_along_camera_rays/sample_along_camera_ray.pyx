@@ -27,6 +27,7 @@ cdef class Sampling:
         self.pts_along_camera_rays = np.zeros([num_pts_surf*2, 3], dtype=np.float32)
         self.observed = np.zeros([num_pts_surf],
                                dtype=np.int32)
+        np.random.seed(0)
     
     def get_sampled_points(self):
         num_observed = np.sum(self.observed)

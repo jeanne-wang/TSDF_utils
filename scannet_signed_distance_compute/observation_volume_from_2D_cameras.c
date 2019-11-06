@@ -2658,7 +2658,7 @@ static int __pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolume___i
  *         assert self.coords.shape[1] == 3
  *         self.front_of_camera = np.zeros([num_point],             # <<<<<<<<<<<<<<
  *                                dtype=np.int32)
- *     def get_volume(self):
+ * 
  */
   __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -2682,8 +2682,8 @@ static int __pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolume___i
  *         assert self.coords.shape[1] == 3
  *         self.front_of_camera = np.zeros([num_point],
  *                                dtype=np.int32)             # <<<<<<<<<<<<<<
+ * 
  *     def get_volume(self):
- *         return np.array(self.front_of_camera)
  */
   __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 22, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
@@ -2700,7 +2700,7 @@ static int __pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolume___i
  *         assert self.coords.shape[1] == 3
  *         self.front_of_camera = np.zeros([num_point],             # <<<<<<<<<<<<<<
  *                                dtype=np.int32)
- *     def get_volume(self):
+ * 
  */
   __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_1, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
@@ -2740,9 +2740,9 @@ static int __pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolume___i
   return __pyx_r;
 }
 
-/* "observation_volume_from_2D_cameras.pyx":23
- *         self.front_of_camera = np.zeros([num_point],
+/* "observation_volume_from_2D_cameras.pyx":24
  *                                dtype=np.int32)
+ * 
  *     def get_volume(self):             # <<<<<<<<<<<<<<
  *         return np.array(self.front_of_camera)
  * 
@@ -2770,20 +2770,20 @@ static PyObject *__pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolu
   PyObject *__pyx_t_4 = NULL;
   __Pyx_RefNannySetupContext("get_volume", 0);
 
-  /* "observation_volume_from_2D_cameras.pyx":24
- *                                dtype=np.int32)
+  /* "observation_volume_from_2D_cameras.pyx":25
+ * 
  *     def get_volume(self):
  *         return np.array(self.front_of_camera)             # <<<<<<<<<<<<<<
  * 
  *     def fuse(self,
  */
   __Pyx_XDECREF(__pyx_r);
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 24, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 25, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_array); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 24, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_array); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 25, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_self->front_of_camera, 1, (PyObject *(*)(char *)) __pyx_memview_get_int, (int (*)(char *, PyObject *)) __pyx_memview_set_int, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 24, __pyx_L1_error)
+  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_self->front_of_camera, 1, (PyObject *(*)(char *)) __pyx_memview_get_int, (int (*)(char *, PyObject *)) __pyx_memview_set_int, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 25, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_4 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_3))) {
@@ -2798,16 +2798,16 @@ static PyObject *__pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolu
   __pyx_t_1 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, __pyx_t_2) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2);
   __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 24, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 25, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "observation_volume_from_2D_cameras.pyx":23
- *         self.front_of_camera = np.zeros([num_point],
+  /* "observation_volume_from_2D_cameras.pyx":24
  *                                dtype=np.int32)
+ * 
  *     def get_volume(self):             # <<<<<<<<<<<<<<
  *         return np.array(self.front_of_camera)
  * 
@@ -2827,7 +2827,7 @@ static PyObject *__pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolu
   return __pyx_r;
 }
 
-/* "observation_volume_from_2D_cameras.pyx":26
+/* "observation_volume_from_2D_cameras.pyx":27
  *         return np.array(self.front_of_camera)
  * 
  *     def fuse(self,             # <<<<<<<<<<<<<<
@@ -2866,11 +2866,11 @@ static PyObject *__pyx_pw_34observation_volume_from_2D_cameras_17ObservationVolu
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_depth_map)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("fuse", 1, 2, 2, 1); __PYX_ERR(0, 26, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("fuse", 1, 2, 2, 1); __PYX_ERR(0, 27, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "fuse") < 0)) __PYX_ERR(0, 26, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "fuse") < 0)) __PYX_ERR(0, 27, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -2878,12 +2878,12 @@ static PyObject *__pyx_pw_34observation_volume_from_2D_cameras_17ObservationVolu
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
-    __pyx_v_depth_proj_matrix = __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_float32_t(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_depth_proj_matrix.memview)) __PYX_ERR(0, 27, __pyx_L3_error)
-    __pyx_v_depth_map = __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_float32_t(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_depth_map.memview)) __PYX_ERR(0, 28, __pyx_L3_error)
+    __pyx_v_depth_proj_matrix = __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_float32_t(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_depth_proj_matrix.memview)) __PYX_ERR(0, 28, __pyx_L3_error)
+    __pyx_v_depth_map = __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_float32_t(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_depth_map.memview)) __PYX_ERR(0, 29, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("fuse", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 26, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("fuse", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 27, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("observation_volume_from_2D_cameras.ObservationVolume.fuse", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -2913,7 +2913,7 @@ static PyObject *__pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolu
   Py_ssize_t __pyx_t_2;
   Py_ssize_t __pyx_t_3;
   Py_ssize_t __pyx_t_4;
-  Py_ssize_t __pyx_t_5;
+  int __pyx_t_5;
   Py_ssize_t __pyx_t_6;
   Py_ssize_t __pyx_t_7;
   Py_ssize_t __pyx_t_8;
@@ -2926,7 +2926,7 @@ static PyObject *__pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolu
   Py_ssize_t __pyx_t_15;
   Py_ssize_t __pyx_t_16;
   Py_ssize_t __pyx_t_17;
-  int __pyx_t_18;
+  Py_ssize_t __pyx_t_18;
   Py_ssize_t __pyx_t_19;
   Py_ssize_t __pyx_t_20;
   Py_ssize_t __pyx_t_21;
@@ -2943,131 +2943,162 @@ static PyObject *__pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolu
   Py_ssize_t __pyx_t_32;
   Py_ssize_t __pyx_t_33;
   Py_ssize_t __pyx_t_34;
-  int __pyx_t_35;
-  Py_ssize_t __pyx_t_36;
+  Py_ssize_t __pyx_t_35;
+  int __pyx_t_36;
   Py_ssize_t __pyx_t_37;
   Py_ssize_t __pyx_t_38;
+  Py_ssize_t __pyx_t_39;
   __Pyx_RefNannySetupContext("fuse", 0);
 
-  /* "observation_volume_from_2D_cameras.pyx":37
+  /* "observation_volume_from_2D_cameras.pyx":38
  * 
  * 
  *         for i in range(self.coords.shape[0]):             # <<<<<<<<<<<<<<
  * 
- *             # if self.front_of_camera[i] == 1:
+ *             if self.front_of_camera[i] == 1:
  */
   __pyx_t_1 = (__pyx_v_self->coords.shape[0]);
   __pyx_t_2 = __pyx_t_1;
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "observation_volume_from_2D_cameras.pyx":41
- *             # if self.front_of_camera[i] == 1:
- *             #     continue
+    /* "observation_volume_from_2D_cameras.pyx":40
+ *         for i in range(self.coords.shape[0]):
+ * 
+ *             if self.front_of_camera[i] == 1:             # <<<<<<<<<<<<<<
+ *                 continue
+ *             x = self.coords[i, 0]
+ */
+    __pyx_t_4 = __pyx_v_i;
+    if (__pyx_t_4 < 0) __pyx_t_4 += __pyx_v_self->front_of_camera.shape[0];
+    __pyx_t_5 = (((*((int *) ( /* dim=0 */ ((char *) (((int *) __pyx_v_self->front_of_camera.data) + __pyx_t_4)) ))) == 1) != 0);
+    if (__pyx_t_5) {
+
+      /* "observation_volume_from_2D_cameras.pyx":41
+ * 
+ *             if self.front_of_camera[i] == 1:
+ *                 continue             # <<<<<<<<<<<<<<
+ *             x = self.coords[i, 0]
+ *             y = self.coords[i, 1]
+ */
+      goto __pyx_L3_continue;
+
+      /* "observation_volume_from_2D_cameras.pyx":40
+ *         for i in range(self.coords.shape[0]):
+ * 
+ *             if self.front_of_camera[i] == 1:             # <<<<<<<<<<<<<<
+ *                 continue
+ *             x = self.coords[i, 0]
+ */
+    }
+
+    /* "observation_volume_from_2D_cameras.pyx":42
+ *             if self.front_of_camera[i] == 1:
+ *                 continue
  *             x = self.coords[i, 0]             # <<<<<<<<<<<<<<
  *             y = self.coords[i, 1]
  *             z = self.coords[i, 2]
  */
-    __pyx_t_4 = __pyx_v_i;
-    __pyx_t_5 = 0;
-    if (__pyx_t_4 < 0) __pyx_t_4 += __pyx_v_self->coords.shape[0];
-    if (__pyx_t_5 < 0) __pyx_t_5 += __pyx_v_self->coords.shape[1];
-    __pyx_v_x = (*((float *) ( /* dim=1 */ ((char *) (((float *) ( /* dim=0 */ (__pyx_v_self->coords.data + __pyx_t_4 * __pyx_v_self->coords.strides[0]) )) + __pyx_t_5)) )));
+    __pyx_t_6 = __pyx_v_i;
+    __pyx_t_7 = 0;
+    if (__pyx_t_6 < 0) __pyx_t_6 += __pyx_v_self->coords.shape[0];
+    if (__pyx_t_7 < 0) __pyx_t_7 += __pyx_v_self->coords.shape[1];
+    __pyx_v_x = (*((float *) ( /* dim=1 */ ((char *) (((float *) ( /* dim=0 */ (__pyx_v_self->coords.data + __pyx_t_6 * __pyx_v_self->coords.strides[0]) )) + __pyx_t_7)) )));
 
-    /* "observation_volume_from_2D_cameras.pyx":42
- *             #     continue
+    /* "observation_volume_from_2D_cameras.pyx":43
+ *                 continue
  *             x = self.coords[i, 0]
  *             y = self.coords[i, 1]             # <<<<<<<<<<<<<<
  *             z = self.coords[i, 2]
  * 
  */
-    __pyx_t_6 = __pyx_v_i;
-    __pyx_t_7 = 1;
-    if (__pyx_t_6 < 0) __pyx_t_6 += __pyx_v_self->coords.shape[0];
-    if (__pyx_t_7 < 0) __pyx_t_7 += __pyx_v_self->coords.shape[1];
-    __pyx_v_y = (*((float *) ( /* dim=1 */ ((char *) (((float *) ( /* dim=0 */ (__pyx_v_self->coords.data + __pyx_t_6 * __pyx_v_self->coords.strides[0]) )) + __pyx_t_7)) )));
+    __pyx_t_8 = __pyx_v_i;
+    __pyx_t_9 = 1;
+    if (__pyx_t_8 < 0) __pyx_t_8 += __pyx_v_self->coords.shape[0];
+    if (__pyx_t_9 < 0) __pyx_t_9 += __pyx_v_self->coords.shape[1];
+    __pyx_v_y = (*((float *) ( /* dim=1 */ ((char *) (((float *) ( /* dim=0 */ (__pyx_v_self->coords.data + __pyx_t_8 * __pyx_v_self->coords.strides[0]) )) + __pyx_t_9)) )));
 
-    /* "observation_volume_from_2D_cameras.pyx":43
+    /* "observation_volume_from_2D_cameras.pyx":44
  *             x = self.coords[i, 0]
  *             y = self.coords[i, 1]
  *             z = self.coords[i, 2]             # <<<<<<<<<<<<<<
  * 
  *             # Compute the depth of the current voxel wrt. the camera.
  */
-    __pyx_t_8 = __pyx_v_i;
-    __pyx_t_9 = 2;
-    if (__pyx_t_8 < 0) __pyx_t_8 += __pyx_v_self->coords.shape[0];
-    if (__pyx_t_9 < 0) __pyx_t_9 += __pyx_v_self->coords.shape[1];
-    __pyx_v_z = (*((float *) ( /* dim=1 */ ((char *) (((float *) ( /* dim=0 */ (__pyx_v_self->coords.data + __pyx_t_8 * __pyx_v_self->coords.strides[0]) )) + __pyx_t_9)) )));
+    __pyx_t_10 = __pyx_v_i;
+    __pyx_t_11 = 2;
+    if (__pyx_t_10 < 0) __pyx_t_10 += __pyx_v_self->coords.shape[0];
+    if (__pyx_t_11 < 0) __pyx_t_11 += __pyx_v_self->coords.shape[1];
+    __pyx_v_z = (*((float *) ( /* dim=1 */ ((char *) (((float *) ( /* dim=0 */ (__pyx_v_self->coords.data + __pyx_t_10 * __pyx_v_self->coords.strides[0]) )) + __pyx_t_11)) )));
 
-    /* "observation_volume_from_2D_cameras.pyx":46
+    /* "observation_volume_from_2D_cameras.pyx":47
  * 
  *             # Compute the depth of the current voxel wrt. the camera.
  *             depth_proj_z = depth_proj_matrix[2, 0] * x + \             # <<<<<<<<<<<<<<
  *                            depth_proj_matrix[2, 1] * y + \
  *                            depth_proj_matrix[2, 2] * z + \
  */
-    __pyx_t_10 = 2;
-    __pyx_t_11 = 0;
-    if (__pyx_t_10 < 0) __pyx_t_10 += __pyx_v_depth_proj_matrix.shape[0];
-    if (__pyx_t_11 < 0) __pyx_t_11 += __pyx_v_depth_proj_matrix.shape[1];
+    __pyx_t_12 = 2;
+    __pyx_t_13 = 0;
+    if (__pyx_t_12 < 0) __pyx_t_12 += __pyx_v_depth_proj_matrix.shape[0];
+    if (__pyx_t_13 < 0) __pyx_t_13 += __pyx_v_depth_proj_matrix.shape[1];
 
-    /* "observation_volume_from_2D_cameras.pyx":47
+    /* "observation_volume_from_2D_cameras.pyx":48
  *             # Compute the depth of the current voxel wrt. the camera.
  *             depth_proj_z = depth_proj_matrix[2, 0] * x + \
  *                            depth_proj_matrix[2, 1] * y + \             # <<<<<<<<<<<<<<
  *                            depth_proj_matrix[2, 2] * z + \
  *                            depth_proj_matrix[2, 3]
  */
-    __pyx_t_12 = 2;
-    __pyx_t_13 = 1;
-    if (__pyx_t_12 < 0) __pyx_t_12 += __pyx_v_depth_proj_matrix.shape[0];
-    if (__pyx_t_13 < 0) __pyx_t_13 += __pyx_v_depth_proj_matrix.shape[1];
+    __pyx_t_14 = 2;
+    __pyx_t_15 = 1;
+    if (__pyx_t_14 < 0) __pyx_t_14 += __pyx_v_depth_proj_matrix.shape[0];
+    if (__pyx_t_15 < 0) __pyx_t_15 += __pyx_v_depth_proj_matrix.shape[1];
 
-    /* "observation_volume_from_2D_cameras.pyx":48
+    /* "observation_volume_from_2D_cameras.pyx":49
  *             depth_proj_z = depth_proj_matrix[2, 0] * x + \
  *                            depth_proj_matrix[2, 1] * y + \
  *                            depth_proj_matrix[2, 2] * z + \             # <<<<<<<<<<<<<<
  *                            depth_proj_matrix[2, 3]
  * 
  */
-    __pyx_t_14 = 2;
-    __pyx_t_15 = 2;
-    if (__pyx_t_14 < 0) __pyx_t_14 += __pyx_v_depth_proj_matrix.shape[0];
-    if (__pyx_t_15 < 0) __pyx_t_15 += __pyx_v_depth_proj_matrix.shape[1];
+    __pyx_t_16 = 2;
+    __pyx_t_17 = 2;
+    if (__pyx_t_16 < 0) __pyx_t_16 += __pyx_v_depth_proj_matrix.shape[0];
+    if (__pyx_t_17 < 0) __pyx_t_17 += __pyx_v_depth_proj_matrix.shape[1];
 
-    /* "observation_volume_from_2D_cameras.pyx":49
+    /* "observation_volume_from_2D_cameras.pyx":50
  *                            depth_proj_matrix[2, 1] * y + \
  *                            depth_proj_matrix[2, 2] * z + \
  *                            depth_proj_matrix[2, 3]             # <<<<<<<<<<<<<<
  * 
  *             # Check if voxel behind camera.
  */
-    __pyx_t_16 = 2;
-    __pyx_t_17 = 3;
-    if (__pyx_t_16 < 0) __pyx_t_16 += __pyx_v_depth_proj_matrix.shape[0];
-    if (__pyx_t_17 < 0) __pyx_t_17 += __pyx_v_depth_proj_matrix.shape[1];
+    __pyx_t_18 = 2;
+    __pyx_t_19 = 3;
+    if (__pyx_t_18 < 0) __pyx_t_18 += __pyx_v_depth_proj_matrix.shape[0];
+    if (__pyx_t_19 < 0) __pyx_t_19 += __pyx_v_depth_proj_matrix.shape[1];
 
-    /* "observation_volume_from_2D_cameras.pyx":48
+    /* "observation_volume_from_2D_cameras.pyx":49
  *             depth_proj_z = depth_proj_matrix[2, 0] * x + \
  *                            depth_proj_matrix[2, 1] * y + \
  *                            depth_proj_matrix[2, 2] * z + \             # <<<<<<<<<<<<<<
  *                            depth_proj_matrix[2, 3]
  * 
  */
-    __pyx_v_depth_proj_z = (((((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_10 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_11)) ))) * __pyx_v_x) + ((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_12 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_13)) ))) * __pyx_v_y)) + ((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_14 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_15)) ))) * __pyx_v_z)) + (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_16 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_17)) ))));
+    __pyx_v_depth_proj_z = (((((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_12 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_13)) ))) * __pyx_v_x) + ((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_14 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_15)) ))) * __pyx_v_y)) + ((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_16 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_17)) ))) * __pyx_v_z)) + (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_18 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_19)) ))));
 
-    /* "observation_volume_from_2D_cameras.pyx":52
+    /* "observation_volume_from_2D_cameras.pyx":53
  * 
  *             # Check if voxel behind camera.
  *             if depth_proj_z <= 0:             # <<<<<<<<<<<<<<
  *                 continue
  * 
  */
-    __pyx_t_18 = ((__pyx_v_depth_proj_z <= 0.0) != 0);
-    if (__pyx_t_18) {
+    __pyx_t_5 = ((__pyx_v_depth_proj_z <= 0.0) != 0);
+    if (__pyx_t_5) {
 
-      /* "observation_volume_from_2D_cameras.pyx":53
+      /* "observation_volume_from_2D_cameras.pyx":54
  *             # Check if voxel behind camera.
  *             if depth_proj_z <= 0:
  *                 continue             # <<<<<<<<<<<<<<
@@ -3076,7 +3107,7 @@ static PyObject *__pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolu
  */
       goto __pyx_L3_continue;
 
-      /* "observation_volume_from_2D_cameras.pyx":52
+      /* "observation_volume_from_2D_cameras.pyx":53
  * 
  *             # Check if voxel behind camera.
  *             if depth_proj_z <= 0:             # <<<<<<<<<<<<<<
@@ -3085,121 +3116,121 @@ static PyObject *__pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolu
  */
     }
 
-    /* "observation_volume_from_2D_cameras.pyx":56
+    /* "observation_volume_from_2D_cameras.pyx":57
  * 
  *             # Compute pixel location of the current voxel in the image.
  *             depth_proj_x = depth_proj_matrix[0, 0] * x + \             # <<<<<<<<<<<<<<
  *                            depth_proj_matrix[0, 1] * y + \
  *                            depth_proj_matrix[0, 2] * z + \
  */
-    __pyx_t_19 = 0;
     __pyx_t_20 = 0;
-    if (__pyx_t_19 < 0) __pyx_t_19 += __pyx_v_depth_proj_matrix.shape[0];
-    if (__pyx_t_20 < 0) __pyx_t_20 += __pyx_v_depth_proj_matrix.shape[1];
+    __pyx_t_21 = 0;
+    if (__pyx_t_20 < 0) __pyx_t_20 += __pyx_v_depth_proj_matrix.shape[0];
+    if (__pyx_t_21 < 0) __pyx_t_21 += __pyx_v_depth_proj_matrix.shape[1];
 
-    /* "observation_volume_from_2D_cameras.pyx":57
+    /* "observation_volume_from_2D_cameras.pyx":58
  *             # Compute pixel location of the current voxel in the image.
  *             depth_proj_x = depth_proj_matrix[0, 0] * x + \
  *                            depth_proj_matrix[0, 1] * y + \             # <<<<<<<<<<<<<<
  *                            depth_proj_matrix[0, 2] * z + \
  *                            depth_proj_matrix[0, 3]
  */
-    __pyx_t_21 = 0;
-    __pyx_t_22 = 1;
-    if (__pyx_t_21 < 0) __pyx_t_21 += __pyx_v_depth_proj_matrix.shape[0];
-    if (__pyx_t_22 < 0) __pyx_t_22 += __pyx_v_depth_proj_matrix.shape[1];
+    __pyx_t_22 = 0;
+    __pyx_t_23 = 1;
+    if (__pyx_t_22 < 0) __pyx_t_22 += __pyx_v_depth_proj_matrix.shape[0];
+    if (__pyx_t_23 < 0) __pyx_t_23 += __pyx_v_depth_proj_matrix.shape[1];
 
-    /* "observation_volume_from_2D_cameras.pyx":58
+    /* "observation_volume_from_2D_cameras.pyx":59
  *             depth_proj_x = depth_proj_matrix[0, 0] * x + \
  *                            depth_proj_matrix[0, 1] * y + \
  *                            depth_proj_matrix[0, 2] * z + \             # <<<<<<<<<<<<<<
  *                            depth_proj_matrix[0, 3]
  * 
  */
-    __pyx_t_23 = 0;
-    __pyx_t_24 = 2;
-    if (__pyx_t_23 < 0) __pyx_t_23 += __pyx_v_depth_proj_matrix.shape[0];
-    if (__pyx_t_24 < 0) __pyx_t_24 += __pyx_v_depth_proj_matrix.shape[1];
+    __pyx_t_24 = 0;
+    __pyx_t_25 = 2;
+    if (__pyx_t_24 < 0) __pyx_t_24 += __pyx_v_depth_proj_matrix.shape[0];
+    if (__pyx_t_25 < 0) __pyx_t_25 += __pyx_v_depth_proj_matrix.shape[1];
 
-    /* "observation_volume_from_2D_cameras.pyx":59
+    /* "observation_volume_from_2D_cameras.pyx":60
  *                            depth_proj_matrix[0, 1] * y + \
  *                            depth_proj_matrix[0, 2] * z + \
  *                            depth_proj_matrix[0, 3]             # <<<<<<<<<<<<<<
  * 
  *             depth_proj_y = depth_proj_matrix[1, 0] * x + \
  */
-    __pyx_t_25 = 0;
-    __pyx_t_26 = 3;
-    if (__pyx_t_25 < 0) __pyx_t_25 += __pyx_v_depth_proj_matrix.shape[0];
-    if (__pyx_t_26 < 0) __pyx_t_26 += __pyx_v_depth_proj_matrix.shape[1];
+    __pyx_t_26 = 0;
+    __pyx_t_27 = 3;
+    if (__pyx_t_26 < 0) __pyx_t_26 += __pyx_v_depth_proj_matrix.shape[0];
+    if (__pyx_t_27 < 0) __pyx_t_27 += __pyx_v_depth_proj_matrix.shape[1];
 
-    /* "observation_volume_from_2D_cameras.pyx":58
+    /* "observation_volume_from_2D_cameras.pyx":59
  *             depth_proj_x = depth_proj_matrix[0, 0] * x + \
  *                            depth_proj_matrix[0, 1] * y + \
  *                            depth_proj_matrix[0, 2] * z + \             # <<<<<<<<<<<<<<
  *                            depth_proj_matrix[0, 3]
  * 
  */
-    __pyx_v_depth_proj_x = (((((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_19 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_20)) ))) * __pyx_v_x) + ((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_21 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_22)) ))) * __pyx_v_y)) + ((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_23 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_24)) ))) * __pyx_v_z)) + (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_25 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_26)) ))));
+    __pyx_v_depth_proj_x = (((((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_20 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_21)) ))) * __pyx_v_x) + ((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_22 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_23)) ))) * __pyx_v_y)) + ((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_24 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_25)) ))) * __pyx_v_z)) + (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_26 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_27)) ))));
 
-    /* "observation_volume_from_2D_cameras.pyx":61
+    /* "observation_volume_from_2D_cameras.pyx":62
  *                            depth_proj_matrix[0, 3]
  * 
  *             depth_proj_y = depth_proj_matrix[1, 0] * x + \             # <<<<<<<<<<<<<<
  *                            depth_proj_matrix[1, 1] * y + \
  *                            depth_proj_matrix[1, 2] * z + \
  */
-    __pyx_t_27 = 1;
-    __pyx_t_28 = 0;
-    if (__pyx_t_27 < 0) __pyx_t_27 += __pyx_v_depth_proj_matrix.shape[0];
-    if (__pyx_t_28 < 0) __pyx_t_28 += __pyx_v_depth_proj_matrix.shape[1];
+    __pyx_t_28 = 1;
+    __pyx_t_29 = 0;
+    if (__pyx_t_28 < 0) __pyx_t_28 += __pyx_v_depth_proj_matrix.shape[0];
+    if (__pyx_t_29 < 0) __pyx_t_29 += __pyx_v_depth_proj_matrix.shape[1];
 
-    /* "observation_volume_from_2D_cameras.pyx":62
+    /* "observation_volume_from_2D_cameras.pyx":63
  * 
  *             depth_proj_y = depth_proj_matrix[1, 0] * x + \
  *                            depth_proj_matrix[1, 1] * y + \             # <<<<<<<<<<<<<<
  *                            depth_proj_matrix[1, 2] * z + \
  *                            depth_proj_matrix[1, 3]
  */
-    __pyx_t_29 = 1;
     __pyx_t_30 = 1;
-    if (__pyx_t_29 < 0) __pyx_t_29 += __pyx_v_depth_proj_matrix.shape[0];
-    if (__pyx_t_30 < 0) __pyx_t_30 += __pyx_v_depth_proj_matrix.shape[1];
+    __pyx_t_31 = 1;
+    if (__pyx_t_30 < 0) __pyx_t_30 += __pyx_v_depth_proj_matrix.shape[0];
+    if (__pyx_t_31 < 0) __pyx_t_31 += __pyx_v_depth_proj_matrix.shape[1];
 
-    /* "observation_volume_from_2D_cameras.pyx":63
+    /* "observation_volume_from_2D_cameras.pyx":64
  *             depth_proj_y = depth_proj_matrix[1, 0] * x + \
  *                            depth_proj_matrix[1, 1] * y + \
  *                            depth_proj_matrix[1, 2] * z + \             # <<<<<<<<<<<<<<
  *                            depth_proj_matrix[1, 3]
  * 
  */
-    __pyx_t_31 = 1;
-    __pyx_t_32 = 2;
-    if (__pyx_t_31 < 0) __pyx_t_31 += __pyx_v_depth_proj_matrix.shape[0];
-    if (__pyx_t_32 < 0) __pyx_t_32 += __pyx_v_depth_proj_matrix.shape[1];
+    __pyx_t_32 = 1;
+    __pyx_t_33 = 2;
+    if (__pyx_t_32 < 0) __pyx_t_32 += __pyx_v_depth_proj_matrix.shape[0];
+    if (__pyx_t_33 < 0) __pyx_t_33 += __pyx_v_depth_proj_matrix.shape[1];
 
-    /* "observation_volume_from_2D_cameras.pyx":64
+    /* "observation_volume_from_2D_cameras.pyx":65
  *                            depth_proj_matrix[1, 1] * y + \
  *                            depth_proj_matrix[1, 2] * z + \
  *                            depth_proj_matrix[1, 3]             # <<<<<<<<<<<<<<
  * 
  *             depth_image_proj_x = <int>round(depth_proj_x / depth_proj_z)
  */
-    __pyx_t_33 = 1;
-    __pyx_t_34 = 3;
-    if (__pyx_t_33 < 0) __pyx_t_33 += __pyx_v_depth_proj_matrix.shape[0];
-    if (__pyx_t_34 < 0) __pyx_t_34 += __pyx_v_depth_proj_matrix.shape[1];
+    __pyx_t_34 = 1;
+    __pyx_t_35 = 3;
+    if (__pyx_t_34 < 0) __pyx_t_34 += __pyx_v_depth_proj_matrix.shape[0];
+    if (__pyx_t_35 < 0) __pyx_t_35 += __pyx_v_depth_proj_matrix.shape[1];
 
-    /* "observation_volume_from_2D_cameras.pyx":63
+    /* "observation_volume_from_2D_cameras.pyx":64
  *             depth_proj_y = depth_proj_matrix[1, 0] * x + \
  *                            depth_proj_matrix[1, 1] * y + \
  *                            depth_proj_matrix[1, 2] * z + \             # <<<<<<<<<<<<<<
  *                            depth_proj_matrix[1, 3]
  * 
  */
-    __pyx_v_depth_proj_y = (((((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_27 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_28)) ))) * __pyx_v_x) + ((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_29 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_30)) ))) * __pyx_v_y)) + ((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_31 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_32)) ))) * __pyx_v_z)) + (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_33 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_34)) ))));
+    __pyx_v_depth_proj_y = (((((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_28 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_29)) ))) * __pyx_v_x) + ((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_30 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_31)) ))) * __pyx_v_y)) + ((*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_32 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_33)) ))) * __pyx_v_z)) + (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_proj_matrix.data + __pyx_t_34 * __pyx_v_depth_proj_matrix.strides[0]) )) + __pyx_t_35)) ))));
 
-    /* "observation_volume_from_2D_cameras.pyx":66
+    /* "observation_volume_from_2D_cameras.pyx":67
  *                            depth_proj_matrix[1, 3]
  * 
  *             depth_image_proj_x = <int>round(depth_proj_x / depth_proj_z)             # <<<<<<<<<<<<<<
@@ -3208,7 +3239,7 @@ static PyObject *__pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolu
  */
     __pyx_v_depth_image_proj_x = ((int)round((__pyx_v_depth_proj_x / __pyx_v_depth_proj_z)));
 
-    /* "observation_volume_from_2D_cameras.pyx":67
+    /* "observation_volume_from_2D_cameras.pyx":68
  * 
  *             depth_image_proj_x = <int>round(depth_proj_x / depth_proj_z)
  *             depth_image_proj_y = <int>round(depth_proj_y / depth_proj_z)             # <<<<<<<<<<<<<<
@@ -3217,61 +3248,61 @@ static PyObject *__pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolu
  */
     __pyx_v_depth_image_proj_y = ((int)round((__pyx_v_depth_proj_y / __pyx_v_depth_proj_z)));
 
-    /* "observation_volume_from_2D_cameras.pyx":70
+    /* "observation_volume_from_2D_cameras.pyx":71
  * 
  *             # Check if projection is inside image.
  *             if (depth_image_proj_x < 0 or depth_image_proj_y < 0 or             # <<<<<<<<<<<<<<
  *                 depth_image_proj_x >= depth_map.shape[1] or
  *                 depth_image_proj_y >= depth_map.shape[0]):
  */
-    __pyx_t_35 = ((__pyx_v_depth_image_proj_x < 0) != 0);
-    if (!__pyx_t_35) {
+    __pyx_t_36 = ((__pyx_v_depth_image_proj_x < 0) != 0);
+    if (!__pyx_t_36) {
     } else {
-      __pyx_t_18 = __pyx_t_35;
-      goto __pyx_L7_bool_binop_done;
+      __pyx_t_5 = __pyx_t_36;
+      goto __pyx_L8_bool_binop_done;
     }
-    __pyx_t_35 = ((__pyx_v_depth_image_proj_y < 0) != 0);
-    if (!__pyx_t_35) {
+    __pyx_t_36 = ((__pyx_v_depth_image_proj_y < 0) != 0);
+    if (!__pyx_t_36) {
     } else {
-      __pyx_t_18 = __pyx_t_35;
-      goto __pyx_L7_bool_binop_done;
+      __pyx_t_5 = __pyx_t_36;
+      goto __pyx_L8_bool_binop_done;
     }
 
-    /* "observation_volume_from_2D_cameras.pyx":71
+    /* "observation_volume_from_2D_cameras.pyx":72
  *             # Check if projection is inside image.
  *             if (depth_image_proj_x < 0 or depth_image_proj_y < 0 or
  *                 depth_image_proj_x >= depth_map.shape[1] or             # <<<<<<<<<<<<<<
  *                 depth_image_proj_y >= depth_map.shape[0]):
  *                 continue
  */
-    __pyx_t_35 = ((__pyx_v_depth_image_proj_x >= (__pyx_v_depth_map.shape[1])) != 0);
-    if (!__pyx_t_35) {
+    __pyx_t_36 = ((__pyx_v_depth_image_proj_x >= (__pyx_v_depth_map.shape[1])) != 0);
+    if (!__pyx_t_36) {
     } else {
-      __pyx_t_18 = __pyx_t_35;
-      goto __pyx_L7_bool_binop_done;
+      __pyx_t_5 = __pyx_t_36;
+      goto __pyx_L8_bool_binop_done;
     }
 
-    /* "observation_volume_from_2D_cameras.pyx":72
+    /* "observation_volume_from_2D_cameras.pyx":73
  *             if (depth_image_proj_x < 0 or depth_image_proj_y < 0 or
  *                 depth_image_proj_x >= depth_map.shape[1] or
  *                 depth_image_proj_y >= depth_map.shape[0]):             # <<<<<<<<<<<<<<
  *                 continue
  * 
  */
-    __pyx_t_35 = ((__pyx_v_depth_image_proj_y >= (__pyx_v_depth_map.shape[0])) != 0);
-    __pyx_t_18 = __pyx_t_35;
-    __pyx_L7_bool_binop_done:;
+    __pyx_t_36 = ((__pyx_v_depth_image_proj_y >= (__pyx_v_depth_map.shape[0])) != 0);
+    __pyx_t_5 = __pyx_t_36;
+    __pyx_L8_bool_binop_done:;
 
-    /* "observation_volume_from_2D_cameras.pyx":70
+    /* "observation_volume_from_2D_cameras.pyx":71
  * 
  *             # Check if projection is inside image.
  *             if (depth_image_proj_x < 0 or depth_image_proj_y < 0 or             # <<<<<<<<<<<<<<
  *                 depth_image_proj_x >= depth_map.shape[1] or
  *                 depth_image_proj_y >= depth_map.shape[0]):
  */
-    if (__pyx_t_18) {
+    if (__pyx_t_5) {
 
-      /* "observation_volume_from_2D_cameras.pyx":73
+      /* "observation_volume_from_2D_cameras.pyx":74
  *                 depth_image_proj_x >= depth_map.shape[1] or
  *                 depth_image_proj_y >= depth_map.shape[0]):
  *                 continue             # <<<<<<<<<<<<<<
@@ -3280,7 +3311,7 @@ static PyObject *__pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolu
  */
       goto __pyx_L3_continue;
 
-      /* "observation_volume_from_2D_cameras.pyx":70
+      /* "observation_volume_from_2D_cameras.pyx":71
  * 
  *             # Check if projection is inside image.
  *             if (depth_image_proj_x < 0 or depth_image_proj_y < 0 or             # <<<<<<<<<<<<<<
@@ -3289,52 +3320,52 @@ static PyObject *__pyx_pf_34observation_volume_from_2D_cameras_17ObservationVolu
  */
     }
 
-    /* "observation_volume_from_2D_cameras.pyx":76
+    /* "observation_volume_from_2D_cameras.pyx":77
  * 
  *             # Extract measured depth at projection.
  *             depth = depth_map[depth_image_proj_y, depth_image_proj_x]             # <<<<<<<<<<<<<<
  * 
  * 
  */
-    __pyx_t_36 = __pyx_v_depth_image_proj_y;
-    __pyx_t_37 = __pyx_v_depth_image_proj_x;
-    if (__pyx_t_36 < 0) __pyx_t_36 += __pyx_v_depth_map.shape[0];
-    if (__pyx_t_37 < 0) __pyx_t_37 += __pyx_v_depth_map.shape[1];
-    __pyx_v_depth = (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_map.data + __pyx_t_36 * __pyx_v_depth_map.strides[0]) )) + __pyx_t_37)) )));
+    __pyx_t_37 = __pyx_v_depth_image_proj_y;
+    __pyx_t_38 = __pyx_v_depth_image_proj_x;
+    if (__pyx_t_37 < 0) __pyx_t_37 += __pyx_v_depth_map.shape[0];
+    if (__pyx_t_38 < 0) __pyx_t_38 += __pyx_v_depth_map.shape[1];
+    __pyx_v_depth = (*((__pyx_t_5numpy_float32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float32_t *) ( /* dim=0 */ (__pyx_v_depth_map.data + __pyx_t_37 * __pyx_v_depth_map.strides[0]) )) + __pyx_t_38)) )));
 
-    /* "observation_volume_from_2D_cameras.pyx":79
+    /* "observation_volume_from_2D_cameras.pyx":80
  * 
  * 
- *             if depth_proj_z <= depth-0.01:             # <<<<<<<<<<<<<<
- *                 self.front_of_camera[i] += 1
+ *             if depth_proj_z < depth:             # <<<<<<<<<<<<<<
+ *                 self.front_of_camera[i] = 1
  * 
  */
-    __pyx_t_18 = ((__pyx_v_depth_proj_z <= (__pyx_v_depth - 0.01)) != 0);
-    if (__pyx_t_18) {
+    __pyx_t_5 = ((__pyx_v_depth_proj_z < __pyx_v_depth) != 0);
+    if (__pyx_t_5) {
+
+      /* "observation_volume_from_2D_cameras.pyx":81
+ * 
+ *             if depth_proj_z < depth:
+ *                 self.front_of_camera[i] = 1             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+      __pyx_t_39 = __pyx_v_i;
+      if (__pyx_t_39 < 0) __pyx_t_39 += __pyx_v_self->front_of_camera.shape[0];
+      *((int *) ( /* dim=0 */ ((char *) (((int *) __pyx_v_self->front_of_camera.data) + __pyx_t_39)) )) = 1;
 
       /* "observation_volume_from_2D_cameras.pyx":80
  * 
- *             if depth_proj_z <= depth-0.01:
- *                 self.front_of_camera[i] += 1             # <<<<<<<<<<<<<<
  * 
- * 
- */
-      __pyx_t_38 = __pyx_v_i;
-      if (__pyx_t_38 < 0) __pyx_t_38 += __pyx_v_self->front_of_camera.shape[0];
-      *((int *) ( /* dim=0 */ ((char *) (((int *) __pyx_v_self->front_of_camera.data) + __pyx_t_38)) )) += 1;
-
-      /* "observation_volume_from_2D_cameras.pyx":79
- * 
- * 
- *             if depth_proj_z <= depth-0.01:             # <<<<<<<<<<<<<<
- *                 self.front_of_camera[i] += 1
+ *             if depth_proj_z < depth:             # <<<<<<<<<<<<<<
+ *                 self.front_of_camera[i] = 1
  * 
  */
     }
     __pyx_L3_continue:;
   }
 
-  /* "observation_volume_from_2D_cameras.pyx":26
+  /* "observation_volume_from_2D_cameras.pyx":27
  *         return np.array(self.front_of_camera)
  * 
  *     def fuse(self,             # <<<<<<<<<<<<<<
@@ -20210,7 +20241,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 37, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 38, __pyx_L1_error)
   __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(2, 272, __pyx_L1_error)
   __pyx_builtin_RuntimeError = __Pyx_GetBuiltinName(__pyx_n_s_RuntimeError); if (!__pyx_builtin_RuntimeError) __PYX_ERR(2, 856, __pyx_L1_error)
   __pyx_builtin_ImportError = __Pyx_GetBuiltinName(__pyx_n_s_ImportError); if (!__pyx_builtin_ImportError) __PYX_ERR(2, 1038, __pyx_L1_error)

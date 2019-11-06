@@ -20,7 +20,7 @@ cdef class ObservationVolume:
         assert self.coords.shape[1] == 3
         self.front_of_camera = np.zeros([num_point],
                                dtype=np.int32)
-        
+
     def get_volume(self):
         return np.array(self.front_of_camera)
 
@@ -77,7 +77,7 @@ cdef class ObservationVolume:
             depth = depth_map[depth_image_proj_y, depth_image_proj_x]
 
             
-            if depth_proj_z <= depth-0.01:
+            if depth_proj_z < depth:
                 self.front_of_camera[i] = 1
                    
 
