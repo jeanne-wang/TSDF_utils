@@ -103,6 +103,7 @@ def main():
         depth_extrinsics_matrix_inv = depth_extrinsics_matrix_inv.astype(np.float32)
         
         depth_K_inv = depth_K_inv.astype(np.float32)
+        print(depth_K_inv)
 
         sampling.sample(depth_K_inv, 
                         depth_extrinsics_matrix_inv, depth_map)
