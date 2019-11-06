@@ -104,7 +104,7 @@ def main():
         
         depth_K_inv = depth_K_inv.astype(np.float32)
 
-        sampling.sample(frame_id, depth_K_inv, 
+        sampling.sample(depth_K_inv, 
                         depth_extrinsics_matrix_inv, depth_map)
 
 

@@ -10,6 +10,7 @@ from libc.stdio cimport printf
 cdef class Sampling:
 
     cdef int num_sample_per_frame
+    cdef int num_valid_frame
     cdef float gaussian_variance
     cdef float[:, ::1] pts_along_camera_rays
 
@@ -22,13 +23,13 @@ cdef class Sampling:
      
         self.pts_along_camera_rays = np.zeros([num_sample_per_frame * num_frame, 3], dtype=np.float32)
 
+        self.num_valid_frame = 0
         np.random.seed(0)
     
     def get_sampled_points(self):
-        return np.array(self.pts_along_camera_rays)
+        return np.array(self.pts_along_camera_rays)[:self.num_sample_per_frame*self.num_valid_frame]
 
     def sample(self,
-             int frame_id,
              np.float32_t[:, ::1] depth_K_inv,
              np.float32_t[:, ::1] depth_extrinsics_matrix_inv,
              np.float32_t[:, ::1] depth_map):
@@ -40,6 +41,19 @@ cdef class Sampling:
         cdef float x1_c, y1_c, z1_c, x2_c, y2_c, z2_c
         cdef float x1, y1, z1, x2, y2, z2
         
+        cdef int valid = 0
+        for j in range(depth_map.shape[0]):
+            for k in range(depth_map.shape[1]):
+                if depth_map[j,k] != 0:
+                    valid = 1
+                    break
+
+        if(valid == 1):
+            self.num_valid_frame += 1
+        else:
+            return
+
+
         for i in range(int(self.num_sample_per_frame/2)):
 
             while True:
@@ -111,13 +125,13 @@ cdef class Sampling:
 
             
                 
-            self.pts_along_camera_rays[frame_id*self.num_sample_per_frame+i*2,0] = x1
-            self.pts_along_camera_rays[frame_id*self.num_sample_per_frame+i*2,1] = y1
-            self.pts_along_camera_rays[frame_id*self.num_sample_per_frame+i*2,2] = z1
+            self.pts_along_camera_rays[(self.num_valid_frame-1)*self.num_sample_per_frame+i*2,0] = x1
+            self.pts_along_camera_rays[(self.num_valid_frame-1)*self.num_sample_per_frame+i*2,1] = y1
+            self.pts_along_camera_rays[(self.num_valid_frame-1)*self.num_sample_per_frame+i*2,2] = z1
 
-            self.pts_along_camera_rays[frame_id*self.num_sample_per_frame+i*2+1,0] = x2
-            self.pts_along_camera_rays[frame_id*self.num_sample_per_frame+i*2+1,1] = y2
-            self.pts_along_camera_rays[frame_id*self.num_sample_per_frame+i*2+1,2] = z2
+            self.pts_along_camera_rays[(self.num_valid_frame-1)*self.num_sample_per_frame+i*2+1,0] = x2
+            self.pts_along_camera_rays[(self.num_valid_frame-1)*self.num_sample_per_frame+i*2+1,1] = y2
+            self.pts_along_camera_rays[(self.num_valid_frame-1)*self.num_sample_per_frame+i*2+1,2] = z2
 
 
 
