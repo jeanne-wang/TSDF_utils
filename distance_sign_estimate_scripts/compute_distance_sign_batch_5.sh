@@ -26,7 +26,7 @@ do
         --scene_path $scene_path \
         --scene_sampled_point_file $SCANNET_POINTS_PATH/$scene_name".npy" \
         --output_file $OUTPUT_PATH/$scene_name".npz" \
-        --truncated_distance 0.1 \
+        --truncated_distance 0.15 \
         --visualization True \
         --visual_output_file $OUTPUT_PATH/$scene_name"_sdf_vis.ply"
 
