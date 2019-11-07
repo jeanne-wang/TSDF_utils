@@ -51,6 +51,7 @@ def create_color_palette():
        (82, 84, 163),       # otherfurn
        (100, 85, 144),
        (255, 0, 0)          # freespace
+       (0, 255, 0)          # unknown whether in front of or behind of camera
     ]
 
 # Save 3D mesh to a polygon .ply file
@@ -170,6 +171,7 @@ def main():
     ## for test
     count_free = 0
     count_occu = 0
+    count_unknown = 0
     ##
     for i in range(coords.shape[0]):
 
@@ -188,6 +190,13 @@ def main():
             valid_nearest_point_in_mesh.append(nearest_point_in_mesh[i])
             valid_sdf.append(-distance_to_mesh[i])
             valid_label.append(nearest_face_label[i])
+        else: 
+            count_unknown = count_unknown+1
+            valid_coords.append(coords[i,:])
+            valid_nearest_point_in_mesh.append(nearest_point_in_mesh[i])
+            valid_sdf.append(-distance_to_mesh[i])
+            valid_label.append(42)
+
             
 
 
@@ -200,6 +209,7 @@ def main():
     print("There are {} sampled near surface points along camera rays.".format(num_points_along_camera_rays))
     print("There are {} freespace points along camera rays".format(count_free))
     print("There are {} occupied points along rays".format(count_occu))
+    print("There are {} uncertain points along rays".format(count_unknown))
     np.savez(args.output_file, coords=valid_coords, sdf=valid_sdf, 
         label=valid_label, nearest_point=valid_nearest_point_in_mesh)
 
