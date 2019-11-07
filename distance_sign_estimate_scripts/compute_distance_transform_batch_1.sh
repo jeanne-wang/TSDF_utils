@@ -15,7 +15,7 @@ do
     mkdir -p $TOOL_PATH/scannet/${SCENE_NAME}
     echo "==========================="
     echo ${SCENE_NAME}
-    ./$TOOL_PATH/compute_distance_transform_scannet \
+    $TOOL_PATH/compute_distance_transform_scannet \
         -f ${MESH_FILE} \
         -p $POINT_ROOT/$SCENE_NAME"_points_depthmap_camera_rays.dat" \
         -o $TOOL_PATH/scannet/${SCENE_NAME} \
