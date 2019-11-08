@@ -36,6 +36,7 @@ for folder in folders:
 	assert(points.shape[0] == fid.shape[0])
 
 	scene_name = os.path.basename(folder)
+	scene_name = scene_name[:12]
 	print(scene_name)
 
 	ply_file = glob.glob('/cluster/scratch/xiaojwan/ScanNet_v2/scans/%s/%s_vh_clean_2.labels.ply' % (scene_name, scene_name))
