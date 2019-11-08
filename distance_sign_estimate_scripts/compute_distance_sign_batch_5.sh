@@ -1,7 +1,7 @@
 SCANNET_PATH=/cluster/scratch/xiaojwan/ScanNet_v2
-SCANNET_POINTS_PATH=/cluster/scratch/xiaojwan/ScanNet_v2_distance_depthmap_camera_rays_0_1
+SCANNET_POINTS_PATH=/cluster/scratch/xiaojwan/ScanNet_v2_distance_uniform
 TOOL_PATH=/cluster/scratch/xiaojwan/TSDF_utils
-OUTPUT_PATH=/cluster/scratch/xiaojwan/ScanNet_v2_sdf_depthmap_camera_rays_0_1
+OUTPUT_PATH=/cluster/scratch/xiaojwan/ScanNet_v2_sdf_uniform
 declare -i count=0
 for scene_path in $(ls -d $SCANNET_PATH/scans/scene*)
 do
