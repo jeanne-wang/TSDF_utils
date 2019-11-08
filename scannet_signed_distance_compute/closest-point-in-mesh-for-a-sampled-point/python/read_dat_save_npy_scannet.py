@@ -39,7 +39,7 @@ for folder in folders:
 	scene_name = scene_name[:12]
 	print(scene_name)
 
-	ply_file = glob.glob('/cluster/scratch/xiaojwan/ScanNet_v2/scans/%s/%s_vh_clean_2.labels.ply' % (scene_name, scene_name))
+	ply_file = glob.glob('/media/root/data/ScanNet_v2_data/*/%s_vh_clean_2.labels.ply' % scene_name)
 	assert(len(ply_file) == 1)
 	ply_file = ply_file[0]
 
