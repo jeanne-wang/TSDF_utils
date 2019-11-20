@@ -20,17 +20,15 @@ def parse_args():
 
 def main():
     args = parse_args()
-    scenes = [os.path.join(args.test_scene_path, o) for o in os.listdir(args.test_scene_path) 
-                if os.path.isdir(os.path.join(args.test_scene_path,o))]
+
+    scenes = sorted(glob.glob(os.path.join(args.test_scene_path, "*_vh_clean_2.ply")))
     print(len(scenes))
     heights = []
     widths = []
     depths = []
     for scene in scenes:
         # Load the  mesh and convert it to a point cloud.
-        groundtruth = PyntCloud.from_file(
-            glob.glob(os.path.join(scene, "*_vh_clean_2.ply"))[0])
-
+        groundtruth = PyntCloud.from_file(scene)
         # Compute the bounding box of the ground truth.
         minx = groundtruth.points.x.min()
         miny = groundtruth.points.y.min()
