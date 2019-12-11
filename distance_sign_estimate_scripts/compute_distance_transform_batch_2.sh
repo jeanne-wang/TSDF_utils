@@ -1,6 +1,6 @@
 MESH_ROOT="/home/xiaojwan/CVPR2020/Experiment/SparseConvNet/examples/scannet_denoising/*/scene*2.ply"
 POINT_ROOT="/home/xiaojwan/CVPR2020/Experiment/ScanNet_v2_point_cloud_sigma_0_01"
-TOOL_PATH=/home/xiaojwan/CVPR2020/TSDF_utils/scannet_signed_distance_compute/closest-point-in-mesh-for-a-sampled-point
+TOOL_PATH=/home/xiaojwan/CVPR2020/Experiment/TSDF_utils/scannet_signed_distance_compute/closest-point-in-mesh-for-a-sampled-point
 declare -i count=0
 for MESH_FILE in $(ls ${MESH_ROOT})
 do
