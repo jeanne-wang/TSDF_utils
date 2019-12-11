@@ -1,5 +1,5 @@
-MESH_ROOT="/media/root/data/ScanNet_v2_data/*/scene*2.ply"
-POINT_ROOT="/home/xiaojwan/CVPR2020/Experiment/ScanNet_v2_points_depthmap_camera_rays_0_1"
+MESH_ROOT="/home/xiaojwan/CVPR2020/Experiment/SparseConvNet/examples/scannet_denoising/*/scene*2.ply"
+POINT_ROOT="/home/xiaojwan/CVPR2020/Experiment/ScanNet_v2_point_cloud_sigma_0_01"
 TOOL_PATH=/home/xiaojwan/CVPR2020/TSDF_utils/scannet_signed_distance_compute/closest-point-in-mesh-for-a-sampled-point
 declare -i count=0
 for MESH_FILE in $(ls ${MESH_ROOT})
@@ -22,7 +22,7 @@ do
     echo ${SCENE_NAME}
     $TOOL_PATH/compute_distance_transform_scannet \
         -f ${MESH_FILE} \
-        -p $POINT_ROOT/$SCENE_NAME"_points_depthmap_camera_rays.dat" \
+        -p $POINT_ROOT/$SCENE_NAME"_vh_clean_2_sigma_0_01.dat" \
         -o $TOOL_PATH/scannet/${SCENE_NAME} \
         -v 10000
     echo "==========================="
